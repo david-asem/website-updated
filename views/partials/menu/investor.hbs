@@ -1,0 +1,54 @@
+<div class="relative" x-data="{
+                open: false,
+                toggle() {
+                    if (this.open) {
+                        return this.close()
+                    }
+
+                    this.open = true
+                },
+                close(focusAfter) {
+                    this.open = false
+
+                    focusAfter && focusAfter.focus()
+                }
+            }"   x-on:keydown.escape.prevent.stop="close($refs.button)"
+     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+     x-id="['dropdown-button']">
+
+
+    <button x-on:click="toggle()" :aria-expanded="open"
+          :aria-controls="$id('dropdown-button')" class="text-sm mx-4 nav-link cursor-pointer">
+        <div class="flex items-center">
+            <span>
+                        Investors Relations
+            </span>
+
+            <svg class="mx-1" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.00001 6.20042C5.53335 6.20042 5.06668 6.02042 4.71335 5.66708L0.36668 1.32042C0.173346 1.12708 0.173346 0.807083 0.36668 0.61375C0.560013 0.420417 0.880013 0.420417 1.07335 0.61375L5.42001 4.96042C5.74001 5.28042 6.26001 5.28042 6.58001 4.96042L10.9267 0.61375C11.12 0.420417 11.44 0.420417 11.6333 0.61375C11.8267 0.807083 11.8267 1.12708 11.6333 1.32042L7.28668 5.66708C6.93335 6.02042 6.46668 6.20042 6.00001 6.20042Z" fill="#303030"/>
+            </svg>
+
+
+        </div>
+    </button>
+
+    <div x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+
+        <div class="flex flex-col px-4 py-2">
+
+            <button class="bg-blue-800 h-9 flex justify-center items-center text-white shadow-md rounded">
+                <span class="text-xs">Login to get started</span>
+                <svg class="w-4 h-4 mx-2 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2.75H2C1.59 2.75 1.25 2.41 1.25 2C1.25 1.59 1.59 1.25 2 1.25H22C22.41 1.25 22.75 1.59 22.75 2C22.75 2.41 22.41 2.75 22 2.75Z"/>
+                    <path d="M16.67 22.34C16.54 22.6 16.27 22.75 16 22.75C15.89 22.75 15.77 22.72 15.67 22.67L12 20.84L8.33001 22.67C8.23001 22.72 8.11001 22.75 8.00001 22.75C7.73001 22.75 7.46001 22.6 7.33001 22.34C7.14001 21.96 7.29001 21.51 7.67001 21.33L11.25 19.54V17H12.75V19.54L16.33 21.33C16.71 21.51 16.86 21.96 16.67 22.34Z" fill="#FDFDFD"/>
+                    <path d="M3 2V14.1C3 16 4 17 5.9 17H18.1C20 17 21 16 21 14.1V2H3ZM16.98 8.58L13.83 11.21C13.54 11.45 13.17 11.55 12.82 11.49C12.46 11.43 12.15 11.21 11.96 10.89L10.91 9.14L7.98 11.58C7.84 11.7 7.67 11.75 7.5 11.75C7.29 11.75 7.07 11.66 6.92 11.48C6.65 11.16 6.7 10.69 7.02 10.42L10.17 7.79C10.46 7.55 10.83 7.45 11.18 7.51C11.54 7.57 11.85 7.79 12.04 8.11L13.09 9.86L16.02 7.42C16.34 7.15 16.81 7.2 17.08 7.52C17.34 7.84 17.3 8.31 16.98 8.58Z" fill="#FDFDFD"/>
+                </svg>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</div>

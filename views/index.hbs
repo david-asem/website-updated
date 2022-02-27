@@ -1,0 +1,435 @@
+
+
+<section style="background: #0032A0" class="flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-32">
+
+    <div class="flex flex-col">
+
+        <h2 class="font-black leading-tight" style="font-size: 54px;">The digital wallet that<br>works for you</h2>
+        <span class="my-6 text-sm font-light">
+                    Erat semper magnis pretium arcu eget nunc, tempus id nulla. <br>
+                    Tempus morbi arcu suscipit consectetur leo malesuada volutpat.<br>
+                    Ut porta aliquam libero vestibulum, scelerisque. Velit, <br> facilisis venenatis,
+                    dui vitae, vulputate. Amet, mattis<br> ipsum faucibus nulla sed sed arcu, curabitur.
+                </span>
+
+        <div class="flex my-4 space-x-2">
+
+            <button class="flex-none">
+                <img class="h-12 xl:h-14" src="images/dw_javolin.png" />
+            </button>
+
+            <button class="flex-none">
+                <img class="h-12 xl:h-14" src="images/dw_playstore.png" />
+            </button>
+
+            <button class="flex-none">
+                <img class="h-12 xl:h-14" src="images/dw_appstore.png" />
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="relative"
+         x-data="{ shown: false }" x-intersect="shown = true"
+         style="background: url('images/Design.png'); ">
+
+
+        <img
+                x-show="shown"
+                x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-0 scale-0"
+                x-transition:enter-end="opacity-100 scale-100"
+
+                src="images/header.png">
+
+
+        <div x-show="shown" class="absolute flex justify-center bottom-32 left-0 right-0 ">
+            <button class="flex bg-gradient-to-r from-green-600 p-2 rounded-full justify-center items-center">
+                <div class="p-2 bg-gradient-to-r from-green-600 rounded-full bg-yellow-600 mr-2">
+                    <img src="images/ic_play.png" class="h-6 w-6"/>
+                </div>
+                <span style="font-family: Product-Sans" class="font-bold text-sm">Watch Video</span>
+            </button>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<section class="flex flex-col justify-center items-center h-64">
+
+    <h3 class="py-2 text-sm" style="color: gray">
+        BANKING MADE EASY WITH US
+    </h3>
+
+    <h2 class="font-bold text-4xl px-20 text-center" >
+        Our value clear value propositon as a company goes here
+    </h2>
+
+
+</section>
+
+
+<section class="bg-green-100 p-10 xl:p-32 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+    <div class="flex flex-col">
+        <h2 class="font-bold text-xl">What we offer goes here</h2>
+        <p class="text-sm">
+            Egestas ut nunc pulvinar potenti ut eu at hendrerit augue. Amet consectetur.
+        </p>
+    </div>
+
+    <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
+        <h2 class="font-bold text-xl">Feature One</h2>
+        <p class="text-sm my-2 font-light">
+            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
+            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
+            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
+            congue tellus faucibus mauris.
+        </p>
+        <div class="flex items-center">
+            <span class="text-sm"> More </span>
+            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </div>
+    </div>
+
+    <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
+        <h2 class="font-bold text-xl">Feature Two</h2>
+        <p class="text-sm my-2 font-light">
+            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
+            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
+            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
+            congue tellus faucibus mauris.
+        </p>
+        <div class="flex items-center">
+            <span class="text-sm"> More </span>
+            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
+        <h2 class="font-bold text-xl">Feature Three</h2>
+        <p class="text-sm my-2 font-light">
+            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
+            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
+            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
+            congue tellus faucibus mauris.
+        </p>
+        <div class="flex items-center">
+            <span class="text-sm"> More </span>
+            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </div>
+    </div>
+
+    <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
+        <h2 class="font-bold text-xl">Feature Four</h2>
+        <p class="text-sm my-2 font-light">
+            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
+            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
+            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
+            congue tellus faucibus mauris.
+        </p>
+        <div class="flex items-center">
+            <span class="text-sm"> More </span>
+            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </div>
+    </div>
+    <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
+        <h2 class="font-bold text-xl">Feature Four</h2>
+        <p class="text-sm my-2 font-light">
+            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
+            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
+            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
+            congue tellus faucibus mauris.
+        </p>
+        <div class="flex items-center">
+            <span class="text-sm"> More </span>
+            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </div>
+    </div>
+
+
+</section>
+
+
+<div x-data="{ shown: false }" x-intersect="shown = true" class="p-10 xl:p-32 relative">
+
+
+    <h4 class="text-sm" x-show="shown"
+        x-transition:enter="transition ease-out duration-1000"
+        x-transition:enter-start="scale-0"
+        x-transition:enter-end="scale-100"
+
+        style="color: gray">JAVOLIN’S PROPRIETY PLATFORM</h4>
+    <h2 x-transition class="mt-0 font-bold text-3xl">Secured banking transactions you can trust</h2>
+
+
+    <img style="height: 580px; width: 580px" class="absolute hidden lg:block  right-0 top-0 object-right object-contain" src="images/security_bg.png" />
+
+
+    <div class="flex">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 w-3/3 lg:w-2/3 gap-8 mt-10">
+
+            <div class="flex">
+
+                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #F0F5ED">
+                    <img src="images/ic_analytics.png" class="w-6 h-6 i" />
+                </div>
+
+                <div class="flex flex-col ml-5">
+                    <h2 class="font-bold text-xl">Analytics</h2>
+                    <span class="text-sm font-light">
+                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
+                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
+                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
+                            mauris aenean quam. Proin.
+                        </span>
+                </div>
+
+
+
+            </div>
+            <div class="flex">
+
+                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #F0F5ED">
+                    <img src="images/ic_analytics.png" class="w-6 h-6 i" />
+                </div>
+
+                <div class="flex flex-col ml-5">
+                    <h2 class="font-bold text-xl">Analytics</h2>
+                    <span class="text-sm font-light">
+                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
+                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
+                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
+                            mauris aenean quam. Proin.
+                        </span>
+                </div>
+
+
+
+            </div>
+            <div class="flex">
+
+                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #F0F5ED">
+                    <img src="images/ic_analytics.png" class="w-6 h-6 i" />
+                </div>
+
+                <div class="flex flex-col ml-5">
+                    <h2 class="font-bold text-xl">Analytics</h2>
+                    <span class="text-sm font-light">
+                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
+                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
+                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
+                            mauris aenean quam. Proin.
+                        </span>
+                </div>
+
+
+
+            </div>
+            <div class="flex">
+
+                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #F0F5ED">
+                    <img src="images/ic_analytics.png" class="w-6 h-6 i" />
+                </div>
+
+                <div class="flex flex-col ml-5">
+                    <h2 class="font-bold text-xl">Analytics</h2>
+                    <span class="text-sm font-light">
+                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
+                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
+                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
+                            mauris aenean quam. Proin.
+                        </span>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+<section class="bg-gray-100 flex" style="height: 500px;">
+
+    <div class="w-1/3 hidden lg:block bg-indigo-200 relative">
+        <div class="absolute flex justify-end overflow-hidden items-center top-0 bottom-0 w-full -right-16">
+
+            <img src="/images/card.png" class="w-96 shadow-lg rounded-md" />
+
+        </div>
+    </div>
+
+    <div class="w-2/3 px-10 lg:px-44 flex flex-none flex-col justify-center flex-center">
+
+        <h3 class="text-gray-400 my-2">THE JAVOLIN DIGITAL CARD </h3>
+        <h2 class="font-bold text-2xl mb-2">Diaspora Digital Bank</h2>
+        <p class="flex-none font-light text-sm my-2">
+            Eget in ac est nisl. Felis, fames maecenas cursus libero, lacinia. Vitae scelerisque dictum urna bibendum.
+            Scelerisque eleifend mauris quis enim. Ac consectetur sagittis habitasse porttitor egestas suspendisse leo,
+            pharetra, sed. Felis duis mauris in sed semper eu varius enim massa. Consectetur facilisi pharetra faucibus platea ac.
+            Sit volutpat pellentesque at aenean. Mattis purus feugiat.
+        </p>
+
+
+    </div>
+
+</section>
+
+<section class="p-10 lg:px-32 py-20" style="background: #F9F9F9">
+
+    <div class="flex flex-col justify-center items-center">
+        <h4 class="text-sm" style="color: gray">WE ARE TRUSTED BY</h4>
+        <h2 class="font-bold text-3xl">Our partners</h2>
+    </div>
+
+
+    <div class="flex flex-col mt-10">
+
+        <div class="flex w-full items-center">
+
+            <div class="flex justify-center w-1/5">
+                <img src="images/ecobank.png" style="height: 63px;"/>
+            </div>
+
+            <div class="flex justify-center w-1/5">
+                <img src="images/uba.png" style="height: 85px;"/>
+            </div>
+
+            <div class="flex justify-center w-1/5">
+                <img src="images/appruve.png" style="height: 73px;"/>
+            </div>
+
+            <div class="flex justify-center w-1/5">
+                <img src="images/zenith.png" style="height: 100px;"/>
+            </div>
+
+            <div class="flex justify-center w-1/5">
+                <img src="images/e-transactions.png" style="height: 73px;"/>
+            </div>
+
+        </div>
+
+        <div class="flex w-full justify-center mt-8 items-center">
+
+            <div class="flex justify-center w-2/6">
+                <img src="images/integral.png" style="height: 51px;"/>
+            </div>
+
+            <div class="flex justify-center w-2/6">
+                <img src="images/lexis.png" style="height: 68px;"/>
+            </div>
+
+            <div class="flex justify-center w-2/6">
+                <img src="images/fireblocks.png" style="height: 69px;"/>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+<section>
+
+    <div class="relative"
+         style="height: 500px;"
+    >
+        <img src="images/comm-bg.png" class="w-full h-full object-cover object-top"/>
+
+        <div class="w-full absolute bg-gradient-to-r text-white px-32 flex items-center from-black top-0 bottom-0 ">
+            <div class="font-sm" >
+                <h4 style="color: #B2B7C0">OUR COMMUNITY IMAPACT</h4>
+                <h2 class="font-bold text-3xl mt-1">
+                    We are not only a financial <br> body, we are helping dreams<br> come true .
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="p-10 lg:p-32">
+
+
+    <div>
+        <h2 class="font-bold text-2xl">Latest news on our blog</h2>
+    </div>
+    <span class="text-sm text-black">
+                Et ornare leo eu eget scelerisque id. Integer libero ipsum quis lorem sed <br>sed. Elementum.
+            </span>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+
+        <div class="rounded-xl relative">
+            <img src="images/news-01.png" class="h-full w-full object-cover" />
+
+            <div class="absolute bottom-5 p-3 shadow-xl flex flex-col bg-white rounded-xl left-5 right-5">
+                <h2 class="font-bold text-lg text-gray-700">Javolin set to launch on April 6, 2022</h2>
+                <p class="text-sm font-light my-1 text-gray-500">
+                    Vestibulum rhoncus nunc nisl nibh vulputate vel. Fringilla nec porta
+                    quis eget euismod scelerisque urna, sit ultrices. Massa turpis convallis
+                </p>
+
+                <div class="flex items-center mt-1">
+                    <span class="text-xs font-bold"> Read More </span>
+                    <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+
+            </div>
+        </div>
+        <div class="rounded-xl relative">
+            <img src="images/news-02.png" class="h-full w-full object-cover" />
+
+            <div class="absolute bottom-5 p-3 shadow-xl flex flex-col bg-white rounded-xl left-5 right-5">
+                <h2 class="font-bold text-lg text-gray-700">Javolin partners with ecobank on diaspora loans</h2>
+                <p class="text-sm font-light my-1 text-gray-500">
+                    Vestibulum rhoncus nunc nisl nibh vulputate vel. Fringilla nec porta
+                    quis eget euismod scelerisque urna, sit ultrices. Massa turpis convallis
+                </p>
+
+                <div class="flex items-center mt-1">
+                    <span class="text-xs font-bold"> Read More </span>
+                    <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+
+            </div>
+        </div>
+        <div class="rounded-xl relative">
+            <img src="images/news-03.png" class="h-full w-full object-cover" />
+
+            <div class="absolute bottom-5 p-3 shadow-xl flex flex-col bg-white rounded-xl left-5 right-5">
+                <h2 class="font-bold text-lg text-gray-700">Javolin secured cards got you</h2>
+                <p class="text-sm font-light my-1 text-gray-500">
+                    Vestibulum rhoncus nunc nisl nibh vulputate vel. Fringilla nec porta
+                    quis eget euismod scelerisque urna, sit ultrices. Massa turpis convallis
+                </p>
+
+                <div class="flex items-center mt-1">
+                    <span class="text-xs font-bold"> Read More </span>
+                    <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</section>

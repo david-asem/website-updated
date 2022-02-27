@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
+        @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+        h2 {
+            font-family: 'Product-Sans';
+            font-weight: bold;
+            font-size: 54px;
+        }
+        .nav-link {
+            font-family: 'Product-Sans';
+        }
+
+
+        button {
+            font-family: 'Product-Sans';
+        }
+
+        /*.nav-link:hover {*/
+        /*    border-bottom: 2px solid #0032A0;*/
+        /*    cursor: pointer;*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+
+<header class="h-20 flex justify-between px-10 lg:px-12 xl:px-32">
+
+    <div class="flex h-full justify-center items-center">
+
+        <a class="mr-12 flex-none" href="/">
+            <img style="height: 42px" src="/images/logo.png" />
+        </a>
+
+        {{> nav }}
+    </div>
+
+    <div></div>
+
+    <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
+
+        <button class="text-xs text-indigo-700 shadow-md xl:px-8 lg:px-4  rounded-md h-9 font-heading">
+            Login
+        </button>
+
+        <button class="bg-blue-800 text-white mx-5 xl:px-8 lg:px-4 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
+            Sign up
+        </button>
+
+    </div>
+
+    <button class="lg:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+    </button>
+
+
+</header>
+
+{{{ body }}}
+
+<section
+        x-data="{ shown: false }" x-intersect="shown = true"
+        class="px-32 flex" style="background: #E0EAFF; height: 380px">
+
+    <div class="w-full lg:w-1/2 flex flex-col justify-center">
+
+        <h2 class="font-bold text-sm">DOWNLOAD THE APP </h2>
+
+        <h2 class="font-bold text-4xl">Start banking with  Javolin</h2>
+
+        <div class="flex my-4">
+
+            <button class="mr-2">
+                <img style="height: 62px" src="/images/dw_playstore.png" />
+            </button>
+
+            <button class="mx-2">
+                <img style="height: 62px" src="/images/dw_appstore.png" />
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hidden lg:w-1/2">
+
+        <img
+                x-show="shown"
+                x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="translate-y-full"
+                x-transition:enter-end="translate-y-0"
+
+                src="/images/download_app_bg.png" class="h-full flex-none object-bottom object-contain px-2 w-full" />
+    </div>
+
+</section>
+
+
+{{>footer}}
+
+</body>
+
+</html>
