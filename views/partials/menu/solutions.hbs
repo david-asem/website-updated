@@ -28,11 +28,10 @@
                 <path d="M6.00001 6.20042C5.53335 6.20042 5.06668 6.02042 4.71335 5.66708L0.36668 1.32042C0.173346 1.12708 0.173346 0.807083 0.36668 0.61375C0.560013 0.420417 0.880013 0.420417 1.07335 0.61375L5.42001 4.96042C5.74001 5.28042 6.26001 5.28042 6.58001 4.96042L10.9267 0.61375C11.12 0.420417 11.44 0.420417 11.6333 0.61375C11.8267 0.807083 11.8267 1.12708 11.6333 1.32042L7.28668 5.66708C6.93335 6.02042 6.46668 6.20042 6.00001 6.20042Z" fill="#303030"/>
             </svg>
 
-
         </div>
     </button>
 
-    <div x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+    <div  x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute z-10 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
 
         <div class="flex flex-col px-2 py-2">
 
@@ -59,7 +58,7 @@
 
                 </div>
 
-                <a class="/solutions/business">
+                <a href="/solutions/business">
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-xs">Business</h2>
                         <span class="text-xs text-gray-500 font-light leading-tight">

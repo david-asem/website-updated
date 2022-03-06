@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Document</title>
-
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico"/>
+    <title>Javolin - Digital Wallet that works for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <meta name="author" content="Javolin LLC | smith sese" />
+    <meta name="description" content="Digital Wallet that works for you">
     <style>
         @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
         @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
         body{
-            font-family: 'Inter', sans-serif;
+            font-family: 'Product-Sans', sans-serif;
         }
         h2 {
             font-family: 'Product-Sans';
@@ -33,6 +35,8 @@
             font-family: 'Product-Sans';
         }
 
+
+
         /*.nav-link:hover {*/
         /*    border-bottom: 2px solid #0032A0;*/
         /*    cursor: pointer;*/
@@ -42,7 +46,7 @@
 
 <body>
 
-<header class="h-20 flex justify-between px-10 lg:px-12 xl:px-32">
+<header class="h-20 relative flex justify-between px-10 lg:px-12 xl:px-32" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
 
     <div class="flex h-full justify-center items-center">
 
@@ -51,26 +55,74 @@
         </a>
 
         {{> nav }}
+
     </div>
 
     <div></div>
 
     <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
 
-        <button class="text-xs text-indigo-700 shadow-md xl:px-8 lg:px-4  rounded-md h-9 font-heading">
+        <button class="text-xs text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
             Login
         </button>
 
-        <button class="bg-blue-800 text-white mx-5 xl:px-8 lg:px-4 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
+        <button class="bg-blue-800 text-white font-bold mx-5 xl:px-8 lg:px-8 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
             Sign up
         </button>
 
     </div>
 
-    <button class="lg:hidden">
+
+    <button class="lg:hidden" @click=" navOpened = !navOpened ">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
     </button>
 
+    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Product-Sans">
+
+        <div class=" flex flex-col space-y-3 px-3 py-5">
+
+            <div>
+               <button @click=" solutionsOpened = !solutionsOpened " class="font-bold text-sm">Solutions</button>
+               <div x-show="solutionsOpened"
+                   x-transition:enter="transition ease-out duration-100"
+                   x-transition:enter-start="scale-0"
+                   x-transition:enter-end="scale-100"
+                   class="flex flex-col space-y-2 ml-2 mt-2">
+                   <a href="/solutions/consumer" class="text-gray-200 text-sm">Consumer</a>
+                   <a href="/solutions/business" class="text-gray-200 text-sm">Business</a>
+                   <a class="text-gray-200 text-sm">Government</a>
+               </div>
+            </div>
+
+            <div>
+                <button @click = "investorOpened = !investorOpened" class="font-bold text-sm">Investor Relations</button>
+                <div x-show="investorOpened"
+                      x-transition:enter="transition ease-out duration-100"
+                      x-transition:enter-start="translate-y-full"
+                      x-transition:enter-end="translate-y-0"
+                      class="flex flex-col space-y-1 ml-1 mt-2">
+
+                    <button class="bg-white h-9 flex w-44  justify-center items-center text-blue-800 shadow-md rounded">
+                        <span class="text-xs">Login to get started</span>
+
+                        <svg class="w-4 h-4 mx-2 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2.75H2C1.59 2.75 1.25 2.41 1.25 2C1.25 1.59 1.59 1.25 2 1.25H22C22.41 1.25 22.75 1.59 22.75 2C22.75 2.41 22.41 2.75 22 2.75Z"/>
+                            <path d="M16.67 22.34C16.54 22.6 16.27 22.75 16 22.75C15.89 22.75 15.77 22.72 15.67 22.67L12 20.84L8.33001 22.67C8.23001 22.72 8.11001 22.75 8.00001 22.75C7.73001 22.75 7.46001 22.6 7.33001 22.34C7.14001 21.96 7.29001 21.51 7.67001 21.33L11.25 19.54V17H12.75V19.54L16.33 21.33C16.71 21.51 16.86 21.96 16.67 22.34Z" fill="#0032A0"/>
+                            <path d="M3 2V14.1C3 16 4 17 5.9 17H18.1C20 17 21 16 21 14.1V2H3ZM16.98 8.58L13.83 11.21C13.54 11.45 13.17 11.55 12.82 11.49C12.46 11.43 12.15 11.21 11.96 10.89L10.91 9.14L7.98 11.58C7.84 11.7 7.67 11.75 7.5 11.75C7.29 11.75 7.07 11.66 6.92 11.48C6.65 11.16 6.7 10.69 7.02 10.42L10.17 7.79C10.46 7.55 10.83 7.45 11.18 7.51C11.54 7.57 11.85 7.79 12.04 8.11L13.09 9.86L16.02 7.42C16.34 7.15 16.81 7.2 17.08 7.52C17.34 7.84 17.3 8.31 16.98 8.58Z" fill="#0032A0"/>
+                        </svg>
+
+                    </button>
+            </div>
+            </div>
+
+            <div>
+                <a class="font-bold text-sm">About Us</a>
+            </div>
+
+
+        </div>
+
+    </div>
 
 </header>
 
@@ -80,34 +132,33 @@
         x-data="{ shown: false }" x-intersect="shown = true"
         class="px-32 flex" style="background: #E0EAFF; height: 380px">
 
-    <div class="w-full lg:w-1/2 flex flex-col justify-center">
+        <div class="w-full lg:w-1/2 flex flex-col justify-center">
 
-        <h2 class="font-bold text-sm">DOWNLOAD THE APP </h2>
+            <h2 class="font-bold text-sm">DOWNLOAD THE APP </h2>
 
-        <h2 class="font-bold text-4xl">Start banking with  Javolin</h2>
+            <h2 class="font-bold text-4xl">Start banking with  Javolin</h2>
 
-        <div class="flex my-4">
+            <div class="flex flex-col md:flex-row items-start my-4 md:space-x-2">
 
-            <button class="mr-2">
-                <img style="height: 62px" src="/images/dw_playstore.png" />
-            </button>
+                <button class="flex-none">
+                    <img class="flex-none" style="height: 62px" src="/images/dw_playstore.png" />
+                </button>
 
-            <button class="mx-2">
-                <img style="height: 62px" src="/images/dw_appstore.png" />
-            </button>
+                <button class="flex-none">
+                    <img class="flex-none" style="height: 62px" src="/images/dw_appstore.png" />
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
-
-    <div class="hidden lg:w-1/2">
+        <div class="hidden lg:w-1/2">
 
         <img
                 x-show="shown"
                 x-transition:enter="transition ease-out duration-1000"
                 x-transition:enter-start="translate-y-full"
                 x-transition:enter-end="translate-y-0"
-
                 src="/images/download_app_bg.png" class="h-full flex-none object-bottom object-contain px-2 w-full" />
     </div>
 
