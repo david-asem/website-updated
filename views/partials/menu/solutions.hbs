@@ -31,14 +31,15 @@
         </div>
     </button>
 
-    <div  x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute z-10 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+    <div  x-transition.origin.top.left x-show="open" x-on:click.outside="close($refs.button)"  class="absolute z-10 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
 
         <div class="flex flex-col px-2 py-2">
 
 
             <div class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded">
-                <div class="h-8 w-8 flex-none rounded-full bg-gray-200">
 
+                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                    <img src="/gifs/consumer.gif" class="h-9 w-9" />
                 </div>
 
                 <a href="/solutions/consumer">
@@ -54,8 +55,9 @@
 
 
             <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
-                <div class="h-8 w-8 flex-none rounded-full bg-gray-200">
 
+                <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
+                    <img src="/gifs/business-icon.gif" class="h-9 w-9" />
                 </div>
 
                 <a href="/solutions/business">
@@ -70,11 +72,16 @@
             </div>
 
             <div class="flex my-1 hover:bg-gray-100 p-2 rounded">
+
                 <div class="h-8 w-8 flex-none rounded-full bg-gray-200">
+
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/gifs/gov-icon.gif" class="h-9 w-9" />
+                    </div>
 
                 </div>
 
-                <a>
+                <a href="/solutions/government">
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-xs">Government Entities</h2>
                         <span class="text-xs text-gray-500 font-light leading-tight">

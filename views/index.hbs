@@ -1,5 +1,4 @@
-
-<style>
+<style xmlns="http://www.w3.org/1999/html">
     .partner-items > div > img {
         filter: grayscale(100%);
         cursor: pointer;
@@ -9,15 +8,21 @@
     }
 </style>
 
+
+
+
+
 <section style="background: #0032A0" class="flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-32">
 
     <div class="flex flex-col">
 
-        <h2 class="font-black leading-tight" style="font-size: 54px;">The digital wallet that<br>works for you</h2>
+        <h2 class="font-black leading-tight" style="font-size: 36px;">The On-Ramp to Financial Products and<br/> Services for Consumers,
+            Businesses, and<br/> Government Entities.
+        </h2>
         <span class="my-6 text-sm font-light">
-                    The Javolin Wallet connects our customers to financial institutions, <br/>
-                    corporate partners and government entities for transactions.
-                </span>
+            Javolin is a  financial services technology company providing digital services and<br/>
+            products through our mobile applications focused on the continent of Africa and<br/> other emerging areas
+        </span>
 
         <div class="flex my-4 space-x-2">
 
@@ -51,7 +56,8 @@
                 src="images/header.png">
 
 
-        <div x-show="shown" class="absolute flex justify-center bottom-32 left-0 right-0 ">
+        <div x-show="shown" x-on:click="togglePlayer()" :aria-expanded="open"
+             :aria-controls="$id('dropdown-button')" class="absolute flex justify-center bottom-32 left-0 right-0 ">
             <button class="flex bg-gradient-to-r from-green-600 p-2 rounded-full justify-center items-center">
                 <div class="p-2 bg-gradient-to-r from-green-600 rounded-full bg-yellow-600 mr-2">
                     <img src="images/ic_play.png" class="h-6 w-6"/>
@@ -66,14 +72,14 @@
 
 
 
-<section class="flex flex-col justify-center items-center h-64">
+<section class="flex flex-col justify-center items-center h-64 px-10 lg:px-32">
 
     <h3 class="py-2 text-sm" style="color: gray">
-        BANKING MADE EASY WITH US
+        WE ARE THE BANKING POWERHOUSE
     </h3>
 
     <h2 class="font-bold text-4xl px-20 text-center" >
-        Our value clear value propositon as a company goes here
+        Connecting banks on the continent of Africa with their customers on the continent and in the diaspora.
     </h2>
 
 
@@ -83,19 +89,18 @@
 <section style="background: #E9F6E4" class="p-10 xl:p-32 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
     <div class="flex flex-col">
-        <h2 class="font-bold text-xl">All your banking needs</h2>
+        <h2 class="font-bold text-xl">Digitally integrated solutions powered by ONE WALLET</h2>
         <p class="text-sm">
-            Javolin gives you the power to have control over your finance right from your phone
+            Hardware and Software solutions empower financial participation by the banked and unbanked sectors
         </p>
     </div>
 
     <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
         <h2 class="font-bold text-xl">Digital Infrastructure & Products</h2>
-        <p class="text-sm my-2 font-light">
-            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
-            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
-            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
-            congue tellus faucibus mauris.
+        <p class="text-sm my-2 font-light text-gray-500">
+            We provide an integrated digital infrastructure for customers that include web and mobile-based applications,
+            a secure Cloud-based platform for storing data, and distinct proprietary APIs.
+            Our traditional and non-traditional products and and services are easily accessible.
         </p>
         <div class="flex items-center">
             <span class="text-sm"> More </span>
@@ -104,12 +109,11 @@
     </div>
 
     <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
-        <h2 class="font-bold text-xl">Digital Payments & Remmitances</h2>
-        <p class="text-sm my-2 font-light">
-            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
-            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
-            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
-            congue tellus faucibus mauris.
+        <h2 class="font-bold text-xl">Digital Payments & Remittances</h2>
+        <p class="text-sm my-2 font-light text-gray-500">
+            We facilitates cross border remittance and foreign exchange settlement services.
+            We also provide payment and collections services for businesses and government entities in areas historically collected with cash.
+            We reduce losses from cash leakage and increase margins on cash collected
         </p>
         <div class="flex items-center">
             <span class="text-sm"> More </span>
@@ -119,12 +123,12 @@
 
 
     <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
-        <h2 class="font-bold text-xl">Commodity Trading Services</h2>
-        <p class="text-sm my-2 font-light">
-            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
-            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
-            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
-            congue tellus faucibus mauris.
+        <h2 class="font-bold text-xl">Javolin Loans</h2>
+        <p class="text-sm my-2 font-light text-gray-500">
+            We facilitate loans via our banking partners and make loans in fiat and cryptocurrencies to businesses and small
+            financial institutions.  We particularly focus on loans to traders in the import and export
+            markets flowing to and from the continent. Our clients can make payments to each other by transferring fiat
+            or crypto from one Jav wallet to the other.
         </p>
         <div class="flex items-center">
             <span class="text-sm"> More </span>
@@ -134,11 +138,10 @@
 
     <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
         <h2 class="font-bold text-xl">Cryptocurrency products</h2>
-        <p class="text-sm my-2 font-light">
-            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
-            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
-            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
-            congue tellus faucibus mauris.
+        <p class="text-sm my-2 font-light text-gray-500">
+            Our crypto platform via our partnership with FireBlocks facilitates crypto wallets for our customers and business
+            clients and allows purchases of cryptocurrencies
+            and access to lending pools or fiat and crypto loans.
         </p>
         <div class="flex items-center">
             <span class="text-sm"> More </span>
@@ -147,11 +150,11 @@
     </div>
     <div class="flex flex-col bg-white px-4 py-8 rounded-xl shadow-lg">
         <h2 class="font-bold text-xl">Diaspora Digital Bank</h2>
-        <p class="text-sm my-2 font-light">
-            Quis amet, pellentesque tortor suspendisse senectus suspendisse porttitor.
-            Posuere morbi pellentesque ut ornare faucibus proin erat quis. Morbi mollis nunc,
-            augue nunc nullam mi pellentesque urna lectus. Est ut ornare habitant enim, nunc,
-            congue tellus faucibus mauris.
+        <p class="text-sm my-2 font-light text-gray-500">
+            We connect customers living outside their home countries with banking products.
+            Whether it’s applying for a mortgage to buy a house by home or a loan to assist a loved one,
+            our API connections facilitate direct access to the underwriters at the bank.
+            Post-closing the Javolin App is used to service the loan by submitting payments directly to the bank.
         </p>
         <div class="flex items-center">
             <span class="text-sm"> More </span>
@@ -190,12 +193,12 @@
 
                 <div class="flex flex-col ml-5">
                     <h2 class="font-bold text-xl">Bank-grade security</h2>
-                    <span class="text-xs font-light">
-                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
-                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
-                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
-                            mauris aenean quam. Proin.
-                        </span>
+                    <span class="text-sm text-gray-500 font-light">
+                        Our Bank-Grade security means that we adhere to the security protocols that regulate the operations at your bank.
+                        We go further by strictly ensuring that all client-server communications are
+                        served on HTTPS to protect the integrity and confidentiality of users’ data.
+                        Our regular security audits help us ensure that SSL is configured properly.
+                    </span>
                 </div>
 
 
@@ -209,11 +212,11 @@
 
                 <div class="flex flex-col ml-5">
                     <h2 class="font-bold text-xl">Insightful Analytics</h2>
-                    <span class="text-xs font-light">
-                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
-                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
-                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
-                            mauris aenean quam. Proin.
+                    <span class="text-sm text-gray-500 font-light">
+                        Businesses in the modern-day rely heavily on data to make the next innovative move.
+                        Data can help us to understand trends and make predictions for the future.
+                        Hence, the Javolin platform is with a data-centric approach where every process has been designed to extract quality data for data analytics purposes.
+                        We provide reporting and analytics dashboards for our partners and clients to  take insights that affect their line of operation
                         </span>
                 </div>
 
@@ -228,12 +231,14 @@
 
                 <div class="flex flex-col ml-5">
                     <h2 class="font-bold text-xl">Cloud-based platform</h2>
-                    <span class="text-xs font-light">
-                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
-                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
-                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
-                            mauris aenean quam. Proin.
-                        </span>
+                    <span class="text-sm text-gray-500 font-light">
+                        Javolin provides a Software as a Service (SAAS) solution that is easy to use and reliable.
+                        With access to the internet, all our customers can enjoy the benefit of our products and services.
+                        We provide a multi-platform service. Our customers can access the app from anywhere on their mobile phones,
+                        personal computers, iPads, and tablets. No matter the device and location, you are not limited in security, reliability,
+                        scalability, and availability.
+
+                    </span>
                 </div>
 
 
@@ -247,11 +252,10 @@
 
                 <div class="flex flex-col ml-5">
                     <h2 class="font-bold text-xl">Proprietary APIs</h2>
-                    <span class="text-xs font-light">
-                            Sit sit pellentesque duis vestibulum nulla justo. Viverra vitae turpis amet, tempor.
-                            Egestas malesuada elit tellus porttitor dictum ligula diam justo consectetur.
-                            Odio proin libero porttitor scelerisque. Et id vitae laoreet rhoncus est eu,
-                            mauris aenean quam. Proin.
+                    <span class="text-sm text-gray-500 font-light">
+                            Javolin provides application programming interfaces (API) that are secure to our customers
+                        who want to build on top of our system. Developers who want to leverage the Javolin technology can get proprietary
+                        access to our APIs.
                         </span>
                 </div>
 
@@ -283,10 +287,9 @@
         <h3 class="text-gray-400 my-2">THE JAVOLIN DIGITAL CARD </h3>
         <h2 class="font-bold text-2xl mb-2">Diaspora Digital Bank</h2>
         <p class="flex-none font-light text-sm my-2">
-            Eget in ac est nisl. Felis, fames maecenas cursus libero, lacinia. Vitae scelerisque dictum urna bibendum.
-            Scelerisque eleifend mauris quis enim. Ac consectetur sagittis habitasse porttitor egestas suspendisse leo,
-            pharetra, sed. Felis duis mauris in sed semper eu varius enim massa. Consectetur facilisi pharetra faucibus platea ac.
-            Sit volutpat pellentesque at aenean. Mattis purus feugiat.
+            Flexible financial product that’s the intersection of financial services. Earn interest on deposits, remit funds to other, buy products and services, available in multiple currencies
+            Living abroad but still desire banking relationships and products from abroad. We facilitate the account opening process and applications for financial products and services from bank on the continent of Africa in multiple countries.
+
         </p>
 
 
@@ -355,40 +358,7 @@
 
 </section>
 
-<section>
-
-    <div style="background: #E9F6E4" class="relative flex flex-col sm:items-center lg:flex-row px-10 lg:px-32"
-    >
-        <div class="md:w-4/5 sm:w-4/5 lg:w-1/2 flex flex-col justify-center space-y-2 mt-2">
-
-            <h4 class="text-gray-600 text-sm">Our Community Impact</h4>
-            <h2 class="text-bold text-xl">
-                We are more than a digital banking platform, we help in making dreams come true via our community impact program
-            </h2>
-            <button class="h-10 text-white px-10 w-44 shadow-md text-xs rounded bg-blue-800">
-                Learn More
-            </button>
-
-        </div>
-        <div class="flex justify-center lg:w-1/2 py-16">
-
-            <div class="relative">
-                <img src="/images/impact-img.png" class="h-96"/>
-                <div class="border-4 rounded-2xl border-green-500 absolute -bottom-10 -right-10 left-10 top-10 ">
-                </div>
-
-                <img src="/images/impact-img.png" class="absolute h-96 top-0 left-0 right-0"/>
-
-                <div class="h-9 w-9 z-20 rounded-full bg-yellow-300  absolute top-4 -left-4">
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
+{{>community}}
 
 <section class="p-10 lg:p-32">
 

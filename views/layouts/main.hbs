@@ -19,7 +19,7 @@
         @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
         @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
         body{
-            font-family: 'Product-Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         h2 {
             font-family: 'Product-Sans';
@@ -44,7 +44,25 @@
     </style>
 </head>
 
-<body>
+<body x-data="{
+                playerOpened: false,
+                togglePlayer() {
+                    if (this.open) {
+                        return this.closePlayer()
+                    }
+                    this.playerOpened = true
+                },
+                closePlayer(focusAfter) {
+                    this.playerOpened = false
+                    var video = document.getElementById('mJavolinVideo');
+                    video.pause();
+                    video.currentTime = 0;
+                    focusAfter && focusAfter.focus()
+                }
+            }"   x-on:keydown.escape.prevent.stop="closePlayer($refs.button)"
+      x-on:focusin.window="! $refs.panel.contains($event.target) && closePlayer()"
+      x-id="['dropdown-button']">
+
 
 <header class="h-20 relative flex justify-between px-10 lg:px-12 xl:px-32" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
 
@@ -62,13 +80,13 @@
 
     <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
 
-        <button class="text-xs text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
+        <a target="_blank" href="https://staging.app.javolin.com/login" class="text-xs flex items-center text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
             Login
-        </button>
+        </a>
 
-        <button class="bg-blue-800 text-white font-bold mx-5 xl:px-8 lg:px-8 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
+        <a target="_blank" href="https://staging.app.javolin.com/register" class="bg-blue-800 flex items-center text-white font-bold mx-5 xl:px-8 lg:px-8 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
             Sign up
-        </button>
+        </a>
 
     </div>
 
@@ -126,47 +144,45 @@
 
 </header>
 
+
+
 {{{ body }}}
 
-<section
-        x-data="{ shown: false }" x-intersect="shown = true"
-        class="px-32 flex" style="background: #E0EAFF; height: 380px">
-
-        <div class="w-full lg:w-1/2 flex flex-col justify-center">
-
-            <h2 class="font-bold text-sm">DOWNLOAD THE APP </h2>
-
-            <h2 class="font-bold text-4xl">Start banking with  Javolin</h2>
-
-            <div class="flex flex-col md:flex-row items-start my-4 md:space-x-2">
-
-                <button class="flex-none">
-                    <img class="flex-none" style="height: 62px" src="/images/dw_playstore.png" />
-                </button>
-
-                <button class="flex-none">
-                    <img class="flex-none" style="height: 62px" src="/images/dw_appstore.png" />
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="hidden lg:w-1/2">
-
-        <img
-                x-show="shown"
-                x-transition:enter="transition ease-out duration-1000"
-                x-transition:enter-start="translate-y-full"
-                x-transition:enter-end="translate-y-0"
-                src="/images/download_app_bg.png" class="h-full flex-none object-bottom object-contain px-2 w-full" />
-    </div>
-
-</section>
-
+{{>download-app}}
 
 {{>footer}}
 
+
+<div
+        x-show="playerOpened"
+        class="fixed z-100 inset-0 flex justify-center items-center bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+        id="my-modal"
+        x-on:click.outside="closePlayer($refs.button)"
+>
+
+
+    <div class="bg-white shadow-md rounded">
+
+        <div class="flex justify-between m-2">
+            <div></div>
+            <div>
+                <svg x-on:click="closePlayer()" class="w-8 h-8 cursor-pointer rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+        </div>
+        <video controls id="mJavolinVideo" class="w-full h-full object-cover m-2"  style="width: 600px;height: 500px;">
+            <source src="/videos/javolin-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+
+</div>
+
+
+
+
 </body>
+
+
 
 </html>

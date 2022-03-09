@@ -1,0 +1,35 @@
+<section
+        x-data="{ shown: false }" x-intersect="shown = true"
+        class="px-10 lg:px-32 flex" style="background: #E0EAFF; height: 380px">
+
+    <div class="w-full lg:w-1/2 flex flex-col justify-center">
+
+        <h2 class="font-bold text-sm">DOWNLOAD THE APP </h2>
+
+        <h2 class="font-bold text-4xl">Start banking with  Javolin</h2>
+
+        <div class="flex flex-col md:flex-row items-start my-4 md:space-x-2">
+
+            <button class="flex-none">
+                <img class="flex-none" style="height: 62px" src="/images/dw_playstore.png" />
+            </button>
+
+            <button class="flex-none">
+                <img class="flex-none" style="height: 62px" src="/images/dw_appstore.png" />
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hidden lg:block lg:w-1/2">
+
+        <img
+                x-show="shown"
+                x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="translate-y-full"
+                x-transition:enter-end="translate-y-0"
+                src="/images/download_app_bg.png" class="h-full flex-none object-bottom object-contain px-2 w-full" />
+    </div>
+
+</section>

@@ -29,8 +29,23 @@ app.get('/solutions/business', (req, res) => {
     res.render('business', {});
 })
 
+app.get('/solutions/government', (req, res) => {
+    res.render('government', {});
+})
+
 app.get('/about-us', (req, res) => {
     res.render('about-us', {});
+})
+
+app.get('/password/forgot/:token', (req, res) => {
+    res.render('forgot-password',{});
+})
+
+app.get("/password/forgot",(req,res) => {
+    res.render('forgot-password',{
+        layout: false,
+        params: JSON.stringify(req.query)
+    });
 })
 
 
