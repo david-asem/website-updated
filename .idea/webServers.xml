@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f49356a6-914d-4019-a23d-8871616e1fae" name="javolin-website" url="http://staging.javolin.com">
+        <fileTransfer accessType="SFTP" host="128.199.11.77" port="22" sshConfigId="9dfa2ae3-e23b-4744-b313-c1bc39a751d5" sshConfig="root@128.199.11.77:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
