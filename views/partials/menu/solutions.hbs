@@ -31,7 +31,7 @@
         </div>
     </button>
 
-    <div  x-transition.origin.top.left x-show="open" x-on:click.outside="close($refs.button)"  class="absolute z-10 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+    <div  x-transition.origin.top.left x-show="open" x-on:click.outside="close($refs.button)"  class="absolute z-40 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
 
         <div class="flex flex-col px-2 py-2">
 
@@ -53,7 +53,6 @@
 
             </div>
 
-
             <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
 
                 <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
@@ -64,25 +63,45 @@
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-sm">Business</h2>
                         <span class="text-xs text-gray-500 font-light leading-tight">
-                                    Rocket your business with our product
+                                    Rocket your business with our products
                                 </span>
                     </div>
                 </a>
 
             </div>
 
-            <div class="flex my-1 hover:bg-gray-100 p-2 rounded">
+
+
+            <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
 
                 <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/gifs/gov-icon.gif" class="h-9 w-9" />
+                    <img src="/gifs/gov-entity-icon.gif" class="h-9 w-9" />
                 </div>
 
                 <a href="/solutions/government">
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-sm">Government Entities</h2>
                         <span class="text-xs text-gray-500 font-light leading-tight">
-                                    Some details go here
-                                </span>
+                            Optimizing government revenue
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+
+
+            <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
+
+                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                    <img src="/gifs/bank.gif" class="h-9 w-9" />
+                </div>
+
+                <a href="/solutions/bank">
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-sm">Banks</h2>
+                        <span class="text-xs text-gray-500 font-light leading-tight">
+                            We are around the world
+                        </span>
                     </div>
                 </a>
 

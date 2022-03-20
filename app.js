@@ -33,6 +33,10 @@ app.get('/solutions/government', (req, res) => {
     res.render('government', {});
 })
 
+app.get('/solutions/bank', (req, res) => {
+    res.render('bank', {});
+})
+
 app.get('/about-us', (req, res) => {
     res.render('about-us', {});
 })
@@ -47,6 +51,24 @@ app.get("/password/forgot",(req,res) => {
         params: JSON.stringify(req.query)
     });
 })
+
+app.get("/blog/javolin-partners-with-ecobank",(req,res) => {
+   res.render("javolin-partners-with-ecobank",{
+
+   })
+});
+
+app.get("/blog/javolin-set-to-launch-on-april-6-2022",(req,res) => {
+    res.render("javolin-set-to-launch-on-april-6-2022",{
+
+    })
+});
+
+app.get("/blog/javolin-secure-card",(req,res) => {
+    res.render("javolin-secure-card",{
+
+    })
+});
 
 
 app.listen(port, () => {
