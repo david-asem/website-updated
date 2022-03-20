@@ -21,7 +21,7 @@
           :aria-controls="$id('dropdown-button')" class="text-sm mx-4 nav-link cursor-pointer">
         <div class="flex items-center">
             <span>
-                        Investors Relations
+                        Investor Relations
             </span>
 
             <svg class="mx-1" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,12 +32,13 @@
         </div>
     </button>
 
-    <div x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute z-10 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+    <div x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute z-40 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
 
         <div class="flex flex-col px-4 py-2">
 
             <button class="bg-blue-800 h-9 flex justify-center items-center text-white shadow-md rounded">
                 <span class="text-xs">Login to get started</span>
+
                 <svg class="w-4 h-4 mx-2 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 2.75H2C1.59 2.75 1.25 2.41 1.25 2C1.25 1.59 1.59 1.25 2 1.25H22C22.41 1.25 22.75 1.59 22.75 2C22.75 2.41 22.41 2.75 22 2.75Z"/>
                     <path d="M16.67 22.34C16.54 22.6 16.27 22.75 16 22.75C15.89 22.75 15.77 22.72 15.67 22.67L12 20.84L8.33001 22.67C8.23001 22.72 8.11001 22.75 8.00001 22.75C7.73001 22.75 7.46001 22.6 7.33001 22.34C7.14001 21.96 7.29001 21.51 7.67001 21.33L11.25 19.54V17H12.75V19.54L16.33 21.33C16.71 21.51 16.86 21.96 16.67 22.34Z" fill="#FDFDFD"/>
