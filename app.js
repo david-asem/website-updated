@@ -76,6 +76,10 @@ app.get("/terms",(req,res) => {
     })
 });
 
+app.get("/privacy",(req,res) => {
+    res.render("privacy",{
+    })
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
