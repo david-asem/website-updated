@@ -71,6 +71,12 @@ app.get("/blog/javolin-secure-card",(req,res) => {
 });
 
 
+app.get("/terms",(req,res) => {
+    res.render("terms",{
+    })
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
