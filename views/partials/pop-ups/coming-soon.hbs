@@ -1,0 +1,38 @@
+<div
+        x-show="comingSoonOpened"
+        x-ref="comingSoonHolder"
+        class="hidden fixed z-100 inset-0 flex justify-center items-center bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+        id="my-modal"
+        x-on:click.outside="closePlayer($refs.button)"
+>
+
+
+    <div class="relative flex flex-col bg-white shadow-md rounded-xl overflow-hidden">
+
+        <img src="/images/Launch.png" class="h-44 overflow-hidden"/>
+
+        <div class="flex flex-col py-3 items-center" style="background: #E0EAFF">
+
+            <span class="text-gray-500 mt-2">COMING SOON</span>
+
+            <h2 class="font-bold text-2xl">Launching on April 4</h2>
+
+            <button x-on:click="comingSoonOpened = false; waitListOpened = true"  class="py-3 mb-2 mt-6 px-10 rounded-lg text-white text-sm bg-blue-800">
+                Join Waitlist
+            </button>
+
+        </div>
+
+
+        <div x-on:click="comingSoonOpened = false" class="absolute cursor-pointer top-0 right-0 flex items-center justify-center m-4 bg-white h-10 w-10 rounded-full">
+
+            <img src="/images/x.svg" />
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

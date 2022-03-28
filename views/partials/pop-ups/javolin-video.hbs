@@ -1,0 +1,27 @@
+<div
+        x-show="playerOpened"
+        x-ref="javolinVideoHolder"
+        class="hidden fixed z-100 inset-0 flex justify-center items-center bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+        id="my-modal"
+        x-on:click.outside="closePlayer($refs.button)"
+>
+
+
+    <div class="bg-white shadow-md rounded">
+
+        <div class="flex justify-between items-center m-2">
+            <div>
+                <span class="font-heading font-bold" style="font-family: 'Product-Sans';">JAVOLIN INTRO VIDEO</span>
+            </div>
+            <div>
+                <svg x-on:click="closePlayer()" class="w-8 h-8 cursor-pointer rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+        </div>
+        <video controls id="mJavolinVideo" class="w-full h-full object-contain m-2 border rounded-md"  style="width: 700px;height: 500px;">
+            <source src="/videos/javolin-video-1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+
+</div>

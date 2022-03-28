@@ -3,7 +3,7 @@ const mustacheExpress = require('mustache-express');
 const {engine} = require('express-handlebars');
 
 const app = express()
-const port = 3000
+const port = 5005
 
 
 app.engine("hbs",engine({
@@ -69,7 +69,6 @@ app.get("/blog/javolin-secure-card",(req,res) => {
 
     })
 });
-
 
 app.get("/terms",(req,res) => {
     res.render("terms",{

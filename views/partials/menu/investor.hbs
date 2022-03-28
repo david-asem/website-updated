@@ -4,16 +4,14 @@
                     if (this.open) {
                         return this.close()
                     }
-
+                    $refs.investorMenuHolder.classList.remove('hidden')
                     this.open = true
                 },
                 close(focusAfter) {
                     this.open = false
-
                     focusAfter && focusAfter.focus()
                 }
-            }"   x-on:keydown.escape.prevent.stop="close($refs.button)"
-     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+            }"
      x-id="['dropdown-button']">
 
 
@@ -32,7 +30,7 @@
         </div>
     </button>
 
-    <div x-transition.origin.top.left x-show="open"   x-on:click.outside="close($refs.button)" class="absolute z-40 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
+    <div x-transition.origin.top.left x-show="open" x-ref="investorMenuHolder"  x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
 
         <div class="flex flex-col px-4 py-2">
 
