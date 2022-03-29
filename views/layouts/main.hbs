@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <meta name="author" content="Javolin LLC | smith sese" />
     <meta name="description" content="Digital Wallet that works for you">
     <style>
@@ -180,31 +182,35 @@
 
 
 <script>
-    var params = "{{ params }}";
-    params = JSON.parse(params.replace(/&quot;/g,'"'));
 
     document.addEventListener('alpine:init', () => {
         Alpine.data('waitList', () => ({
             isLoading: false,
-            newPassword: '',
-            confirmNewPassword : '',
+            first_name: '',
+            last_name : '',
+            email : '',
+            referral_code: '',
+            phone_number : '',
             toggle() {
-                this.isLoading = ! this.isLoading
+                this.isLoading = !this.isLoading
             },
-            forgetPassword() {
+            joinWaitList() {
                 this.toggle();
                 axios.post("https://staging.api.javolin.com/api/waitlist/create",{
-                    first_name: params.token,
-                    last_name: this.newPassword,
-                    email: this.confirmNewPassword,
-                    phone_number: this.newPassword,
-                    referral_code: this.confirmNewPassword
+                    first_name: this.first_name,
+                    last_name: this.last_name,
+                    email: this.email,
+                    phone_number: this.phone_number,
+                    referral_code: this.referral_code
                 }).then(res => {
                     this.toggle();
                     console.log(res);
-                    alert("Success: Password Set successfully");
-                    this.newPassword = "";
-                    this.confirmNewPassword = "";
+                    alert("Success: Joined successfully");
+                    this.first_name = "";
+                    this.last_name = "";
+                    this.phone_number = "";
+                    this.email = "";
+                    this.referral_code = "";
                 }).catch(err => {
                     this.toggle();
                     console.error(err);
