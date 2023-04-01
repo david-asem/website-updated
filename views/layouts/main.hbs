@@ -9,19 +9,25 @@
     <link rel="icon" href="/favicon.ico"/>
     <title>Javolin - Digital Wallet that works for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="../../styles/index.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <meta name="author" content="Javolin LLC | smith sese" />
     <meta name="description" content="Digital Wallet that works for you">
     <style>
         @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
         @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
+        @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-regular.ttf'); }
+        @font-face { font-family: 'Satoshi'; font-weight: bold; src: url('/fonts/satoshi/Satoshi-Bold.ttf');}
+        @font-face { font-family: 'Satoshi'; font-weight:lighter; src: url('/fonts/satoshi/Satoshi-Light.ttf');}
         body{
             font-family: 'Inter', sans-serif;
+            margin: 0;
         }
         h2 {
             font-family: 'Product-Sans';
@@ -37,7 +43,7 @@
             font-family: 'Product-Sans';
         }
 
-
+        
 
         /*.nav-link:hover {*/
         /*    border-bottom: 2px solid #0032A0;*/
@@ -85,19 +91,16 @@
       x-id="['dropdown-button']">
 
 
-<header class="h-20 relative flex justify-between px-10 lg:px-12 xl:px-32" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
-
+<header class="h-20 relative flex justify-around px-10 my-0 px-0 lg:px-12 xl:px-32  bg-transparent absolute top-0 z-10" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
     <div class="flex h-full justify-center items-center">
-
         <a class="mr-12 flex-none" href="/">
-            <img style="height: 42px" src="/images/logo.png" />
+            <img style="height: 42px" src="/images/JAVOLIN_LOGO_RGB_REV.png" />
         </a>
 
         {{> nav }}
 
     </div>
 
-    <div></div>
 
     <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
 
@@ -106,8 +109,8 @@
             Login
         </a>
         -->
-        <a x-on:click="toggleWaitList()" class="cursor-pointer bg-blue-800 flex items-center text-white font-bold mx-5 xl:px-8 lg:px-8 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
-            Sign up
+        <a class="cursor-pointer bg-[#040723] flex items-center text-white justify-center mx-5 lg:py-6 xl:px-6  xl:px-8 lg:px-8 rounded-full text-[20px] h-9">
+            Client Log-in
         </a>
 
     </div>
@@ -220,6 +223,49 @@
 
         }))
     })
+
+     $(document).ready(function() {
+
+                /** ---------------------------- //
+                 *  @group viewport trigger script 
+                 * for adding or removing classes from elements in view within viewport
+                */
+              
+                var $animationElements = $('.animation-element');
+                var $window = $(window);
+            
+                // ps: Let's FIRST disable triggering on small devices!
+                var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+                if (isMobile.matches) {
+                    $animationElements.removeClass('animation-element');
+                }
+            
+                function checkIfInView() {
+            
+                    var windowHeight = $window.height();
+                    var windowTopPosition = $window.scrollTop();
+                    var windowBottomPosition = (windowTopPosition + windowHeight);
+            
+                    $.each($animationElements, function () {
+                        var $element = $(this);
+                        var elementHeight = $element.outerHeight();
+                        var elementTopPosition = $element.offset().top;
+                        var elementBottomPosition = (elementTopPosition + elementHeight);
+            
+            //check to see if this current container is within viewport
+                        if ((elementBottomPosition >= windowTopPosition) &&
+                            (elementTopPosition <= windowBottomPosition)) {
+                            $element.addClass('in-view');
+                        } else {
+                            $element.removeClass('in-view');
+                        }
+                    });
+                }
+            
+                $window.on('scroll resize', checkIfInView);
+                $window.trigger('scroll');
+            });
+            
 </script>
 
 
