@@ -22,25 +22,26 @@
     <style>
         @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
         @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
-        @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-regular.ttf'); }
+        @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-Medium.ttf'); }
         @font-face { font-family: 'Satoshi'; font-weight: bold; src: url('/fonts/satoshi/Satoshi-Bold.ttf');}
         @font-face { font-family: 'Satoshi'; font-weight:lighter; src: url('/fonts/satoshi/Satoshi-Light.ttf');}
+
         body{
-            font-family: 'Inter', sans-serif;
+            font-family: 'Satoshi', sans-serif;
             margin: 0;
         }
         h2 {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
             font-weight: bold;
             font-size: 54px;
         }
         .nav-link {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
         }
 
 
         button {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
         }
 
         
@@ -91,36 +92,36 @@
       x-id="['dropdown-button']">
 
 
-<header class="h-20 relative flex justify-around px-10 my-0 px-0 lg:px-12 xl:px-32  bg-transparent absolute top-0 z-10" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
-    <div class="flex h-full justify-center items-center">
+<header class="h-20 w-full py-4 flex justify-between items-center px-10 my-0 px-0 lg:px-12 xl:px-32  bg-transparent absolute top-0 z-30" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
+    {{!-- <div class="flex h-full justify-center items-center"> --}}
         <a class="mr-12 flex-none" href="/">
             <img style="height: 42px" src="/images/JAVOLIN_LOGO_RGB_REV.png" />
         </a>
 
         {{> nav }}
 
-    </div>
+    {{!-- </div> --}}
 
 
-    <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
+    {{!-- <div class="lg:flex justify-center align-center items-center hidden lg:inline-block"> --}}
 
         <!--
         <a target="_blank" href="https://staging.app.javolin.com/login" class="text-xs flex items-center text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
             Login
         </a>
         -->
-        <a class="cursor-pointer bg-[#040723] flex items-center text-white justify-center mx-5 lg:py-6 xl:px-6  xl:px-8 lg:px-8 rounded-full text-[20px] h-9">
+        <a href="https://app.forex.javolin.com/" class="cursor-pointer bg-[#040723] flex items-center text-white justify-center mx-5 lg:py-6 xl:px-6  xl:px-8 lg:px-8 rounded-full text-[20px] h-9">
             Client Log-in
         </a>
 
-    </div>
+    {{!-- </div> --}}
 
 
     <button class="lg:hidden" @click=" navOpened = !navOpened ">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
     </button>
 
-    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Product-Sans">
+    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Satoshi">
 
         <div class=" flex flex-col space-y-3 px-3 py-5">
 
