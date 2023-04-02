@@ -3,7 +3,9 @@ const mustacheExpress = require('mustache-express');
 const {engine} = require('express-handlebars');
 
 const app = express()
-const port = 5005
+const port = process.env.PORT || 3000;
+
+
 
 
 app.engine("hbs",engine({
