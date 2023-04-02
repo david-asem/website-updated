@@ -1,32 +1,32 @@
-    <div style="margin-top: 0;" class="hero-video">
-            <video autoplay muted loop id="myVideo" width="1280" height="100vh">
+    {{!-- <div style="margin-top: 0;" class="hero-video -mt-8"> --}}
+            <video autoplay muted loop class="absolute top-0 w-full h-full object-cover" id="myVideo" width="1280" height="100vh">
                 <source src="/videos/herobg.mov" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
-    <div class="overlay-video">
-        
+    <div style=" background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);" 
+        class=" absolute top-0 w-full h-full object-cover">
     </div>
- </div>
-<section  style="height:880px;" class="flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-32 bg-[#E2ECFE]">
+ {{!-- </div> --}}
+<section class="h-[880px] flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-32 bg-[#E2ECFE]">
     
    
 
-    <div style="top: 200px; width:50%" class="flex flex-col overlay">
+    <div style="top: 200px;" class="flex flex-col overlay xl:w-5/12 xl:mt-16">
 
         <h2 class="font-black leading-tight" style="font-size: 49px;">
             The On-Ramp to Financial Products and Services.
         </h2>
 
         <span class="my-6 text-gray-200 text-lg font-light">
-            Javolin is a  financial services technology company providing digital services and products through our
-                        mobile applications focused on the continent of Africa and other emerging areas for
-            <b class="text-white">Consumers,
-                            Businesses</b>,
-            <b class="text-white">Government Entities</b>
-            and
-            <b>Banks.</b>
+            Connecting consumers, businesses, government entities and banks on the continent of Africa with their customers across the globe
         </span>
 
+        <div class="flex flex-row rounded-full py-4 px-8 w-max text-[#0032A0] bg-white justify-center items-center mt-8 cursor-pointer">
+             <div style="font-weight: bold;" class="mr-2 text-bold">
+                Learn more
+            </div>
+                
+        </div>
     </div>
 
 
@@ -111,8 +111,8 @@
                 <div class="text-[#000C26] font-bold text-xl py-6">
                     Digital Payments & Remmitances
                 </div>
-                <div class="text-[#5D6066]">
-                    We facilitate cross-border remittance and foreign exchange settlement services.We also provide payment and collection services for businesses and government entities in areas historically collected with cash.We reduce losses from cash leakage and increase margins on cash collected.
+                <div class="text-[#5D6066] pb-6">
+                    We facilitate cross-border remittance and foreign exchange settlement services
                 </div>
             </div>
             <div class="flex flex-col p-4 bg-white rounded-3xl fadeLeft animation-element">
@@ -122,8 +122,8 @@
                 <div class="text-[#000C26] font-bold text-xl py-6">
                     Digital Infrastructure & Products
                 </div>
-                <div class="text-[#5D6066]">
-                    We facilitate cross-border remittance and foreign exchange settlement services.We also provide payment and collection services for businesses and government entities in areas historically collected with cash.We reduce losses from cash leakage and increase margins on cash collected.
+                <div class="text-[#5D6066] pb-6">
+                    We provide an integrated digital infrastructure for customers that include web and mobile-based applications, a secure Cloud-based platform for storing data, and distinct proprietary APIs.
                 </div>
             </div>
             <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element">
@@ -133,8 +133,8 @@
                 <div class="text-[#000C26] font-bold text-xl py-6">
                     Foreign Exchange
                 </div>
-                <div class="text-[#5D6066]">
-                    We facilitate cross-border remittance and foreign exchange settlement services.We also provide payment and collection services for businesses and government entities in areas historically collected with cash.We reduce losses from cash leakage and increase margins on cash collected.
+                <div class="text-[#5D6066] pb-6">
+                    Eget pellentesque id elementum quis lacus eget. Interdum orci dictum vitae libero nisl id porttitor. Nec nec nec nunc integer feugiat felis vel orci. Pellentesque ridiculus venenatis nam ornare mauris neque id. Purus iaculis id nibh vel viverra.
                 </div>
             </div>
             <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element">
@@ -144,8 +144,8 @@
                 <div class="text-[#000C26] font-bold text-xl py-6">
                     Collections
                 </div>
-                <div class="text-[#5D6066]">
-                    We facilitate cross-border remittance and foreign exchange settlement services.We also provide payment and collection services for businesses and government entities in areas historically collected with cash.We reduce losses from cash leakage and increase margins on cash collected.
+                <div class="text-[#5D6066] pb-6">
+                    We provide payment and collections services for businesses and government entities in areas historically collected with cash. We reduce losses from cash leakage and increase margins on cash collected.
                 </div>
             </div>
             
@@ -153,7 +153,7 @@
         </div>
         <div class="flex justify-center">
                 <div class="flex text-center flex-row rounded-full py-4 px-8 w-max bg-white text-white justify-center items-center mt-8 cursor-pointer">
-             <div class="mr-2 text-[#0032A0]">
+             <div style="font-weight: bold;" class="mr-2 text-[#0032A0]">
                 learn more
             </div>
                 <div>
@@ -286,15 +286,13 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <h2 class="font-bold text-4xl py-4">Proprietory APIs</h2>
+                    <h2 class="font-bold text-[22px] py-4">API Integration</h2>
                     <span class="text-[18px] leading-[23px] text-gray-500 font-light">
-                        Javolin provides application programming interfaces (API) that are secure to our customers
-                                                who want to build on top of our system. Developers who want to leverage the Javolin technology can get proprietary
-                                                access to our APIs.
+                        Secure & proprietary API’s for our customers who want to build on top of our system
                     </span>
                 </div>
             </div>
-            <div class="flex flex-col fadeRight animation-element">
+            {{!-- <div class="flex flex-col fadeRight animation-element">
 
                 <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #E1E7F6">
                     <img src="/images/cloud_icon.png" class="w-6 h-6 i"/>
@@ -311,6 +309,19 @@
                 </div>
 
 
+            </div> --}}
+            <div class="flex flex-col fadeRight animation-element">
+
+                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #E1E7F6">
+                    <img src="/images/api.png" class="w-6 h-6 i"/>
+                </div>
+
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-[22px] py-4">Municipal & Business Collection</h2>
+                    <span class="text-[18px] leading-[23px] text-gray-500 font-light">
+                        Odio ut id amet integer id risus. Nibh orci nisl id lacinia nunc pellentesque purus viverra. Proin porttitor at vel porttitor vel montes. Habitant scelerisque adipiscing vestibulum ac eros dui placerat tortor. Posuere at vel arcu odio sem non id lobortis pellentesque. Magnis mollis vitae tincidunt ac risus tortor diam penatibus dapibus. Feugiat erat etiam sem.
+                    </span>
+                </div>
             </div>
             <div class="flex flex-col fadeLeft animation-element">
 
@@ -319,26 +330,9 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <h2 class="font-bold text-4xl py-4">Collection Platform</h2>
+                    <h2 class="font-bold text-[22px] py-4">Domestic & Cross Border Payments</h2>
                     <span class="text-[18px] leading-[23px] text-gray-500 font-light">
-                        Javolin provides application programming interfaces (API) that are secure to our customers
-                                                who want to build on top of our system. Developers who want to leverage the Javolin technology can get proprietary
-                                                access to our APIs.
-                    </span>
-                </div>
-            </div>
-            <div class="flex flex-col fadeRight animation-element">
-
-                <div class="flex-none w-12 h-12 rounded-full flex justify-center items-center" style="background: #E1E7F6">
-                    <img src="/images/api.png" class="w-6 h-6 i"/>
-                </div>
-
-                <div class="flex flex-col">
-                    <h2 class="font-bold text-4xl py-4">Payments</h2>
-                    <span class="text-[18px] leading-[23px] text-gray-500 font-light">
-                        Javolin provides application programming interfaces (API) that are secure to our customers
-                                                who want to build on top of our system. Developers who want to leverage the Javolin technology can get proprietary
-                                                access to our APIs.
+                        Odio ut id amet integer id risus. Nibh orci nisl id lacinia nunc pellentesque purus viverra. Proin porttitor at vel porttitor vel montes. Habitant scelerisque adipiscing vestibulum ac eros dui placerat tortor. Posuere at vel arcu odio sem non id lobortis pellentesque. Magnis mollis vitae tincidunt ac risus tortor diam penatibus dapibus. Feugiat erat etiam sem.
                     </span>
                 </div>
 
@@ -350,7 +344,7 @@
 
     </div>
     <div class="flex text-center flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
-             <div class="mr-2">
+             <div style="font-weight: bold;" class="mr-2">
                 learn more
             </div>
                 <div>
@@ -360,6 +354,33 @@
 
 
 </div>
+
+<section class="p-10 flex flex-col lg:flex-row lg:px-32 pb-20 bg-[#E2ECFE]" >
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
+        <div class="slide fadeRight animation-element">
+            <span style="font-weight: bold;" class="py-8 text-[#6CC24A] text-[22px]">
+                SOLUTION
+            </span>
+            <h2 class="text-[56px] text-[#000B6B] font-bold">
+                Foreign Exchange
+            </h2>
+            <p class="text-[28px] text-[28px] text-[#3B404A]">
+                Habitant amet dignissim sed sed in accumsan. Mauris donec sollicitudin risus fermentum morbi. Etiam ac est fames venenatis nisi. At duis dolor tincidunt diam arcu quisque eget bibendum ac. Urna nec nulla lectus at. Vulputate tortor ut sed turpis egestas. Vitae imperdiet.
+                </p>
+            <div class="flex flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
+             <a href="/solutions/foreign-exchange" style="font-weight: bold;" class="mr-2">
+                Learn more
+            </a>
+                <a href="/">
+                    <img src="/images/ArrowSquareOut.svg"/>
+                </a>
+            </div>
+        </div>
+        <div  class="fadeLeft animation-element min-h-[800px]">
+            {{!-- <img src="/images/AfricaGraphic.png" alt="african map"/> --}}
+        </div>
+    </div>
+</section>
 
 
 {{!-- <section x-data="{ shown: false }" x-intersect="shown = true" class="bg-gray-100 flex" style="height: 500px;">
@@ -444,7 +465,7 @@
         </div>
         <div class="fadeRight animation-element">
             <h2 class="text-[56px] text-[#000B6B] font-bold">
-                Our Platform On One App
+                Integrated Solutions Powered by One Wallet
             </h2>
             <p class="text-[28px] text-[28px]">
                 Sit mattis vel nisi egestas nulla risus senectus. Sapien vitae ultrices ultricies metus aliquam a. Dignissim ut accumsan integer luctus suspendisse. In ipsum eu accumsan nibh laoreet convallis sit. Turpis urna aliquam facilisi ipsum.
@@ -471,15 +492,10 @@ Sit congue quam arcu egestas sed eget. In.
                     
                     <div class="bg-white w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
                         <div class="bg-white w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
-                        <div>
                             <img class="relative" src="/images/partners/corpay.png" style="width: 130px; height: 63px;"/>
                         </div>
                     </div>
-                    <div class="rounded-2xl relative -bottom-2 h-8 px-28">
-                    </div>
-                    </div>
-
-                    </div>
+                </div>
 
                 <div class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center lg:-mt-12 md:mt-0 ">
                     <div class="grid justify-center items-center fadeLeft animation-element">
@@ -546,18 +562,18 @@ Sit congue quam arcu egestas sed eget. In.
         </div>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-4  md:grid-cols-1 gap-4 ">
+    <div class="grid lg:grid-cols-2 gap-4  md:grid-cols-1 gap-x-24 ">
         <div class="fadeLeft animation-element" >
             <div class="mt-6 lg:py-12 md:py-10">
-                <div class="h-[300px] lg:h-[500px] md:h-[500px] rounded-t-2xl bg-[url('/images/blog/dakar.png')] bg-cover"></div>
-                <div class="py-8 px-4 bg-[#000638] text-white relative rounded-b-2xl">
-                    <div class="h-24 w-24 rounded-full bg-white absolute right-8 -top-12 flex justify-center items-center">
+                <div class="h-[300px] lg:h-[300px] md:h-[300px] rounded-t-2xl bg-[url('/images/blog/podcast.jpg')] bg-cover"></div>
+                <div class="py-16 px-12 bg-[#000638] text-white relative rounded-b-2xl">
+                    <a href="/blog/developing-fintech-in-africa-with-carl-powell" class="h-24 w-24 rounded-full bg-white absolute right-8 -top-12 flex justify-center items-center">
                         <img src="/images/ArrowUpRight.svg"/>
-                    </div>
+                    </a>
                     <div class="font-bold text-[2em] text-left">
-                        Javolin Launches Collections Program.
+                        Developing Fintech in Africa with Carl Powell
                     </div>
-                    <div class="text-[21px] text-left">
+                    <div class="text-[21px] text-left ">
                         Habitant pharetra bibendum massa quam id suspendisse non nulla et. Commodo sed id aliquet pulvinar malesuada penatibus nullam mattis non
                     </div>
                 </div>
@@ -565,23 +581,23 @@ Sit congue quam arcu egestas sed eget. In.
 
         </div>
 
-        <div class="py-12 fadeRight animation-element">
-            <div class="border-b-[0.4px] border-[#AAAEB6]">
+        <div class="py-12 fadeRight animation-element mt-2">
+            <a target="_blank" href="https://www.myjoyonline.com/local-government-service-partners-javolin-group-to-plug-5-6-billion-tax-loophole/" class="border-b-[0.4px] border-[#AAAEB6]">
                 <div class="text-[28px] text-[#274DD2] text-left">
-                    Javolin Opens New Office In Dakar, Senegal
+                    Local Government Service partners Javolin Group to plug ₵5.6 billion tax loophole
                 </div>
                 <div class="text-[24px] text-left text-[#5D6066]">
-                    Accumsan tempus magna rhoncus nibh gravida euismod eu. Faucibus quis vitae sit volutpat aliquam sed fermentum congue
+                    An estimated ¢5.6 billion is lost annually from the revenue collection kitty of Metropolitan, Municipal and District Assemblies (MMDAs). 
                 </div>
-                <div class="flex flex-row py-4 justify-end">
-                    <div class="text-[20px] text-[#0032A0] mr-4">
+                <a target="_blank" href="https://www.myjoyonline.com/local-government-service-partners-javolin-group-to-plug-5-6-billion-tax-loophole/" class="flex flex-row py-4 justify-end">
+                    <div style="font-weight: bold;" class="text-[20px] text-[#0032A0] mr-4">
                         Learn more
                     </div>
                     <div class="flex rounded-full w-9 h-9 justify-center items-center bg-[#0032A0]">
                         <img src="/images/ArrowSquareOut.svg"/>
                     </div>
-                </div>
-            </div>
+                </a>
+            </a>
             <div class="border-b-[0.4px] mt-8 border-[#AAAEB6]">
                 <div class="text-[28px] text-[#B5490D] text-left">
                     Javolin Opens New Office In Dakar, Senegal
@@ -590,7 +606,7 @@ Sit congue quam arcu egestas sed eget. In.
                     Accumsan tempus magna rhoncus nibh gravida euismod eu. Faucibus quis vitae sit volutpat aliquam sed fermentum congue
                 </div>
                 <div class="flex flex-row py-4 justify-end">
-                    <div class="text-[20px] text-[#0032A0] mr-4">
+                    <div style="font-weight: bold;" class="text-[20px] text-[#0032A0] mr-4">
                         Learn more
                     </div>
                     <div class="flex rounded-full w-9 h-9 justify-center items-center bg-[#0032A0]">
@@ -606,7 +622,7 @@ Sit congue quam arcu egestas sed eget. In.
                     Accumsan tempus magna rhoncus nibh gravida euismod eu. Faucibus quis vitae sit volutpat aliquam sed fermentum congue
                 </div>
                 <div class="flex flex-row py-4 justify-end">
-                    <div class="text-[20px] text-[#0032A0] mr-4">
+                    <div style="font-weight: bold;" class="text-[20px] text-[#0032A0] mr-4">
                         Learn more
                     </div>
                     <div class="flex rounded-full w-9 h-9 justify-center items-center bg-[#0032A0]">

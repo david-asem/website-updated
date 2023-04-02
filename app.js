@@ -58,6 +58,16 @@ app.get("/blog/javolin-partners-with-ecobank",(req,res) => {
    })
 });
 
+app.get("/blog/developing-fintech-in-africa-with-carl-powell",(req,res) => {
+    res.render("developing-fintech-in-africa-with-carl-powell",{
+    })
+ });
+
+ app.get("/solutions/foreign-exchange",(req,res) => {
+    res.render("foreignexchange",{
+    })
+ });
+
 app.get("/blog/javolin-set-to-launch-on-april-6-2022",(req,res) => {
     res.render("javolin-set-to-launch-on-april-6-2022",{
 
