@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.hbs"
+  to = "/views/index.hbs"
   status = 200
