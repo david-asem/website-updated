@@ -27,7 +27,9 @@
     </button>
 
     <div  x-transition.origin.top.left x-ref="menuHolderolder" x-show="open" x-bind:class="open ? '' : 'hidden'" x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-[600px] mt-2 flex flex-row h-[334px]">
+        <div class="border-r-[10px] border-r-transparent border-l-[10px] border-l-transparent border-b-[15px] border-b-white absolute -top-2 left-6">
 
+        </div>
         <div class="flex flex-col px-2 py-2 basis-3/4">
          <div @mouseover="hoveritem = 'banks'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center">
                 <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">

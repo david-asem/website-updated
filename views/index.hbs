@@ -7,11 +7,13 @@
         class=" absolute top-0 w-full h-full object-cover">
     </div>
  {{!-- </div> --}}
-<section class="h-[880px] flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-24 bg-[#E2ECFE]">
+
+
+<section class="h-[880px] flex flex-col lg:flex-row justify-between pt-10 text-white md:items-center px-10 xl:px-24 bg-[#BAD2FD]">
     
    
 
-    <div style="top: 200px;" class="flex flex-col overlay xl:w-5/12 xl:mt-16">
+    <div style="top: 200px;" class="flex flex-col overlay relative xl:w-5/12 xl:mt-16">
 
         <h3 id="heading-module" class="text-green-600 font-bold my-1 text-3xl">GOVERNMENT</h3>
         <h2 id="heading" class="font-black leading-tight" style="font-size: 49px;">
@@ -29,6 +31,52 @@
                 
         </div>
     </div>
+
+     <script>
+
+      const headings = [
+             {
+                 module: "GOVERNMENT",
+                 title: "Assisting Governments with optimizing revenue",
+                 content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment."
+             },
+             {
+                 module: "BUSINESS",
+                 title: "Get your business up to speed with products from Javolin",
+                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans."
+             },
+             {
+                 module: "CONSUMER",
+                 title: "Build financial stability with Javolin",
+                 content: "Get a Javolin personal account today to unveil a whole new world of financial products and services that will simplify the way you save, invest, pay bills and transfer money across borders."
+             },
+             {
+                 module: "BANK",
+                 title: "Our Banks Trust Us",
+                 content: "Javolin is connecting with many of the leading financial institutions on the continent."
+             }
+         ];
+
+
+        /** ---------------------------- //
+         *  @group viewport trigger script
+         * for adding or removing classes from elements in view within viewport
+        */
+
+        let counter = 0;
+        document.querySelector("#heading").textContent = headings[counter].title;
+         document.querySelector("#heading-content").textContent = headings[counter].content;
+         document.querySelector("#heading-module").textContent = headings[counter].module;
+
+
+        setInterval(() => {
+            counter = counter === (headings.length-1) ? 0 : (counter + 1)
+            document.querySelector("#heading").textContent = headings[counter].title;
+            document.querySelector("#heading-content").textContent = headings[counter].content;
+            document.querySelector("#heading-module").textContent = headings[counter].module;
+
+        },3000)
+ </script>
 
 
     {{!-- <div class="relative flex-none" x-data="{ shown: false }" x-intersect="shown = true" style="background: url('images/Design.png'); ">
@@ -364,7 +412,7 @@ through our integrated partner program, we provide our clients access to 145+ cu
     <div class="absolute left-0 right-0 w-full h-full" style="background: rgba(0, 11, 107, 0.7);;">
     </div>
 
-    <div class="flex text-center justify-center items-center z-20 lg:px-24">
+    <div class="flex text-center px-2 justify-center items-center z-20 lg:px-24">
         <div class="slide fadeRight animation-element flex text-center justify-center items-center flex-col">
             
             <h2 class="text-[56px] text-white font-bold">
@@ -464,7 +512,7 @@ through our integrated partner program, we provide our clients access to 145+ cu
     </div>
 
 </section> --}}
-<section class="p-10 flex flex-col lg:flex-row lg:px-24 py-20" >
+<section class="p-10 flex flex-col lg:flex-row lg:px-24 py-20 mt-6" >
     <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
         
         <div class="fadeLeft animation-element -z-10">
@@ -519,17 +567,17 @@ Sit congue quam arcu egestas sed eget. In.
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 grid-x-8 justify-center items-center md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-10">
-                    <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
                         <div class="bg-[#BAD2FD] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
                             <img src="/images/partners/paps.png"  style="width: 130px; height: 63px;"/>
                         </div>
                     </div>
-                    <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
                         <div class="bg-[#BAD2FD] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
                             <img src="/images/partners/e-transactions.png" style="height: 63px;"/>
                         </div>
                     </div>
-                     <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
                         <div class="bg-[#BAD2FD] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
                             <img src="/images/partners/google_logo.png"/>
                         </div>
