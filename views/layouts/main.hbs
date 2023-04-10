@@ -205,6 +205,7 @@
 
 <script>
 
+   
     document.addEventListener('alpine:init', () => {
         Alpine.data('waitList', () => ({
             isLoading: false,
@@ -242,51 +243,12 @@
         }))
     })
 
+
+
      $(document).ready(function() {
 
 
-         const headings = [
-             {
-                 module: "GOVERNMENT",
-                 title: "Assisting Governments with optimizing revenue",
-                 content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment."
-             },
-             {
-                 module: "BUSINESS",
-                 title: "Get your business up to speed with products from Javolin",
-                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans."
-             },
-             {
-                 module: "CONSUMER",
-                 title: "Build financial stability with Javolin",
-                 content: "Get a Javolin personal account today to unveil a whole new world of financial products and services that will simplify the way you save, invest, pay bills and transfer money across borders."
-             },
-             {
-                 module: "BANK",
-                 title: "Our Banks Trust Us",
-                 content: "Javolin is connecting with many of the leading financial institutions on the continent."
-             }
-         ];
-
-
-        /** ---------------------------- //
-         *  @group viewport trigger script
-         * for adding or removing classes from elements in view within viewport
-        */
-
-        let counter = 0;
-        document.querySelector("#heading").textContent = headings[counter].title;
-         document.querySelector("#heading-content").textContent = headings[counter].content;
-         document.querySelector("#heading-module").textContent = headings[counter].module;
-
-
-        setInterval(() => {
-            counter = counter === (headings.length-1) ? 0 : (counter + 1)
-            document.querySelector("#heading").textContent = headings[counter].title;
-            document.querySelector("#heading-content").textContent = headings[counter].content;
-            document.querySelector("#heading-module").textContent = headings[counter].module;
-
-        },3000)
+       
 
         var $animationElements = $('.animation-element');
         var $window = $(window);
