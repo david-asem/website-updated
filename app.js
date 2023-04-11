@@ -86,6 +86,12 @@ app.get("/about/company",(req,res) => {
     })
 });
 
+app.get("/about/clients",(req,res) => {
+    res.render("clients",{
+    })
+});
+
+
 app.get("/blog/javolin-opens-new-office-in-dakar-senegal",(req,res) => {
     res.render("javolin-opens-new-office-in-dakar-senegal",{
     })
