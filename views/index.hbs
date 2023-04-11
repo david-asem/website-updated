@@ -41,20 +41,22 @@
                  content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment."
              },
              {
+              module: "CONSUMER",
+              title: "Build financial stability with Javolin",
+              content: "Get a Javolin personal account today to unveil a whole new world of financial products and services that will simplify the way you save, invest, pay bills and transfer money across borders."
+           },
+           {
+              module: "BANK",
+              title: "Our Banks Trust Us",
+              content: "Javolin is connecting with many of the leading financial institutions on the continent."
+          },
+             {
                  module: "BUSINESS",
                  title: "Get your business up to speed with products from Javolin",
                  content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans."
              },
-             {
-                 module: "CONSUMER",
-                 title: "Build financial stability with Javolin",
-                 content: "Get a Javolin personal account today to unveil a whole new world of financial products and services that will simplify the way you save, invest, pay bills and transfer money across borders."
-             },
-             {
-                 module: "BANK",
-                 title: "Our Banks Trust Us",
-                 content: "Javolin is connecting with many of the leading financial institutions on the continent."
-             }
+             
+             
          ];
 
 
@@ -115,7 +117,7 @@
 
 
 
-<section class="p-10 flex flex-col lg:flex-row lg:px-24 pt-52 pb-20 bg-[#BAD2FD]" >
+<section class="p-0 flex flex-col lg:flex-row lg:px-24 pt-0 pb-20 bg-[#BAD2FD]" >
     <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
         
         <div class="fadeLeft animation-element">
@@ -148,7 +150,7 @@ Javolin is a financial services technology company providing services and produc
                 Our Solutions
             </h1>
             <p class="text-lg">
-                Our customizable solutions empower broader participation across borders for our client
+                Our customizable solutions empower broader participation across borders for our clients.
             </p>
         </div>
         <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 my-12 justify-center">
@@ -160,7 +162,7 @@ Javolin is a financial services technology company providing services and produc
                     Digital Payments & Remmitances
                 </div>
                 <div class="text-[#5D6066] pb-6">
-                    We facilitate cross-border remittance and foreign exchange settlement services. We also provide payment and collections services for businesses and government entities in areas historically collected with cash. We reduce losses from cash leakage and increase margins on cash collected.
+                    We facilitate cross-border remittance and foreign exchange settlement services.
 
 
                 </div>
@@ -184,11 +186,11 @@ Javolin is a financial services technology company providing services and produc
                     Foreign Exchange
                 </div>
                 <div class="text-[#5D6066] pb-6">
-through our integrated partner program, we provide our clients access to 145+ currencies delivered to over 200+ countries with up-to-the minute trading information through our foreign exchange platform                </div>
+Through our integrated partner program, we provide our clients access to 145+ currencies delivered to over 200+ countries with up-to-the minute trading information through our foreign exchange platform.               </div>
             </div>
             <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element">
                 <div class="border border-green-600 w-20 h-20 p-4 rounded-full">
-                    <img src="/images/icons/collections.gif" alt="icon payment" />
+                    <img src="/images/icons/Collections.gif" alt="icon payment" />
                 </div>
                 <div class="text-[#000C26] font-bold text-xl py-6">
                     Collections
@@ -318,7 +320,7 @@ through our integrated partner program, we provide our clients access to 145+ cu
 
     {{!-- <h4 class="text-sm py-2 text-lg text-gray-700 font-bold" x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="scale-0" x-transition:enter-end="scale-100" style="color: gray">JAVOLIN’S PROPRIETARY PLATFORM</h4> --}}
     <h2 class="mt-0 font-bold text-5xl text-[#000B6B] fadeUp animation-element">Our Platform</h2>
-    <p class="text-[24px] text-[#595959] mt-4 leading-[32px]">Software Solutions empower financial participation by the banked and the unbanked sector</p>
+    <p class="text-[24px] text-[#595959] mt-4 leading-[32px]">Advanced Technology across integrated platforms.</p>
 
 
     <img style="width: 1200px;" class="absolute hidden lg:block bottom-0  right-0 object-right object-contain" src="images/plaform.png"/>
@@ -392,6 +394,7 @@ through our integrated partner program, we provide our clients access to 145+ cu
 
 
     </div>
+    <!--
     <div class="flex text-center flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
              <div style="font-weight: bold;" class="mr-2">
                 learn more
@@ -400,6 +403,7 @@ through our integrated partner program, we provide our clients access to 145+ cu
                     <img src="/images/ArrowSquareOut.svg"/>
                 </div>
             </div>
+            -->
 
 
 </div>
@@ -418,9 +422,16 @@ through our integrated partner program, we provide our clients access to 145+ cu
             <h2 class="text-[56px] text-white font-bold">
                 Foreign Exchange
             </h2>
-            <p class="text-[28px] text-[28px] text-white">
-                Habitant amet dignissim sed sed in accumsan. Mauris donec sollicitudin risus fermentum morbi. Etiam ac est fames venenatis nisi. At duis dolor tincidunt diam arcu quisque eget bibendum ac. Urna nec nulla lectus at. Vulputate tortor ut sed turpis egestas. Vitae imperdiet.
-                </p>
+            <div class="mx-auto">
+                    <p class="text-[28px] text-[28px] text-white">
+                        Through our integrated partner program,
+                         we provide our clients access to 145+ 
+                         currencies delivered to over 200+ countries 
+                         with up-to-the minute trading information 
+                         through our foreign exchange platform.
+                    </p>
+            </div>
+            
             <a href="/solutions/foreign-exchange" >
             <div  class="flex flex-row rounded-full py-4 px-8 w-max bg-white text-white justify-center items-center mt-8 cursor-pointer">
              <a href="/solutions/foreign-exchange" style="font-weight: bold;" class="mr-2 text-[#0032A0] ">
@@ -630,7 +641,8 @@ Sit congue quam arcu egestas sed eget. In.
                         Developing Fintech in Africa with Carl Powell
                     </div>
                     <div class="text-[21px] text-left ">
-                        Habitant pharetra bibendum massa quam id suspendisse non nulla et. Commodo sed id aliquet pulvinar malesuada penatibus nullam mattis non
+                        Hosts Kevin Plunkett and Lenna Turner talk to Carl about how he went from small-town Mississippi, to Harvard Business
+                        School, to International businessman, developing fintech in western and southern Africa.
                     </div>
                 </div>
             </div>
@@ -641,7 +653,7 @@ Sit congue quam arcu egestas sed eget. In.
             <div class="border-b-[0.4px] border-[#AAAEB6]">
                 <a target="_blank" href="https://www.myjoyonline.com/local-government-service-partners-javolin-group-to-plug-5-6-billion-tax-loophole/">
                 <div class="text-[28px] text-[#274DD2] text-left">
-                    Local Government Service partners Javolin Group to plug ₵5.6 billion tax loophole
+                    Local Government Service partners with Javolin Group to plug ₵5.6 billion tax loophole
                 </div>
                 <div class="text-[24px] text-left text-[#5D6066]">
                     An estimated ¢5.6 billion is lost annually from the revenue collection kitty of Metropolitan, Municipal and District Assemblies (MMDAs). 
