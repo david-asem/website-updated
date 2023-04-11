@@ -81,6 +81,11 @@ app.get("/blog/javolin-set-to-launch-on-april-6-2022",(req,res) => {
     })
 });
 
+app.get("/about/company",(req,res) => {
+    res.render("company",{
+    })
+});
+
 app.get("/blog/javolin-opens-new-office-in-dakar-senegal",(req,res) => {
     res.render("javolin-opens-new-office-in-dakar-senegal",{
     })
