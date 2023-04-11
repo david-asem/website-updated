@@ -70,6 +70,11 @@ app.get("/blog/developing-fintech-in-africa-with-carl-powell",(req,res) => {
     })
  });
 
+  app.get("/solutions/digital-payments",(req,res) => {
+    res.render("digitalpayments",{
+    })
+ });
+
 app.get("/blog/javolin-set-to-launch-on-april-6-2022",(req,res) => {
     res.render("javolin-set-to-launch-on-april-6-2022",{
 
