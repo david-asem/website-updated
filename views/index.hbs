@@ -39,6 +39,7 @@
             </h2>
             <p class="text-[28px] text-[28px] text-[#3B404A]">
 Javolin is a financial services technology company providing services and products through our digital platform and mobile and web-based applications for Businesses, Banks, Government Entities, and Consumers            </p>
+            <a href="/about/company">
             <div class="flex flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
              <div class="mr-2">
                 More about us
@@ -47,6 +48,7 @@ Javolin is a financial services technology company providing services and produc
                     <img src="/images/ArrowSquareOut.svg"/>
                 </div>
             </div>
+            </a>
         </div>
     </div>
    
@@ -376,21 +378,25 @@ Our platform facilitates collections in all revenue areas and provides supportiv
 </div>
 
 <section class="flex flex-col lg:flex-row  relative" >
-    
-    <video autoplay muted loop id="myVideo" class="absolute top-0 w-full h-full object-cover">
-        <source src="/videos/Forex_globe.mov" type="video/mp4">
-    </video>
-    <div class="absolute left-0 right-0 w-full h-full" style="background: rgba(0, 11, 107, 0.7);;">
-    </div>
 
-    <div class="flex text-center px-2 justify-center items-center z-20 lg:px-24">
-        <div class="slide fadeRight animation-element flex text-center justify-center items-center flex-col">
+    <div class="lg:grid grid-cols-2">
+
+        <div class="relative">
+            <video autoplay muted loop id="myVideo" class="absolute top-0 w-full h-full object-cover">
+                <source src="/videos/Forex_globe.mov" type="video/mp4">
+            </video>
+            <div class="absolute left-0 right-0 w-full h-full" style="background: rgba(0, 11, 107, 0.7);;">
+            </div>
+        </div>
+
+         <div class="flex text-left px-2  justify-center items-center   z-20 lg:px-24 bg-[#E2ECFE]">
+        <div class="slide fadeRight animation-element flex text-left  flex-col ">
             
-            <h2 class="text-[56px] text-white font-bold">
+            <h2 class="text-[56px] text-[#000B6B] font-bold">
                 Foreign Exchange
             </h2>
             <div class="mx-auto">
-                    <p class="text-[28px] text-[28px] text-white">
+                    <p class="text-[28px] text-[28px] text-[#3B404A]">
                         Through our integrated partner program,
                          we provide our clients access to 145+ 
                          currencies delivered to over 200+ countries 
@@ -400,13 +406,13 @@ Our platform facilitates collections in all revenue areas and provides supportiv
             </div>
             
             <a href="/solutions/foreign-exchange" >
-            <div  class="flex flex-row rounded-full py-4 px-8 w-max bg-white text-white justify-center items-center mt-8 cursor-pointer">
-             <a href="/solutions/foreign-exchange" style="font-weight: bold;" class="mr-2 text-[#0032A0] ">
-                Learn more
-            </a>
-                <a href="/solutions/foreign-exchange">
-                    <img src="/images/icons/ArrowSquareOutBlue.svg"/>
-                </a>
+            <div class="flex text-center flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
+             <div style="font-weight: bold;" class="mr-2">
+                learn more
+            </div>
+                <div>
+                    <img src="/images/ArrowSquareOut.svg"/>
+                </div>
             </div>
             </a>
             
@@ -415,6 +421,12 @@ Our platform facilitates collections in all revenue areas and provides supportiv
             {{!-- <img src="/images/AfricaGraphic.png" alt="african map"/> --}}
         </div>
     </div>
+    </div>
+    
+    
+
+   
+
 </section>
 
 
