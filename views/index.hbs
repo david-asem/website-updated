@@ -31,7 +31,7 @@
     <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
         
         <div class="fadeLeft animation-element">
-            <img src="/images/AfricaGraphic.png" alt="african map"/>
+            <img src="/images/value.png" alt="african map"/>
         </div>
         <div class="slide fadeRight animation-element">
             <h2 class="text-[56px] text-[#000B6B] font-bold">
@@ -521,57 +521,102 @@ Our platform facilitates collections in all revenue areas and provides supportiv
    
 </section>
 
-<section x-data="{ shown: false }" x-intersect="shown = true" class="p-10 flex flex-col lg:flex-row lg:px-24 py-20" style="background: url('/images/bg_section.png') no-repeat; background-size: cover; background-attachment: fixed;">
+<section x-data="{ shown: false }" x-intersect="shown = true" class="p-10 flex flex-col lg:flex-row lg:px-24 py-20" style="background: url('/images/partners_bg.png') no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="w-full ">
         <div class="flex flex-col justify-center items-center fadeUp animation-element">
-            <div class="text-[42px] font-bold text-center text-white">
+            <div class="text-[42px] font-bold text-center text-[#000B6B]">
                 Our Partners Around the World
             </div>
-            <div class="text-[24px] text-center text-white text-center text-[#ffffffb3]">
+            <div class="text-[24px] text-center text-center text-[#3B404A]">
                 Software Solutions empower financial participation by the banked and the unbanked sector
             </div>
         </div>
-    
-            <div class="grid gap-10 mt-10">
-                <div x-show="shown" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                    <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
-                            <img class="relative" src="/images/partners/corpay.png" style="width: 130px; height: 63px;"/>
+
+            <div class="w-full" >
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mt-10">
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center">
+                                <img class="relative" src="/images/partners/corpay.png" class="p-6 object-fit"/>
+                            </div>
+                    </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center">
+                                <img src="/images/partners/uba_logo.png" class="p-4 object-fit"/>
+                            </div>
+                    </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                        <div class="bg-white w-32 h-32 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center">
+                            <img src="/images/partners/zenith.png" class="p-12 object-fit" />
+                        </div>
+                    </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64  rounded-full flex flex-col justify-center items-center">
+                                <img src="/images/partners/paps.png"  class="p-4 object-fit"//>
+                            </div>
+                    </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
+                        <div class="bg-white w-32 h-32 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center">
+                            <img src="/images/partners/e-transactions.png" class="object-fit"//>
                         </div>
                     </div>
                 </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10 justify-center">
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64  rounded-full flex flex-col justify-center items-center">
+                                <img src="/images/partners/google_logo.png" class="object-fit"//>
+                            </div>
+                        </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64  rounded-full flex flex-col justify-center items-center">
+                                <img src="/images/partners/integral.png" class="object-fit"//>
+                            </div>
+                    </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64  rounded-full flex flex-col justify-center items-center">
+                            <img src="/images/partners/multi_logo.svg" class="object-fit"//>
+                        </div>
+                        </div>
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
+                            <div class="bg-white w-32 h-32 lg:w-64 lg:h-64  rounded-full flex flex-col justify-center items-center">
+                            <img src="/images/partners/absa_logo.png" class="object-fit" />
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
 
-                <div class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center lg:-mt-12 md:mt-0 ">
+
+                {{!-- <div class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center lg:-mt-12 md:mt-0 ">
                     <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                             <img src="/images/partners/uba_logo.png" style="width: 130px; height: 63px;"/>
                         </div>
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
-                            <img src="/images/partners/zenith.png" style="width: 100px; height: 100%;"/>
+                        <div class="bg-white w-64 h-64 rounded-full flex flex-col justify-center items-center">
+                            <img src="/images/partners/zenith.png" class="p-12" style="width: 100%; height: 100%;"/>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="grid grid-cols-1 gap-6 grid-x-8 justify-center items-center md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-10">
+                {{!-- <div class="grid grid-cols-1 gap-6 grid-x-8 justify-center items-center md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-10">
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                             <img src="/images/partners/paps.png"  style="width: 130px; height: 63px;"/>
                         </div>
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64 rounded-full flex flex-col justify-center items-center">
                             <img src="/images/partners/e-transactions.png" style="height: 63px;"/>
                         </div>
                     </div>
                      <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                             <img src="/images/partners/google_logo.png"/>
                         </div>
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                             <img src="/images/partners/integral.png" style=" height: 50px;"/>
                         </div>
                     </div>
@@ -579,19 +624,19 @@ Our platform facilitates collections in all revenue areas and provides supportiv
 
                  <div class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center  ">
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                        <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                        <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                         <img src="/images/partners/multi_logo.svg" />
                     </div>
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
-                         <div class="bg-[#E8EBF2] w-64 h-24 rounded-2xl flex flex-col justify-center items-center">
+                         <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
                         <img src="/images/partners/absa_logo.png" />
                     </div>
                     </div>
-                </div>
+                </div> --}}
 
                 
-            </div>
+            
         </div>
     </div>
 </section>
