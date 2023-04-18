@@ -373,12 +373,14 @@
 
 
         setInterval(() => {
+            document.querySelector("#myHero").classList.remove("ZoomOut")
             counter = counter === (headings.length-1) ? 0 : (counter + 1)
             document.querySelector("#heading").textContent = headings[counter].title;
             document.querySelector("#heading-content").textContent = headings[counter].content;
             document.querySelector("#heading-module").textContent = headings[counter].module;
             document.querySelector("#industryLink").href = headings[counter].link; 
             document.querySelector("#myHero").style.backgroundImage = `url('${headings[counter].image}')`;
+            document.querySelector("#myHero").classList.add("ZoomOut")
 
         },3000)
 
