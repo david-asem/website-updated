@@ -33,10 +33,10 @@
   .fadeInDown { animation-name: fadeInDown; }
 
     
-  @keyframes ZoomOut {
-    from { opacity: 0; transform: translate3d(0, -100%, 0); }
-    to { opacity: 1; transform: none; } }
-  .fadeInDown { animation-name: fadeInDown; }
+  @keyframes zoomInOut {
+    from { opacity: 0; scale: 100%; }
+    to { opacity: 1; scale: 110%; } }
+  .zoomInOut { animation-name: zoomInOut; }
   
   /* FADE IN UP */
   
@@ -72,6 +72,15 @@
     from { opacity: 0; transform: translate3d(100%, 0, 0); }
     to { opacity: 1; transform: none; } }
   .fadeInRight { animation-name: fadeInRight; }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 100%;
+    }
+    100% {
+      background-size: 120%
+    }
+  }
   
   /* @end standard animaties  */
   
@@ -105,6 +114,13 @@
    animation-fill-mode: both;
     backface-visibility: hidden;
  }
+
+ .ZoomOut {  
+  animation: zoom-in-zoom-out 4s ease infinite;
+  animation-delay: 0s;
+ animation-fill-mode: both;
+  
+}
 
  .fadeDown.in-view {  
     animation: fadeInDown;
