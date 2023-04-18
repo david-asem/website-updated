@@ -116,7 +116,7 @@
  }
 
  .ZoomOut {  
-  animation: zoom-in-zoom-out 4s ease infinite;
+  animation: zoom-in-zoom-out 3s ease infinite;
   animation-delay: 0s;
  animation-fill-mode: both;
   
