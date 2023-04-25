@@ -384,7 +384,7 @@
             document.querySelector("#heading-content").textContent = headings[counter].content;
             document.querySelector("#heading-module").textContent = headings[counter].module;
             document.querySelector("#industryLink").href = headings[counter].link; 
-            document.querySelector("#myHero").style.backgroundImage = `url('${headings[counter].image}')`;
+            document.querySelector("#myHero").src = `${headings[counter].image}`;
             document.querySelector("#myHero").classList.add("ZoomOut")
 
         },3000)

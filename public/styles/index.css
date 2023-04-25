@@ -74,13 +74,144 @@
   .fadeInRight { animation-name: fadeInRight; }
 
   @keyframes zoom-in-zoom-out {
-    0% {
-      background-size: 100%;
+    from {
+      /* background-size: 100%; */
+      opacity: 0;
+      transform: scale(1);
     }
-    100% {
-      background-size: 120%
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
     }
   }
+
+  @-moz-keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 100%;
+      opacity: 0;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    100% {
+      background-size: 105%;
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 100%;
+      opacity: 0;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    100% {
+      background-size: 105%;
+      opacity: 0;
+    }
+  }
+  
+  @-o-keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 100%;
+      opacity: 0;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    100% {
+      background-size: 105%;
+      opacity: 0;
+    }
+  }
+  
+  @-ms-keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 100%;
+      opacity: 0;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    100% {
+      background-size: 105%;
+      opacity: 0;
+    }
+}
+  
+  .fade-out {
+    animation: fadeOut ease 3s infinite;
+    /* animation-delay: 2s; */
+    -webkit-animation: fadeOut ease 3s;
+    -moz-animation: fadeOut ease 3s;
+    -o-animation: fadeOut ease 3s;
+    -ms-animation: fadeOut ease 3s;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+  }
+}
   
   /* @end standard animaties  */
   
@@ -119,6 +250,12 @@
   animation: zoom-in-zoom-out 3s ease infinite;
   animation-delay: 0s;
  animation-fill-mode: both;
+ -webkit-backface-visibility: hidden;
+ will-change: transform;
+ -webkit-animation: zoom-in-zoom-out 3s ease infinite;
+ -moz-animation: zoom-in-zoom-out 3s ease infinite;
+ -o-animation: zoom-in-zoom-out 3s ease infinite;
+ -ms-animation: zoom-in-zoom-out 3s ease infinite;
   
 }
 
