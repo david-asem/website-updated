@@ -1,8 +1,9 @@
     <section style="height: 100vh;" class="relative">
-            <div  class="absolute top-0 w-full h-full" >
-                <div id="myHero" class="w-full h-full bg-cover bg-clip-border bg-no-repeat">
+            <div  class="absolute top-0 w-screen h-screen overflow-hidden" >
+                {{!-- <div id="myHero" class="w-screen h-screen bg-cover bg-clip-border object-cover">
 
-                </div>
+                </div> --}}
+                <img  id="myHero" class="w-screen h-screen bg-cover bg-clip-border object-cover" />
             </div>
         <div class="absolute top-0 left-0 right-0 bottom-0 z-10" style="background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);">
 
@@ -35,10 +36,10 @@
             <img src="/images/value.png" alt="african map"/>
         </div>
         <div class="slide fadeRight animation-element">
-            <h2 class="text-[56px] text-[#000B6B] font-bold">
+            <h2 class="text-5xl lg:text-[56px] text-[#000B6B] font-bold leading-10">
                 The Value We Deliver
             </h2>
-            <p class="text-[28px] text-[28px] text-[#3B404A]">
+            <p class="text-2xl mt-4  md:text-[28px] lg:text-[28px] text-[#3B404A] leading-10">
 Javolin is a financial services technology company providing services and products through our digital platform and mobile and web-based applications for Businesses, Banks, Government Entities, and Consumers            </p>
             <a href="/about/company">
             <div class="flex flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
@@ -393,11 +394,11 @@ Our platform facilitates collections in all revenue areas and provides supportiv
          <div class="flex text-left px-2  justify-center items-center   z-20 lg:px-24 bg-[#E2ECFE]">
         <div class="slide fadeRight animation-element flex text-left  flex-col ">
             
-            <h2 class="text-[56px] text-[#000B6B] font-bold">
+            <h2 class="text-5xl lg:text-[56px] text-[#000B6B] font-bold">
                 Foreign Exchange
             </h2>
             <div class="mx-auto">
-                    <p class="text-[28px] text-[28px] text-[#3B404A]">
+                    <p class="text-2xl mt-4 lg:mt-0 lg:text-[28px] md:text-[28px] text-[#3B404A]">
                         Through our integrated partner program,
                          we provide our clients access to 145+ 
                          currencies delivered to over 200+ countries 
@@ -512,10 +513,10 @@ Our platform facilitates collections in all revenue areas and provides supportiv
             </video>
         </div>
         <div class="fadeRight animation-element">
-            <h2 class="text-[56px] text-[#000B6B] font-bold">
+            <h2 class="text-5xl lg:text-[56px] text-[#000B6B] font-bold my-6 leading-[60px]">
                 Integrated Solutions Powered by One Wallet
             </h2>
-            <p class="text-[28px] text-[28px]">Our Wallet based system allows a user-friendly interactive process that’s accessible on iOS and Android devices, via USSD and our website. 
+            <p class="text-2xl mt-4 lg:mt-0 md:text-[28px] lg:text-[28px] text-[28px] leading-10">Our Wallet based system allows a user-friendly interactive process that’s accessible on iOS and Android devices, via USSD and our website. 
             </p>
         </div>
     </div>
@@ -549,7 +550,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-3000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
                         <div class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
-                            <img src="/images/partners/zenith.png" class="p-12 object-fit" />
+                            <img src="/images/partners/zenith.png" class="p-6 lg:p-12  object-fit" />
                         </div>
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center ">
@@ -566,7 +567,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mt-10 justify-center">
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
                             <div class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
-                                <img src="/images/partners/google_logo.png" class="object-fit"//>
+                                <img src="/images/partners/google_logo.png" class="object-fit p-4"//>
                             </div>
                         </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
@@ -576,7 +577,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
                     </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
                             <div class="bg-white w-32 h-32 lg:w-52 lg:h-52  rounded-full flex flex-col justify-center items-center">
-                            <img src="/images/partners/multi_logo.svg" class="object-fit"//>
+                            <img src="/images/partners/multi_logo.svg" class="object-fit p-4"//>
                         </div>
                         </div>
                     <div x-show="shown" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100" class="grid justify-center items-center">
@@ -653,7 +654,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
 
     <div class="flex justify-center flex-col items-center fadeDown animation-element">
         <div>
-            <h2 class="text-[56px] text-center text-[#000B6B] font-bold">In The News</h2>
+            <h2 class="text-5xl lg:text-[56px] text-center text-[#000B6B] font-bold">In The News</h2>
         </div>
         <div class="text-center text-lg max-w-[800px] text-gray-600">
             Read the latest news & stories about Javolin and what’s happening in the fintech industry.
@@ -681,7 +682,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
         </div>
 
         <div class="py-12 fadeRight animation-element mt-2">
-            <div class=" border-[#AAAEB6]">
+            <div class=" border-[#AAAEB6] border-b">
                 <a target="_blank" href="https://www.myjoyonline.com/local-government-service-partners-javolin-group-to-plug-5-6-billion-tax-loophole/">
                 <div class="text-[28px] text-[#274DD2] text-left">
                     Local Government Service partners with Javolin Group to plug ₵5.6 billion tax loophole
@@ -689,7 +690,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
                 <div class="text-[24px] text-left text-[#5D6066]">
                     An estimated ¢5.6 billion is lost annually from the revenue collection kitty of Metropolitan, Municipal and District Assemblies (MMDAs). 
                 </div>
-                <div target="_blank" href="https://www.myjoyonline.com/local-government-service-partners-javolin-group-to-plug-5-6-billion-tax-loophole/" class="flex flex-row py-4 justify-end">
+                <div class="flex flex-row py-4 justify-end">
                     <div style="font-weight: bold;" class="text-[20px] text-[#0032A0] mr-4">
                         Read More
                     </div>
@@ -701,7 +702,7 @@ Our platform facilitates collections in all revenue areas and provides supportiv
                 </div>
                 </a>
             </div>
-            <div class="mt-8 border-[#AAAEB6]">
+            <div class="mt-8 border-[#AAAEB6] border-b">
                 <a href="/blog/javolin-opens-new-office-in-dakar-senegal">
                     <div class="text-[28px] text-[#B5490D] text-left">
                     Javolin Opens New Office In Dakar, Senegal
