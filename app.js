@@ -23,10 +23,11 @@ app.get('/', (req, res) => {
     res.render('index', {});
 })
 
-app.get('/solutions/consumer', (req, res) => {
+
+ /* app.get('/solutions/consumer', (req, res) => {
     res.render('consumer', {});
 })
-
+*/
 app.get('/solutions/business', (req, res) => {
     res.render('business', {});
 })
