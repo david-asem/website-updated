@@ -38,7 +38,7 @@
 
                 <a href="/solutions/bank">
                     <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-xl">Banks</h2>
+                        <h2 class="font-bold text-xl">Banks and Unbanked Sector</h2>
                     </div>
                 </a>
             </div>
@@ -63,6 +63,8 @@
                     </div>
                 </a>
             </div>
+            
+            <!--
             <div @mouseover="hoveritem = 'consumer'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
 
                 <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
@@ -75,7 +77,7 @@
                     </div>
                 </a>
             </div>
-
+            -->
             
 
             
@@ -84,6 +86,7 @@
            
         </div>
         
+        <!--
         <template x-if="hoveritem=='consumer'">
             <div @mouseover="console.log('submitted: ', hoveritem)" x-show="submitted = 'consumer'" class="flex flex-col basis-2/4 bg-[#F5F7FA]">
             <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/consumer_nav_img.png')] bg-cover">
@@ -95,6 +98,7 @@
             </div>
         </div>
         </template>
+        -->
         
          <template x-if="hoveritem=='banks'">
              <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
@@ -113,8 +117,13 @@
             <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/business_nav_img.png')] bg-cover">
             </div>
             <div>
+                <!--
                 <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
                     Get your business up to speed with products from Javolin
+                </p>
+                -->
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                    We offer businesses the convenience and services of a versatile digital platform
                 </p>
             </div>
         </div>
