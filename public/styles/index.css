@@ -75,7 +75,6 @@
 
   @keyframes zoom-in-zoom-out {
     from {
-      /* background-size: 100%; */
       opacity: 0;
       transform: scale(1);
     }
@@ -93,9 +92,9 @@
   }
 
   @-moz-keyframes zoom-in-zoom-out {
-    0% {
-      background-size: 100%;
+    from {
       opacity: 0;
+      transform: scale(1);
     }
     33.33% {
       opacity: 1;
@@ -103,16 +102,17 @@
     66.66% {
       opacity: 1;
     }
-    100% {
-      background-size: 105%;
+    to{
+      /* background-size: 105%; */
       opacity: 0;
+      transform: scale(1.05);
     }
   }
   
   @-webkit-keyframes zoom-in-zoom-out {
-    0% {
-      background-size: 100%;
+    from {
       opacity: 0;
+      transform: scale(1);
     }
     33.33% {
       opacity: 1;
@@ -120,16 +120,17 @@
     66.66% {
       opacity: 1;
     }
-    100% {
-      background-size: 105%;
+    to{
+      /* background-size: 105%; */
       opacity: 0;
+      transform: scale(1.05);
     }
   }
   
   @-o-keyframes zoom-in-zoom-out {
-    0% {
-      background-size: 100%;
+    from {
       opacity: 0;
+      transform: scale(1);
     }
     33.33% {
       opacity: 1;
@@ -137,16 +138,17 @@
     66.66% {
       opacity: 1;
     }
-    100% {
-      background-size: 105%;
+    to{
+      /* background-size: 105%; */
       opacity: 0;
+      transform: scale(1.05);
     }
   }
   
   @-ms-keyframes zoom-in-zoom-out {
-    0% {
-      background-size: 100%;
+    from {
       opacity: 0;
+      transform: scale(1);
     }
     33.33% {
       opacity: 1;
@@ -154,9 +156,10 @@
     66.66% {
       opacity: 1;
     }
-    100% {
-      background-size: 105%;
+    to{
+      /* background-size: 105%; */
       opacity: 0;
+      transform: scale(1.05);
     }
 }
   
@@ -247,15 +250,15 @@
  }
 
  .ZoomOut {  
-  animation: zoom-in-zoom-out 3s ease infinite;
+  animation: zoom-in-zoom-out 5s ease infinite;
   animation-delay: 0s;
  animation-fill-mode: both;
  -webkit-backface-visibility: hidden;
  will-change: transform;
- -webkit-animation: zoom-in-zoom-out 3s ease infinite;
- -moz-animation: zoom-in-zoom-out 3s ease infinite;
- -o-animation: zoom-in-zoom-out 3s ease infinite;
- -ms-animation: zoom-in-zoom-out 3s ease infinite;
+ -webkit-animation: zoom-in-zoom-out 5s ease infinite;
+ -moz-animation: zoom-in-zoom-out 5s ease infinite;
+ -o-animation: zoom-in-zoom-out 5s ease infinite;
+ -ms-animation: zoom-in-zoom-out 5s ease infinite;
   
 }
 
