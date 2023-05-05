@@ -77,7 +77,7 @@ app.get("/blog/developing-fintech-in-africa-with-carl-powell",(req,res) => {
   });
  
    app.get("/solutions/digital-infrastructure",(req,res) => {
-    res.render("digital-infrastructure",{
+    res.render("Digital-infrastructure",{
     })
    });
  
