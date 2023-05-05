@@ -253,13 +253,12 @@
   animation: zoom-in-zoom-out 5s ease infinite;
   animation-delay: 0s;
  animation-fill-mode: both;
- -webkit-backface-visibility: hidden;
- will-change: transform;
- -webkit-animation: zoom-in-zoom-out 5s ease infinite;
- -moz-animation: zoom-in-zoom-out 5s ease infinite;
- -o-animation: zoom-in-zoom-out 5s ease infinite;
- -ms-animation: zoom-in-zoom-out 5s ease infinite;
-  
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  -webkit-animation: zoom-in-zoom-out 5s ease infinite;
+  -moz-animation: zoom-in-zoom-out 5s ease infinite;
+  -o-animation: zoom-in-zoom-out 5s ease infinite;
+  -ms-animation: zoom-in-zoom-out 5s ease infinite; 
 }
 
  .fadeDown.in-view {  
