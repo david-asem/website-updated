@@ -43,6 +43,22 @@ function googleTranslateElementInit() {
             display:none;
         }
 
+        body > .skiptranslate > iframe.skiptranslate {
+        display: none !important;
+        visibility: hidden !important;
+        }
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            } 
+        
+
+        .goog-te-banner-frame{
+            display:none !important
+        }
+
+        .goog-te-banner-frame .VIpgJd-ZVi9od-ORHb{
+            display:none !important
+        }
 
 
     .goog-te-gadget-simple {
@@ -67,6 +83,8 @@ function googleTranslateElementInit() {
         body{
             font-family: 'Satoshi', sans-serif;
             margin: 0;
+            top: 0px !important; 
+            position: static !important; 
         }
         h2 {
             font-family: 'Satoshi';
@@ -192,7 +210,7 @@ function googleTranslateElementInit() {
 
     @click="langDropdownOpened = !langDropdownOpened"
     >
-    <img  src="/images/translate.png" alt="translate icon" class="object-fit p-2"/>
+    <img  src="/images/Globe.png" alt="translate icon" class="object-fit p-2"/>
      <div class="absolute right-6 top-5" x-show="langDropdownOpened" id="google_translate_element"></div>
 </div>
 <header class="h-20 w-full py-4 flex justify-between items-center px-4 my-0 lg:px-12 xl:px-20  bg-transparent absolute top-0 z-30" x-data="{supportOpen:false, platformOpened: false, aboutusOpened:false, resourcesOpened: false ,industriesOpened:false, solutionsOpened: false,investorOpened: false,navOpened: false }">
