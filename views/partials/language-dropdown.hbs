@@ -1,0 +1,28 @@
+<div>
+
+    <div @click=" dropdownOpened = !dropdownOpened " class="flex flex-row justify-center items-center p-1 cursor-pointer ">
+        <div>
+            <div class="rounded-full w-10 h-10">
+                    <img class="rounded-full w-10 h-10" x-bind:src="`/images/flags/${langs[selectedLang].image}`" alt="flag" />
+                </div>
+        </div>
+            <div x-text="langs[selectedLang].lang_code" class="text-white ml-2">
+
+            </div>
+    </div>
+
+    <div x-show="dropdownOpened" class="absolute z-40 bg-white text-black">
+        
+         <template x-for="lang in langdata" :key="lang.id">
+            <div @click="selectedLang = lang.id; dropdownOpened=false" class="flex flex-row justify-center items-center p-1 cursor-pointer">
+                <div class="rounded-full w-10 h-10">
+                    <img class="rounded-full w-10 h-10" x-bind:src="`/images/flags/${lang.url}`" alt="flag" />
+                </div>
+                <div class="ml-2">
+                    <p x-text="lang.id"></p>
+                </div>
+            </div>
+            
+         </template>
+    </div>
+</div>
