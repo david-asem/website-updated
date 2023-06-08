@@ -23,6 +23,14 @@
     
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: "en,fr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <meta name="author" content="Javolin LLC | smith sese" />
     <meta name="description" content="Digital Wallet that works for you">
     <style>
@@ -31,7 +39,31 @@
         @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-Regular.ttf'); }
         @font-face { font-family: 'Satoshi'; font-weight: bold; src: url('/fonts/satoshi/Satoshi-Bold.ttf');}
 
+        .goog-te-gadget-icon {
+            display:none;
+        }
 
+
+
+    .goog-te-gadget-simple {
+        background-color: #ecebf0 !important;
+        border:0 !important;
+        font-size: 10pt;
+    font-weight:800;
+        display: inline-block;
+        padding:10px 10px !important;
+        cursor: pointer;
+        zoom: 1;
+    }
+
+    .goog-te-gadget-simple  span {
+    color:#3e3065 !important;
+
+    }
+    .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+    color: #000;
+    display: flex !important;
+}
         body{
             font-family: 'Satoshi', sans-serif;
             margin: 0;
@@ -63,7 +95,7 @@
     </style>
 </head>
 
-<body x-data="{
+<body class="relative" x-data="{
                 playerOpened: false,
                 comingSoonOpened: false,
                 waitListOpened: false,
@@ -153,15 +185,25 @@
             }"
       x-id="['dropdown-button']">
 
+<div class="w-12 h-12 fixed rounded-full bg-white top-6 z-40 drop-shadow-xl cursor-pointer"
+    x-data="{
+        langDropdownOpened: false
+    }"
 
+    @click="langDropdownOpened = !langDropdownOpened"
+    >
+    <img src="/images/translate.png" alt="translate icon" class="object-fit p-2"/>
+     <div x-show="langDropdownOpened" id="google_translate_element"></div>
+</div>
 <header class="h-20 w-full py-4 flex justify-between items-center px-4 my-0 lg:px-12 xl:px-20  bg-transparent absolute top-0 z-30" x-data="{supportOpen:false, platformOpened: false, aboutusOpened:false, resourcesOpened: false ,industriesOpened:false, solutionsOpened: false,investorOpened: false,navOpened: false }">
     {{!-- <div class="flex h-full justify-center items-center"> --}}
-        <a class="lg:mr-12 flex-none" href="/">
+        <a class="lg:mr-2 flex-none" href="/">
             <img class="lg:h-16 lg:w-60" src="/images/JAVOLIN_LOGO_RGB_REV.png" />
         </a>
 
         {{> nav }}
-        {{>language-dropdown}}
+       
+        {{!-- {{>language-dropdown}} --}}
 
     {{!-- </div> --}}
 
@@ -175,7 +217,7 @@
         -->
 <a href="https://app.forex.javolin.com/"
     x-text="language[selectedLang]['Client Log-in']"
-    class="hidden lg:block cursor-pointer bg-[#040723] md:px-6 px-2 md:py-4 lg:px-6 lg:py-4 rounded-full lg:text-lg text-sm font-bold flex items-center text-white justify-center">
+    class="max-w-[200px] truncate hidden lg:block cursor-pointer bg-[#040723] md:px-6 px-2 md:py-4 lg:px-6 lg:py-4 rounded-full lg:text-lg text-sm font-bold flex items-center text-white justify-center">
     Client Log-in
 </a>
 
@@ -325,7 +367,8 @@
                     name: this.name,
                     email: this.user_email,
                     body: this.message,
-                    subject: this.subject
+                    subject: this.subject,
+                    country: this.country,
                 }).then(res => {
                     this.toggle();
                     console.log(res);
@@ -334,6 +377,7 @@
                     this.subject = "";
                     this.message = "";
                     this.user_email = "";
+                    this.country = ""
                 }).catch(err => {
                     this.toggle();
                     console.error(err);
@@ -382,7 +426,14 @@
 
      $(document).ready(function() {
 
-
+        $('#google_translate_element').bind('DOMNodeInserted', function(event) {
+      $('.goog-te-menu-value span:first').html('LANGUAGE');
+      $('.goog-te-menu-frame.skiptranslate').load(function(){
+        setTimeout(function(){
+          $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('LANGUAGE');    
+        }, 100);
+      });
+    });
       const headings = [
              {
                  module: "GOVERNMENT",
