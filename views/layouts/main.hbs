@@ -19,6 +19,7 @@
     {{!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
     {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <script src="/js/alphineData.js" ></script>
     
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -67,6 +68,7 @@
                 comingSoonOpened: false,
                 waitListOpened: false,
                 supportOpened:false,
+                {{!-- language: {{language}}, --}}
                 togglePlayer() {
                     if (this.open) {
                         return this.closePlayer()
@@ -105,6 +107,48 @@
                     video.pause();
                     video.currentTime = 0;
                     focusAfter && focusAfter.focus()
+                },
+                langs: {
+                        'EN': {
+                            lang_code: 'EN',
+                            image: 'usflag.png'
+                        },
+                        'FR': {
+                            lang_code: 'FR',
+                            image: 'frflag.png',
+                        },
+                        {{!-- 'ES': {
+                            lang_code: 'ES',
+                            image: 'esflag.svg',
+                        } --}}
+                    },
+                selectedLang: 'EN',
+                dropdownOpened: false,
+                langdata: [
+                    { id: 'EN', url: 'usflag.png' },
+                    { id: 'FR', url: 'frflag.png' },
+                    {{!-- { id: 'ES', url: 'esflag.svg' }, --}}
+                ],
+                language:{
+                    'EN':{
+                        'Client Log-in':'Client Log-in',
+                        'Industries': 'Industries',
+                        'Solutions': 'Solutions',
+                        'Platform': 'Platform',
+                        'Resources': 'Resources',
+                        'About us': 'About us',
+                        'Support': 'Support',
+                        
+                    },
+                    'FR':{
+                        'Client Log-in':'Connecter',
+                        'Industries': 'Secteurs',
+                        'Solutions': 'Solutions',
+                        'Platform': 'Plateforme',
+                        'Resources': 'Ressources',
+                        'About us': 'Á notre propos',
+                        'Support': 'Soutien',
+                    },
                 }
             }"
       x-id="['dropdown-button']">
@@ -117,6 +161,7 @@
         </a>
 
         {{> nav }}
+        {{>language-dropdown}}
 
     {{!-- </div> --}}
 
@@ -129,6 +174,7 @@
         </a>
         -->
 <a href="https://app.forex.javolin.com/"
+    x-text="language[selectedLang]['Client Log-in']"
     class="hidden lg:block cursor-pointer bg-[#040723] md:px-6 px-2 md:py-4 lg:px-6 lg:py-4 rounded-full lg:text-lg text-sm font-bold flex items-center text-white justify-center">
     Client Log-in
 </a>
@@ -262,12 +308,14 @@
 
    
     document.addEventListener('alpine:init', () => {
+        
         Alpine.data('supportMessage', () => ({
             isLoading: false,
             user_email: '',
             name: '',
             message: '',
             subject:'',
+            country:'',
             toggle() {
                 this.isLoading = !this.isLoading
             },
