@@ -18,6 +18,7 @@
         "Resources": "Ressources",
         "About us": "Á notre propos",
         "Support": "Soutien",
+        "BANKS":"Les banques"
     },
     ES:{
         "Client Log-in":"Iniciar Sesión",
