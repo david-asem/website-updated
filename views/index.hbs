@@ -1,21 +1,24 @@
-    <section style="height: 100vh;" class="relative">
-            <div  class="absolute top-0 w-screen h-screen overflow-hidden" >
-                {{!-- <div id="myHero" class="w-screen h-screen bg-cover bg-clip-border object-cover">
+    <section id="heroSec" style="height: 100vh;" class="relative">
 
-                </div> --}}
-                <img  id="myHero" loading="lazy" class="w-screen h-screen bg-cover bg-clip-border object-cover" />
+        {{!-- images for carousel --}}
+            <div id="imageContainerHero"  class="absolute top-0 w-screen h-screen overflow-hidden" >
+                <img  class="w-screen h-screen bg-cover bg-clip-border object-cover opacity-0" src="/images/government_hero.jpg" />
+                <img  class="w-screen h-screen bg-cover bg-clip-border object-cover" src="/images/bank_hero.jpg" />
+                <img  class="w-screen h-screen bg-cover bg-clip-border object-cover" src="/images/business_hero.jpg" />
             </div>
-        <div id="hero-overlay" class="absolute top-0 left-0 right-0 bottom-0 z-10" style="background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);">
 
+        <div id="hero-overlay" class="absolute top-0 left-0 right-0 bottom-0 z-10" style="background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);">
         </div>
 
-    <div class="flex absolute top-0 left-0 flex-col text-white justify-center z-20 h-full mx-10 lg:mx-24 xl:w-5/12 xl:mt-16">
-         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl"></h3>
+    <div class="imageTextHero flex absolute top-0 left-0 flex-col text-white justify-center z-20 h-full mx-10 lg:mx-24 xl:w-5/12 xl:mt-16">
+         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">GOVERNMENT</h3>
         <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
             
+            Assisting Governments with optimizing revenue
         </h2>
 
         <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
+            Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment.
         </span>
 
         <a href="/solutions/government" id="industryLink">
@@ -26,6 +29,48 @@
         </div>
         </a>
     </div>
+    
+    <div class="imageTextHero flex absolute top-0 left-0 flex-col text-white justify-center z-20 h-full mx-10 lg:mx-24 xl:w-5/12 xl:mt-16">
+         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">BANKS</h3>
+        <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
+            
+            Our Banks Trust Us
+        </h2>
+
+        <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
+            Javolin is connecting with many of the leading financial institutions on the continent.
+        </span>
+
+        <a href="/solutions/bank" id="industryLink">
+        <div class="flex flex-row rounded-full py-4 px-8 w-max text-[#0032A0] bg-white justify-center items-center mt-8 cursor-pointer">
+             <div style="font-weight: bold;" class="mr-2 text-bold">
+                Learn more
+            </div>
+        </div>
+        </a>
+    </div>
+    
+    <div class="imageTextHero flex absolute top-0 left-0 flex-col text-white justify-center z-20 h-full mx-10 lg:mx-24 xl:w-5/12 xl:mt-16">
+         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">BUSINESSES</h3>
+        <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
+            
+            Upgrade your business with innovative financial solutions from Javolin.
+        </h2>
+
+        <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
+            We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.
+        </span>
+
+        <a href="/solutions/business" id="industryLink">
+        <div class="flex flex-row rounded-full py-4 px-8 w-max text-[#0032A0] bg-white justify-center items-center mt-8 cursor-pointer">
+             <div style="font-weight: bold;" class="mr-2 text-bold">
+                Learn more
+            </div>
+        </div>
+        </a>
+    </div>
+
+
 </section>
 
 
