@@ -104,6 +104,26 @@ function googleTranslateElementInit() {
             margin-top: 1em;
         }
 
+        #imageContainerHero {
+     
+        position: relative;
+        overflow: hidden;
+        }
+
+        #imageContainerHero img {
+            position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: transform 1s, opacity 1s;
+        }
+        #heroSec .imageTextHero {
+        position: absolute;
+        opacity: 0;
+        transition: transform 1s, opacity 1s;
+    }
+
         
 
         /*.nav-link:hover {*/
@@ -470,39 +490,53 @@ function googleTranslateElementInit() {
          ];
 
 
+
+    
+            // JavaScript code to handle the image transition
+        var images = document.querySelectorAll("#imageContainerHero img");
+       var texts = document.querySelectorAll("#heroSec .imageTextHero");
+        var currentImageIndex = 0;
+        var zoomInDuration = 3000;
+        var zoomOutDuration = 2000;
+        var delayBetweenImages = 0;
+    
+        function transitionImages() {
+        var currentImage = images[currentImageIndex];
+        var currentText = texts[currentImageIndex];
+        var nextImageIndex = (currentImageIndex + 1) % images.length;
+        var nextImage = images[nextImageIndex];
+        var nextText = texts[nextImageIndex];
+    
+        // Zoom in the next image and text
+        nextImage.style.transform = "scale(1.2)";
+        nextImage.style.opacity = "1";
+        nextImage.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
+        nextText.style.opacity = "1";
+        nextText.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
+    
+        // Zoom out the current image and text
+        currentImage.style.transform = "scale(1)";
+        currentImage.style.opacity = "0";
+        currentImage.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
+        currentText.style.opacity = "0";
+        currentText.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
+    
+        currentImageIndex = nextImageIndex;
+        
+        }
+    
+        // Start the image transition loop
+        setInterval(transitionImages, delayBetweenImages + zoomInDuration + zoomOutDuration);
+
+
+
         /** ---------------------------- //
          *  @group viewport trigger script
          * for adding or removing classes from elements in view within viewport
         */
 
-        let counter = 0;
-        document.querySelector("#heading").textContent = headings[counter].title;
-         document.querySelector("#heading-content").textContent = headings[counter].content;
-         document.querySelector("#heading-module").textContent = headings[counter].module;
-         document.querySelector("#industryLink").href = headings[counter].link; 
 
-
-        setInterval(() => {
-            document.querySelector("#myHero").classList.remove("ZoomOut")
-            counter = counter === (headings.length-1) ? 0 : (counter + 1)
-            document.querySelector("#heading").textContent = headings[counter].title;
-            document.querySelector("#heading-content").textContent = headings[counter].content;
-            document.querySelector("#heading-module").textContent = headings[counter].module;
-            document.querySelector("#industryLink").href = headings[counter].link; 
-            document.querySelector("#myHero").src = `${headings[counter].image}`;
-            document.querySelector("#myHero").classList.add("ZoomOut")
-
-        },5000)
-
-
-        var $animationElements = $('.animation-element');
-        var $window = $(window);
-
-        // ps: Let's FIRST disable triggering on small devices!
-        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-        if (isMobile.matches) {
-            $animationElements.removeClass('animation-element');
-        }
+        
 
         function checkIfInView() {
 
@@ -516,15 +550,15 @@ function googleTranslateElementInit() {
                 var elementTopPosition = $element.offset().top;
                 var elementBottomPosition = (elementTopPosition + elementHeight);
 
-    //check to see if this current container is within viewport
-                if ((elementBottomPosition >= windowTopPosition) &&
-                    (elementTopPosition <= windowBottomPosition)) {
-                    $element.addClass('in-view');
-                } else {
-                    $element.removeClass('in-view');
+            //check to see if this current container is within viewport
+                        if ((elementBottomPosition >= windowTopPosition) &&
+                            (elementTopPosition <= windowBottomPosition)) {
+                            $element.addClass('in-view');
+                        } else {
+                            $element.removeClass('in-view');
+                        }
+                    });
                 }
-            });
-        }
 
         $window.on('scroll resize', checkIfInView);
         $window.trigger('scroll');
