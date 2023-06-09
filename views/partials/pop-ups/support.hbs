@@ -3,10 +3,10 @@
         x-ref="supportOpenedHolder"
         class="hidden fixed z-[50] inset-0 flex justify-center items-center bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
         id="my-modal"
-        
+        x-on:click.outside="closePlayer($refs.button)"
 >
 
-    <div x-on:click.outside="supportOpened = false" class="flex flex-col py-8 top-12 overflow-scroll bg-white shadow-md rounded-lg relative w-[1072px]" >
+    <div class="relative flex flex-col py-8 bg-white shadow-md rounded-lg overflow-hidden relative w-[1075px]" >
 
         <div class="h-24 w-full absolute left-0 top-0 bg-[url('/images/modal_header_bg.png')]">
 
