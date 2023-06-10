@@ -496,7 +496,7 @@ function googleTranslateElementInit() {
         var images = document.querySelectorAll("#imageContainerHero img");
        var texts = document.querySelectorAll("#heroSec .imageTextHero");
         var currentImageIndex = 0;
-        var zoomInDuration = 1000;
+        var zoomInDuration = 3000;
         var zoomOutDuration = 2000;
         var delayBetweenImages = 0;
     
@@ -536,14 +536,7 @@ function googleTranslateElementInit() {
         */
 
 
-        var $animationElements = $('.animation-element');
-        var $window = $(window);
-
-        // ps: Let's FIRST disable triggering on small devices!
-        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-        if (isMobile.matches) {
-            $animationElements.removeClass('animation-element');
-        }
+        
 
         function checkIfInView() {
 
