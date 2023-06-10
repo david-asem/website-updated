@@ -536,7 +536,14 @@ function googleTranslateElementInit() {
         */
 
 
-        
+        var $animationElements = $('.animation-element');
+        var $window = $(window);
+
+        // ps: Let's FIRST disable triggering on small devices!
+        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+        if (isMobile.matches) {
+            $animationElements.removeClass('animation-element');
+        }
 
         function checkIfInView() {
 
