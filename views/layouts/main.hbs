@@ -121,7 +121,6 @@ function googleTranslateElementInit() {
         #heroSec .imageTextHero {
         position: absolute;
         opacity: 0;
-        transition: transform 1s, opacity 1s;
     }
 
         
@@ -377,7 +376,72 @@ function googleTranslateElementInit() {
 
 <script>
 
-   
+        const headings = [
+             
+           {
+              module: "BANKS",
+              title: "Our Banks Trust Us",
+              content: "Javolin is connecting with many of the leading financial institutions on the continent.",
+              link: "/solutions/bank",
+              image: "/images/bank_hero.jpg" 
+          },
+             {
+                 module: "BUSINESSES",
+                 title: "Upgrade your business with innovative financial solutions from Javolin",
+                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.",
+                 link: "/solutions/business",
+                 image: "/images/business_hero.jpg" 
+             },
+             {
+                 module: "GOVERNMENT",
+                 title: "Assisting Governments with optimizing revenue",
+                 content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment.",
+                 link: "/solutions/government",
+                 image: "/images/government_hero.jpg" 
+             },
+             
+             
+         ];
+        // JavaScript code to handle the image transition
+        var images = document.querySelectorAll("#imageContainerHero img");
+       var texts = document.querySelectorAll("#heroSec .imageTextHero");
+       
+       
+        var currentImageIndex = 0;
+        var zoomInDuration = 3000;
+        var zoomOutDuration = 2000;
+        var delayBetweenImages = 0;
+    
+        function transitionImages() {
+        var currentImage = images[currentImageIndex];
+        var currentText = texts[currentImageIndex];
+        currentText.querySelector('a').href = headings[currentImageIndex].link
+
+        var nextImageIndex = (currentImageIndex + 1) % images.length;
+        var nextImage = images[nextImageIndex];
+        var nextText = texts[nextImageIndex];
+        
+    
+        // Zoom in the next image and text
+        nextImage.style.transform = "scale(1.2)";
+        nextImage.style.opacity = "1";
+        nextImage.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
+        nextText.style.opacity = "1";
+        //nextText.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
+    
+        // Zoom out the current image and text
+        currentImage.style.transform = "scale(1)";
+        currentImage.style.opacity = "0";
+        currentImage.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
+        currentText.style.opacity = "0";
+        //currentText.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
+    
+        currentImageIndex = nextImageIndex;
+        
+        }
+    
+        // Start the image transition loop
+        setInterval(transitionImages, delayBetweenImages + zoomInDuration + zoomOutDuration);
     document.addEventListener('alpine:init', () => {
         
         Alpine.data('supportMessage', () => ({
@@ -463,70 +527,12 @@ function googleTranslateElementInit() {
         }, 100);
       });
     });
-      const headings = [
-             {
-                 module: "GOVERNMENT",
-                 title: "Assisting Governments with optimizing revenue",
-                 content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment.",
-                 link: "/solutions/government",
-                 image: "/images/government_hero.jpg" 
-             },
-           {
-              module: "BANKS",
-              title: "Our Banks Trust Us",
-              content: "Javolin is connecting with many of the leading financial institutions on the continent.",
-              link: "/solutions/bank",
-              image: "/images/bank_hero.jpg" 
-          },
-             {
-                 module: "BUSINESSES",
-                 title: "Upgrade your business with innovative financial solutions from Javolin",
-                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.",
-                 link: "/solutions/business",
-                 image: "/images/business_hero.jpg" 
-             },
-             
-             
-         ];
+      
 
 
 
     
-            // JavaScript code to handle the image transition
-        var images = document.querySelectorAll("#imageContainerHero img");
-       var texts = document.querySelectorAll("#heroSec .imageTextHero");
-        var currentImageIndex = 0;
-        var zoomInDuration = 3000;
-        var zoomOutDuration = 2000;
-        var delayBetweenImages = 0;
-    
-        function transitionImages() {
-        var currentImage = images[currentImageIndex];
-        var currentText = texts[currentImageIndex];
-        var nextImageIndex = (currentImageIndex + 1) % images.length;
-        var nextImage = images[nextImageIndex];
-        var nextText = texts[nextImageIndex];
-    
-        // Zoom in the next image and text
-        nextImage.style.transform = "scale(1.2)";
-        nextImage.style.opacity = "1";
-        nextImage.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
-        nextText.style.opacity = "1";
-        nextText.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
-    
-        // Zoom out the current image and text
-        currentImage.style.transform = "scale(1)";
-        currentImage.style.opacity = "0";
-        currentImage.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
-        currentText.style.opacity = "0";
-        currentText.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
-    
-        currentImageIndex = nextImageIndex;
-        
-        }
-    
-        // Start the image transition loop
-        setInterval(transitionImages, delayBetweenImages + zoomInDuration + zoomOutDuration);
+       
 
 
 
@@ -536,7 +542,15 @@ function googleTranslateElementInit() {
         */
 
 
-        
+        var $animationElements = $('.animation-element');
+        var $window = $(window);
+
+        // ps: Let's FIRST disable triggering on small devices!
+        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+        if (isMobile.matches) {
+            $animationElements.removeClass('animation-element');
+        }
+
 
         function checkIfInView() {
 
