@@ -405,6 +405,7 @@ function googleTranslateElementInit() {
         // JavaScript code to handle the image transition
         var images = document.querySelectorAll("#imageContainerHero img");
        var texts = document.querySelectorAll("#heroSec .imageTextHero");
+       var textContainer = document.querySelector("#textContainer a");
        
        
         var currentImageIndex = 0;
@@ -415,7 +416,6 @@ function googleTranslateElementInit() {
         function transitionImages() {
         var currentImage = images[currentImageIndex];
         var currentText = texts[currentImageIndex];
-        document.querySelector('#textSection a').href = headings[currentImageIndex].link
         var nextImageIndex = (currentImageIndex + 1) % images.length;
         var nextImage = images[nextImageIndex];
         var nextText = texts[nextImageIndex];
