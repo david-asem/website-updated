@@ -465,12 +465,13 @@ function googleTranslateElementInit() {
                 }).then(res => {
                     this.toggle();
                     console.log(res);
-                    alert("Success: Joined successfully");
+                    alert("Success: Message sent successfully");
                     this.name = "";
                     this.subject = "";
                     this.message = "";
                     this.user_email = "";
                     this.country = ""
+                    
                 }).catch(err => {
                     this.toggle();
                     console.error(err);
