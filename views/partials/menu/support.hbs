@@ -35,20 +35,16 @@
 
         </div>
         <div class="flex flex-col px-2 py-2 basis-3/4">
-
-
-            <div @mouseover="hoveritem = 'jav center'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
-
+            <div @mouseover="hoveritem = 'jav center'"  x-on:click="toggleSupport(), close($refs.button)"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
                 <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
                     <img src="/gifs/consumer.gif" class="h-9 w-9" />
                 </div>
 
-                <div x-on:click="toggleSupport(), close($refs.button)" class="cursor-pointer">
+                <div class="cursor-pointer">
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-xl">Jav center</h2>
                     </div>
                 </div>
-
             </div>
 
         </div>

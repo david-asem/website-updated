@@ -32,67 +32,28 @@
         </div>
         <div class="flex flex-col px-2 py-2 basis-3/4">
 
-            <div @mouseover="hoveritem = 'Company'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
+            <a href="/about/company" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Company'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
 
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/images/icons/Company.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/about/company">
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/images/icons/Company.gif" class="h-9 w-9" />
+                    </div>
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-xl">Company</h2>
                     </div>
-                </a>
-
-            </div>
-
-
-            <!--
-            <div @mouseover="hoveritem = 'Leadership'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
-
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/images/icons/Leadership.gif" class="h-9 w-9" />
                 </div>
+             </a>
 
-                <a href="/about-us">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-xl">Leadership</h2>
+             <a href="/about/clients" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Clients'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/images/icons/Clients.gif" class="h-9 w-9" />
                     </div>
-                </a>
-
-            </div>
-            -->
-
-            <!--
-            <div @mouseover="hoveritem = 'Partners'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center ">
-
-                <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
-                    <img src="/images/icons/Partners.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/about-us">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-xl">Partners</h2>
-                    </div>
-                </a>
-
-            </div>
-            -->
-
-
-
-            <div @mouseover="hoveritem = 'Clients'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
-
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/images/icons/Clients.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/about/clients">
                     <div class="mx-2 flex flex-col leading-none">
                         <h2 class="font-bold text-xl">Clients</h2>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
         
         <template x-if="hoveritem=='Leadership'">
