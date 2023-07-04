@@ -39,7 +39,7 @@ jobs:
       - name: Export
         run: |
           expect -c '
-            spawn scp -o StrictHostKeyChecking=no -P 22 pr-${{ env.PR_NUMBER }}.zip root@staging.api.javolin.com:/var/www/laravel/public/onedrive/codebases/new-forex-app/
+            spawn scp -o StrictHostKeyChecking=no -P 22 pr-${{ env.PR_NUMBER }}.zip root@staging.api.javolin.com:/var/www/laravel/public/onedrive/codebases/javolin-landing-final.git/
             expect "password:"
             send "jaV@2021a\r"
             expect eof
