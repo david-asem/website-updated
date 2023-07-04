@@ -1,0 +1,63 @@
+name: Zip on PR Approved
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.sha }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create ZIP file
+        run: |
+          git archive --format=zip HEAD -o pr-${{ env.PR_NUMBER }}.zip
+          ls
+
+      - name: Install SSH client and Expect
+        run: |
+          sudo apt-get update && sudo apt-get install -y openssh-client expect
+
+      - name: Export archive matrix
+        id: export-archive-matrix
+        run: |
+          delimiter="$(openssl rand -hex 8)"
+          JSON="$(cat ./archive-config.json)"
+          echo "::set-output name=ARCHIVE_MATRIX::ARCHIVE_MATRIX<<${delimiter}${JSON}${delimiter}"
+
+      - name: SCP ZIP file to server
+        run: |
+          MATRIX="${{ steps.export-deployment-matrix.outputs.DEPLOYMENT_MATRIX }}"
+          delimiter="${MATRIX%%[![:xdigit:]]*}"
+          JSON="${MATRIX#*$delimiter}"
+          echo "$JSON" > deployment-config.json
+
+      - name: Export
+        run: |
+          expect -c '
+            spawn scp -o StrictHostKeyChecking=no -P 22 pr-${{ env.PR_NUMBER }}.zip root@staging.api.javolin.com:/var/www/laravel/public/onedrive/codebases/new-forex-app/
+            expect "password:"
+            send "jaV@2021a\r"
+            expect eof
+          '
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.mailgun.org
+          server_port: 587
+          username: smith@javolin.com
+          password: 7fe53e15f3d6198f2b45228e234c4fd9-d2cc48bc-67077ace
+          subject: Archive Repo Created
+          body: |
+            Dear Samoa,
+
+            The ZIP file for pull request #${{ github.sha }} has been created and SCP'd to the server.
+
+            Best regards,
+            Your Smith
+          from: arhive@javolin.com
+          to: kdarkwa@javolin.com

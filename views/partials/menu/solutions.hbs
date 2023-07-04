@@ -1,4 +1,5 @@
 <div class="relative" x-data="{
+                hoveritem: '',
                 open: false,
                 toggle() {
                     if (this.open) {
@@ -17,99 +18,116 @@
 
 
     <button x-on:click="toggle()" :aria-expanded="open"
-            :aria-controls="$id('dropdown-button')" class="text-sm mx-4 nav-link cursor-pointer">
-        <div class="flex items-center">
-            <span>
+            :aria-controls="$id('dropdown-button')" class="text-xl mx-4 nav-link cursor-pointer">
+        <div class="flex items-center text-white">
+            <span
+            x-text="language[selectedLang]['Solutions']">
                         Solutions
             </span>
 
-            <svg class="mx-1" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.00001 6.20042C5.53335 6.20042 5.06668 6.02042 4.71335 5.66708L0.36668 1.32042C0.173346 1.12708 0.173346 0.807083 0.36668 0.61375C0.560013 0.420417 0.880013 0.420417 1.07335 0.61375L5.42001 4.96042C5.74001 5.28042 6.26001 5.28042 6.58001 4.96042L10.9267 0.61375C11.12 0.420417 11.44 0.420417 11.6333 0.61375C11.8267 0.807083 11.8267 1.12708 11.6333 1.32042L7.28668 5.66708C6.93335 6.02042 6.46668 6.20042 6.00001 6.20042Z" fill="#303030"/>
-            </svg>
-
+            
         </div>
     </button>
 
-    <div  x-transition.origin.top.left x-ref="menuHolderolder" x-show="open" x-bind:class="open ? '' : 'hidden'" x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-60 mt-2">
-
-        <div class="flex flex-col px-2 py-2">
-
-
-            <div class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded">
-
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/gifs/consumer.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/solutions/consumer">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-sm">Consumer</h2>
-                        <span class="text-xs font-light text-gray-500 leading-tight">
-                           Personal services
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
-
-                <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
-                    <img src="/gifs/business-icon.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/solutions/business">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-sm">Business</h2>
-                        <span class="text-xs text-gray-500 font-light leading-tight">
-                            Grow with us
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-
-
-
-            <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
-
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/gifs/gov-entity-icon.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/solutions/government">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-sm">Government Entities</h2>
-                        <span class="text-xs text-gray-500 font-light leading-tight">
-                            Optimizing revenue streams
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-
-
-            <div class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded">
-
-                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
-                    <img src="/gifs/bank.gif" class="h-9 w-9" />
-                </div>
-
-                <a href="/solutions/bank">
-                    <div class="mx-2 flex flex-col leading-none">
-                        <h2 class="font-bold text-sm">Banks</h2>
-                        <span class="text-xs text-gray-500 font-light leading-tight">
-                            We help you connect
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-
-
+    <div  x-transition.origin.top.left x-ref="menuHolderolder" x-show="open" x-bind:class="open ? '' : 'hidden'" x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-[600px] mt-2 flex flex-row min-h-[312px]">
+        <div class="border-r-[10px] border-r-transparent border-l-[10px] border-l-transparent border-b-[15px] border-b-white absolute -top-2 left-6">
 
         </div>
+        <div class="flex flex-col px-2 py-2 basis-3/4">
 
+            <a href="/solutions/digital-payments" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Digital payments'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/images/icons/digi-pay.gif" class="h-9 w-9" />
+                    </div>
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Digital payments</h2>
+                    </div>
+                </div>
+             </a>
+            
+            <a href="/solutions/digital-infrastructure" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Digital Infrastructure'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center ">
+                    <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
+                        <img src="/images/icons/infras.gif" class="h-9 w-9" />
+                    </div>
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Digital Infrastructure</h2>
+                    </div>
+                </div>
+             </a>
+
+
+            <a href="/solutions/foreign-exchange" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Foreign Exchange'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/images/icons/exchange.gif" class="h-9 w-9" />
+                    </div>
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Foreign Exchange</h2>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/solutions/collections" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'Collections'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center">
+                    <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                        <img src="/images/icons/Collection.gif" class="h-9 w-9" />
+                    </div>
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Collections</h2>
+                    </div>
+                </div>
+            </a>
+        
+        </div>
+        
+        <template x-if="hoveritem=='Digital payments'">
+            <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/digital_payments_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                    Cross border remittance and settlement services
+                </p>
+                
+            </div>
+        </div>
+        </template>
+        
+         <template x-if="hoveritem=='Digital Infrastructure'">
+             <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+                <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/digital_infra_nav_img.png')] bg-cover">
+                </div>
+                <div>
+                    <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                       Secure web and mobile cloud based applications and APIs
+                    </p>
+                </div>
+            </div>
+         </template>
+        
+        <template x-if="hoveritem=='Foreign Exchange'">
+             <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/forex_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+    Foreign exchange services for import/export trades, subsidiary & vendor payments, and loans & investments.
+                </p>
+            </div>
+        </div>
+        </template>
+        <template x-if="hoveritem=='Collections'">
+            <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/col_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                   Digital collections for businesses and government entities
+                </p>
+            </div>
+        </div>
+        </template>
     </div>
-
 </div>

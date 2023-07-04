@@ -1,0 +1,150 @@
+<div class="relative" x-data="{
+                hoveritem: '',
+                open: false,
+                toggle() {
+                    if (this.open) {
+                        return this.close()
+                    }
+                    $refs.menuHolderolder.classList.remove('hidden')
+                    this.open = true
+                },
+                close(focusAfter) {
+                    this.open = false
+
+                    focusAfter && focusAfter.focus()
+                }
+            }"
+     x-id="['dropdown-button']">
+
+
+    <button x-on:click="toggle()" :aria-expanded="open"
+            :aria-controls="$id('dropdown-button')" class="text-xl mx-4 nav-link cursor-pointer">
+        <div class="flex items-center text-white">
+            
+                <a href="/#platform">
+                <span
+                x-text="language[selectedLang]['Platform']">
+                Platform
+                </span>
+                </a>
+                        
+            
+        </div>
+    </button>
+
+    
+    <!-- <div  x-transition.origin.top.left x-ref="menuHolderolder" x-show="open" x-bind:class="open ? '' : 'hidden'" x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-[600px] mt-2 flex flex-row min-h-[312px]">
+        <div class="border-r-[10px] border-r-transparent border-l-[10px] border-l-transparent border-b-[15px] border-b-white absolute -top-2 left-6">
+
+        </div>
+        <div class="flex flex-col px-2 py-2 basis-3/4">
+
+
+            <div @mouseover="hoveritem = 'API Integration'"  class="flex my-1 hover:bg-gray-100 cursor-pointer p-2 rounded items-center ">
+
+                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                    <img src="/images/icons/api.gif" class="h-9 w-9" />
+                </div>
+
+                <a href="/#platform">
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">API Integration</h2>
+                    </div>
+                </a>
+
+            </div>
+
+            {{!-- <div @mouseover="hoveritem = 'White Label Platform'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center ">
+
+                <div class="w-10 h-10 bg-white rounded-full flex-none overflow-hidden flex justify-center items-center">
+                    <img src="/gifs/business-icon.gif" class="h-9 w-9" />
+                </div>
+
+                <a href="/#platform">
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">White Label Platform</h2>
+                    </div>
+                </a>
+
+            </div> --}}
+
+
+
+            <div @mouseover="hoveritem = 'Collection Platform'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
+
+                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                    <img src="/images/icons/Collections.gif" class="h-9 w-9" />
+                </div>
+
+                <a href="/#platform">
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Municipal & Business Collection</h2>
+                    </div>
+                </a>
+
+            </div>
+
+
+            <div @mouseover="hoveritem = 'Payments'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center">
+
+                <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
+                    <img src="/images/icons/payment.gif" class="h-9 w-9" />
+                </div>
+
+                <a href="/#platform">
+                    <div class="mx-2 flex flex-col leading-none">
+                        <h2 class="font-bold text-xl">Payments & Settlements</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <template x-if="hoveritem=='API Integration'">
+            <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/api_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                    Secure & proprietary API’s for our customers who want to build on top of our system
+                </p>
+            </div>
+        </div>
+        </template>
+        
+         <template x-if="hoveritem=='White Label Platform'">
+             <div class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+                <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/whitelabel_nav_img.png')] bg-cover">
+                </div>
+                <div>
+                    <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                        Nulla magnis duis vitae sit. Tellus neque fringilla et rhoncus at. Elit duis elit purus duis a elit quam dui viverra.
+                    </p>
+                </div>
+            </div>
+         </template>
+        
+        <template x-if="hoveritem=='Collection Platform'">
+             <div x-show="dropdownHover = 'business'" class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/collections_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                Our platform facilitates collections in all revenue areas and provides supportive analytics to optimize the process.
+                </p>
+            </div>
+        </div>
+        </template>
+        <template x-if="hoveritem=='Payments'">
+            <div x-show="dropdownHover = 'government'" class="flex flex-col basis-2/4 bg-[#F5F7FA]">
+            <div class="rounded-xl my-6 mx-4 w-[216px] h-[154.7px] relative bg-[url('/images/menu/payments_nav_img.png')] bg-cover">
+            </div>
+            <div>
+                <p class="text-[#5D6066] text-[14px] pb-6 px-4 relative">
+                   Nulla magnis duis vitae sit. Tellus neque fringilla et rhoncus at. Elit duis elit purus duis a elit quam dui viverra.
+                </p>
+            </div>
+        </div>
+        </template>
+    </div>
+    -->
+</div>
