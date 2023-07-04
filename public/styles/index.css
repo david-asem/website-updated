@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    }
+  
+  /* Optional Delays, change values here  */
+  .one { animation-delay: 0.2s; }
+  .two { animation-delay: .6s; }
+  .three { animation-delay: 1s; }
+  .four { animation-delay: 1.4s; }
+  
+  /* Animations start here  */
+  
+  /* FADE IN  */
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; } }
+  .fadeIn { animation-name: fadeIn; }
+  
+  
+  /* FADE IN DOWN */
+  
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -100%, 0); }
+    to { opacity: 1; transform: none; } }
+  .fadeInDown { animation-name: fadeInDown; }
+
+    
+  @keyframes zoomInOut {
+    from { opacity: 0; scale: 100%; }
+    to { opacity: 1; scale: 110%; } }
+  .zoomInOut { animation-name: zoomInOut; }
+  
+  /* FADE IN UP */
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 20px, 0); }
+    to { opacity: 1; transform: none; } }
+  .fadeInUp { animation-name: fadeInUp; }
+  
+  /* FADE IN UP BIG */
+  
+  @keyframes fadeInUpBig {
+    from { opacity: 0; transform: translate3d(0, 100px, 0); }
+    to { opacity: 1; transform: none; } }
+  .fadeInUpBig { animation-name: fadeInUpBig; }
+  
+  /* FADE IN LEFT */
+  
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translate3d(-30px, 0, 0)rotateZ(30deg); }
+    to { opacity: 1; transform: none; } }
+  .fadeInLeft { animation-name: fadeInLeft; }
+  
+  /* FADE IN LEFT BIG */
+  
+  @keyframes fadeInLeftBig {
+    from { opacity: 0; transform: translate3d(-100px, 0, 0); }
+    to { opacity: 1; transform: none; } }
+  .fadeInLeftBig { animation-name: fadeInLeftBig; }
+  
+  /* FADE IN RIGHT */
+  
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translate3d(100%, 0, 0); }
+    to { opacity: 1; transform: none; } }
+  .fadeInRight { animation-name: fadeInRight; }
+
+  @keyframes zoom-in-zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+
+  @-moz-keyframes zoom-in-zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+  
+  @-webkit-keyframes zoom-in-zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+  
+  @-o-keyframes zoom-in-zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+  
+  @-ms-keyframes zoom-in-zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    33.33% {
+      opacity: 1;
+    }
+    66.66% {
+      opacity: 1;
+    }
+    to{
+      /* background-size: 105%; */
+      opacity: 0;
+      transform: scale(1.05);
+    }
+}
+  
+  .fade-out {
+    animation: fadeOut ease 3s infinite;
+    /* animation-delay: 2s; */
+    -webkit-animation: fadeOut ease 3s;
+    -moz-animation: fadeOut ease 3s;
+    -o-animation: fadeOut ease 3s;
+    -ms-animation: fadeOut ease 3s;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+  }
+}
+  
+  /* @end standard animaties  */
+  
+  
+  .callout {
+    max-width: 500px;
+    margin:0 auto;
+    padding-bottom:100px
+  }
+  
+  .slide.in-view {
+    animation: fadeInUp 2s;
+    }
+  
+  .fadeLeftBig.in-view {  
+     animation: fadeInLeftBig;
+      animation-duration: 1s;
+     animation-delay: 0s;
+    animation-fill-mode: both;
+     backface-visibility: hidden;
+  }
+
+  .fadeLeft.in-view {  
+    animation: fadeInLeftBig 2s;
+ }
+
+ .fadeUp.in-view {  
+    animation: fadeInUp;
+     animation-duration: 1s;
+    animation-delay: 0s;
+   animation-fill-mode: both;
+    backface-visibility: hidden;
+ }
+
+ .ZoomOut {  
+  animation: zoom-in-zoom-out 5s ease infinite;
+  animation-delay: 0s;
+ animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  -webkit-animation: zoom-in-zoom-out 5s ease infinite;
+  -moz-animation: zoom-in-zoom-out 5s ease infinite;
+  -o-animation: zoom-in-zoom-out 5s ease infinite;
+  -ms-animation: zoom-in-zoom-out 5s ease infinite; 
+}
+
+ .fadeDown.in-view {  
+    animation: fadeInDown;
+     animation-duration: 1s;
+    animation-delay: 0s;
+   animation-fill-mode: both;
+    backface-visibility: hidden;
+ }
+
+
+.fadeRight.in-view {
+    animation: fadeInRight 2s;
+    }
+
+    .hero-video{
+      /* background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%); */
+      /* opacity: 0.6; */
+      /* position: absolute; */
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%; 
+      overflow: hidden;
+      background: #010527;
+      /* opacity: 0.6; */
+  }
+
+  .hero-video video {
+    /* Make video to at least 100% wide and tall */
+    min-width: 100%; 
+    min-height: 100%; 
+    
+    /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+    width: auto;
+    height: auto;
+    
+    /* Center the video */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .overlay {
+    width: 100%;
+    position: absolute;
+    
+    height: 100vh;
+}
+
+.overlay-video{
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);
+}
+

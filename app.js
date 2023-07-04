@@ -3,7 +3,9 @@ const mustacheExpress = require('mustache-express');
 const {engine} = require('express-handlebars');
 
 const app = express()
-const port = 5005
+const port = process.env.PORT || 5005;
+
+
 
 
 app.engine("hbs",engine({
@@ -21,10 +23,11 @@ app.get('/', (req, res) => {
     res.render('index', {});
 })
 
-app.get('/solutions/consumer', (req, res) => {
+
+ /* app.get('/solutions/consumer', (req, res) => {
     res.render('consumer', {});
 })
-
+*/
 app.get('/solutions/business', (req, res) => {
     res.render('business', {});
 })
@@ -58,9 +61,50 @@ app.get("/blog/javolin-partners-with-ecobank",(req,res) => {
    })
 });
 
+app.get("/blog/developing-fintech-in-africa-with-carl-powell",(req,res) => {
+    res.render("developing-fintech-in-africa-with-carl-powell",{
+    })
+ });
+
+ app.get("/solutions/foreign-exchange",(req,res) => {
+    res.render("foreignexchange",{
+    })
+ });
+
+  app.get("/solutions/digital-payments",(req,res) => {
+    res.render("digitalpayments",{
+    })
+  });
+ 
+   app.get("/solutions/digital-infrastructure",(req,res) => {
+    res.render("Digital-infrastructure",{
+    })
+   });
+ 
+   app.get("/solutions/collections",(req,res) => {
+    res.render("collections",{
+    })
+ });
+
 app.get("/blog/javolin-set-to-launch-on-april-6-2022",(req,res) => {
     res.render("javolin-set-to-launch-on-april-6-2022",{
 
+    })
+});
+
+app.get("/about/company",(req,res) => {
+    res.render("company",{
+    })
+});
+
+app.get("/about/clients",(req,res) => {
+    res.render("clients",{
+    })
+});
+
+
+app.get("/blog/javolin-opens-new-office-in-dakar-senegal",(req,res) => {
+    res.render("javolin-opens-new-office-in-dakar-senegal",{
     })
 });
 

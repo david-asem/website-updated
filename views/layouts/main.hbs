@@ -9,35 +9,121 @@
     <link rel="icon" href="/favicon.ico"/>
     <title>Javolin - Digital Wallet that works for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="../../styles/index.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {{!-- <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script> --}}
+    {{!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+    {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <script src="/js/alphineData.js" ></script>
+    
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: "en,fr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <meta name="author" content="Javolin LLC | smith sese" />
     <meta name="description" content="Digital Wallet that works for you">
     <style>
         @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
         @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
+        @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-Regular.ttf'); }
+        @font-face { font-family: 'Satoshi'; font-weight: bold; src: url('/fonts/satoshi/Satoshi-Bold.ttf');}
+
+        .goog-te-gadget-icon {
+            display:none;
+        }
+
+        body > .skiptranslate > iframe.skiptranslate {
+        display: none !important;
+        visibility: hidden !important;
+        }
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            } 
+        
+
+        .goog-te-banner-frame{
+            display:none !important
+        }
+
+        .goog-te-banner-frame .VIpgJd-ZVi9od-ORHb{
+            display:none !important
+        }
+
+
+    .goog-te-gadget-simple {
+        background-color: #ecebf0 !important;
+        border:0 !important;
+        font-size: 10pt;
+    font-weight:800;
+        display: inline-block;
+        padding:10px 10px !important;
+        cursor: pointer;
+        zoom: 1;
+    }
+
+    .goog-te-gadget-simple  span {
+    color:#3e3065 !important;
+
+    }
+    .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+    color: #000;
+    display: flex !important;
+}
         body{
-            font-family: 'Inter', sans-serif;
+            font-family: 'Satoshi', sans-serif;
+            margin: 0;
+            top: 0px !important; 
+            position: static !important; 
         }
         h2 {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
             font-weight: bold;
             font-size: 54px;
         }
         .nav-link {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
         }
 
 
         button {
-            font-family: 'Product-Sans';
+            font-family: 'Satoshi';
         }
 
+        ::marker{
+            margin-top: 1em;
+        }
 
+        #imageContainerHero {
+     
+        position: relative;
+        overflow: hidden;
+        }
+
+        #imageContainerHero img {
+            position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: transform 1s, opacity 1s;
+        }
+        #heroSec .imageTextHero {
+        position: absolute;
+        opacity: 0;
+    }
+
+        
 
         /*.nav-link:hover {*/
         /*    border-bottom: 2px solid #0032A0;*/
@@ -46,10 +132,12 @@
     </style>
 </head>
 
-<body x-data="{
+<body class="relative" x-data="{
                 playerOpened: false,
                 comingSoonOpened: false,
                 waitListOpened: false,
+                supportOpened:false,
+                {{!-- language: {{language}}, --}}
                 togglePlayer() {
                     if (this.open) {
                         return this.closePlayer()
@@ -64,6 +152,14 @@
                     }
                     $refs.waitListHolder.classList.remove('hidden')
                     this.waitListOpened = true
+                },
+                toggleSupport() {
+                    if (this.supportOpened) {
+                        this.supportOpened = false
+                        return
+                    }
+                    $refs.supportOpenedHolder.classList.remove('hidden')
+                    this.supportOpened = true
                 },
                 toggleComingSoon() {
                     if (this.comingSoonOpened) {
@@ -80,47 +176,107 @@
                     video.pause();
                     video.currentTime = 0;
                     focusAfter && focusAfter.focus()
+                },
+                langs: {
+                        'EN': {
+                            lang_code: 'EN',
+                            image: 'usflag.png'
+                        },
+                        'FR': {
+                            lang_code: 'FR',
+                            image: 'frflag.png',
+                        },
+                        {{!-- 'ES': {
+                            lang_code: 'ES',
+                            image: 'esflag.svg',
+                        } --}}
+                    },
+                selectedLang: 'EN',
+                dropdownOpened: false,
+                langdata: [
+                    { id: 'EN', url: 'usflag.png' },
+                    { id: 'FR', url: 'frflag.png' },
+                    {{!-- { id: 'ES', url: 'esflag.svg' }, --}}
+                ],
+                language:{
+                    'EN':{
+                        'Client Log-in':'Client Log-in',
+                        'Industries': 'Industries',
+                        'Solutions': 'Solutions',
+                        'Platform': 'Platform',
+                        'Resources': 'Resources',
+                        'About us': 'About us',
+                        'Support': 'Support',
+                        
+                    },
+                    'FR':{
+                        'Client Log-in':'Connecter',
+                        'Industries': 'Secteurs',
+                        'Solutions': 'Solutions',
+                        'Platform': 'Plateforme',
+                        'Resources': 'Ressources',
+                        'About us': 'Á notre propos',
+                        'Support': 'Soutien',
+                    },
                 }
             }"
       x-id="['dropdown-button']">
 
 
-<header class="h-20 relative flex justify-between px-10 lg:px-12 xl:px-32" x-data="{ solutionsOpened: false,investorOpened: false,navOpened: false }">
-
-    <div class="flex h-full justify-center items-center">
-
-        <a class="mr-12 flex-none" href="/">
-            <img style="height: 42px" src="/images/logo.png" />
+<header class="h-20 w-full py-4 flex justify-between items-center px-4 my-0 lg:px-12 xl:px-20  bg-transparent absolute top-0 z-30" x-data="{supportOpen:false, platformOpened: false, aboutusOpened:false, resourcesOpened: false ,industriesOpened:false, solutionsOpened: false,investorOpened: false,navOpened: false }">
+    {{!-- <div class="flex h-full justify-center items-center"> --}}
+        <a class="lg:mr-2 flex-none" href="/">
+            <img class="lg:h-16 lg:w-60" src="/images/JAVOLIN_LOGO_RGB_REV.png" />
         </a>
 
         {{> nav }}
+       
+        {{!-- {{>language-dropdown}} --}}
 
-    </div>
+    {{!-- </div> --}}
 
-    <div></div>
 
-    <div class="lg:flex justify-center align-center items-center hidden lg:inline-block">
+    {{!-- <div class="lg:flex justify-center align-center items-center hidden lg:inline-block"> --}}
 
         <!--
         <a target="_blank" href="https://staging.app.javolin.com/login" class="text-xs flex items-center text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
             Login
         </a>
         -->
-        <a x-on:click="toggleWaitList()" class="cursor-pointer bg-blue-800 flex items-center text-white font-bold mx-5 xl:px-8 lg:px-8 rounded-md text-xs h-9" style="box-shadow: 0 6px 16px rgba(0, 50, 160, 0.25);">
-            Sign up
-        </a>
+<a href="https://app.forex.javolin.com/"
+    x-text="language[selectedLang]['Client Log-in']"
+    class="max-w-[200px] truncate hidden lg:block cursor-pointer bg-[#040723] md:px-6 px-2 md:py-4 lg:px-6 lg:py-4 rounded-full lg:text-lg text-sm font-bold flex items-center text-white justify-center">
+    Client Log-in
+</a>
 
-    </div>
+
+
+
+
+    {{!-- </div> --}}
 
 
     <button class="lg:hidden" @click=" navOpened = !navOpened ">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
     </button>
 
-    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Product-Sans">
+    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Satoshi">
 
         <div class=" flex flex-col space-y-3 px-3 py-5">
 
+            <div>
+               <button @click=" industriesOpened = !industriesOpened " class="font-bold text-sm">Industries</button>
+               <div x-show="industriesOpened"
+                   x-transition:enter="transition ease-out duration-100"
+                   x-transition:enter-start="scale-0"
+                   x-transition:enter-end="scale-100"
+                   class="flex flex-col space-y-2 ml-2 mt-2">
+                   <a href="/solutions/bank" class="text-gray-200 text-sm">Banks</a>
+                   <a href="/solutions/government" class="text-gray-200 text-sm">Government Entities</a>
+                   <a href="/solutions/business" class="text-gray-200 text-sm">Businesses</a>
+                   {{!-- <a href="/solutions/consumer" class="text-gray-200 text-sm">Consumer</a> --}}
+               </div>
+            </div>
             <div>
                <button @click=" solutionsOpened = !solutionsOpened " class="font-bold text-sm">Solutions</button>
                <div x-show="solutionsOpened"
@@ -128,22 +284,26 @@
                    x-transition:enter-start="scale-0"
                    x-transition:enter-end="scale-100"
                    class="flex flex-col space-y-2 ml-2 mt-2">
-                   <a href="/solutions/consumer" class="text-gray-200 text-sm">Consumer</a>
-                   <a href="/solutions/business" class="text-gray-200 text-sm">Business</a>
-                   <a href="/solutions/government" class="text-gray-200 text-sm">Government</a>
-                   <a href="/solutions/bank" class="text-gray-200 text-sm">Banks</a>
+                   <a href="/solutions/digital-payments" class="text-gray-200 text-sm">Digital payments</a>
+                   <a href="/solutions/digital-infrastructure" class="text-gray-200 text-sm">Digital Infrastructure</a>
+                   <a href="/solutions/foreign-exchange" class="text-gray-200 text-sm">Foreign Exchange</a>
+                   <a href="/solutions/collections" class="text-gray-200 text-sm">Collections</a>
                </div>
             </div>
 
             <div>
-                <button @click = "investorOpened = !investorOpened" class="font-bold text-sm">Investor Relations</button>
-                <div x-show="investorOpened"
+                <button @click = "platformOpened = !platformOpened" class="font-bold text-sm">Platform</button>
+                <div x-show="platformOpened"
                       x-transition:enter="transition ease-out duration-100"
                       x-transition:enter-start="translate-y-full"
                       x-transition:enter-end="translate-y-0"
                       class="flex flex-col space-y-1 ml-1 mt-2">
 
-                    <button class="bg-white h-9 flex w-44  justify-center items-center text-blue-800 shadow-md rounded">
+                   <a href="/#platform" class="text-gray-200 text-sm">API Integration</a>
+                   <a href="/#platform" class="text-gray-200 text-sm">Municipal & Business Collection</a>
+                   <a href="/#platform" class="text-gray-200 text-sm">Payments & Settlements</a>
+
+                    {{!-- <button class="bg-white h-9 flex w-44  justify-center items-center text-blue-800 shadow-md rounded">
                         <span class="text-xs">Login to get started</span>
 
                         <svg class="w-4 h-4 mx-2 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,12 +312,44 @@
                             <path d="M3 2V14.1C3 16 4 17 5.9 17H18.1C20 17 21 16 21 14.1V2H3ZM16.98 8.58L13.83 11.21C13.54 11.45 13.17 11.55 12.82 11.49C12.46 11.43 12.15 11.21 11.96 10.89L10.91 9.14L7.98 11.58C7.84 11.7 7.67 11.75 7.5 11.75C7.29 11.75 7.07 11.66 6.92 11.48C6.65 11.16 6.7 10.69 7.02 10.42L10.17 7.79C10.46 7.55 10.83 7.45 11.18 7.51C11.54 7.57 11.85 7.79 12.04 8.11L13.09 9.86L16.02 7.42C16.34 7.15 16.81 7.2 17.08 7.52C17.34 7.84 17.3 8.31 16.98 8.58Z" fill="#0032A0"/>
                         </svg>
 
-                    </button>
+                    </button> --}}
             </div>
             </div>
 
             <div>
-                <a class="font-bold text-sm">About Us</a>
+                <button @click = "resourcesOpened = !resourcesOpened" class="font-bold text-sm">Resources</button>
+                <div x-show="resourcesOpened"
+                      x-transition:enter="transition ease-out duration-100"
+                      x-transition:enter-start="translate-y-full"
+                      x-transition:enter-end="translate-y-0"
+                      class="flex flex-col space-y-1 ml-1 mt-2">
+
+                   <a href="/blog/developing-fintech-in-africa-with-carl-powell" class="text-gray-200 text-sm">In the news</a>
+                   <a href="/blog/javolin-opens-new-office-in-dakar-senegal" class="text-gray-200 text-sm">Blog</a>
+                </div>
+            </div>
+            <div>
+                <button @click = "aboutusOpened = !aboutusOpened" class="font-bold text-sm">About us</button>
+                <div x-show="aboutusOpened"
+                      x-transition:enter="transition ease-out duration-100"
+                      x-transition:enter-start="translate-y-full"
+                      x-transition:enter-end="translate-y-0"
+                      class="flex flex-col space-y-1 ml-1 mt-2">
+
+                   <a href="/about/company" class="text-gray-200 text-sm">Company</a>
+                   <a href="/about/clients" class="text-gray-200 text-sm">Clients</a>
+                </div>
+            </div>
+            <div>
+                <button @click = "supportOpen = !supportOpen" class="font-bold text-sm">Support</button>
+                <div x-show="supportOpen"
+                      x-transition:enter="transition ease-out duration-100"
+                      x-transition:enter-start="translate-y-full"
+                      x-transition:enter-end="translate-y-0"
+                      class="flex flex-col space-y-1 ml-1 mt-2">
+
+                   <div x-on:click="toggleSupport(), navOpened=false" class="text-gray-200 text-sm cursor-pointer">Jav center</div>
+                </div>
             </div>
 
 
@@ -171,19 +363,127 @@
 
 {{{ body }}}
 
-{{>download-app}}
+{{!-- {{>download-app}} --}}
 
 {{>footer}}
 
 {{>pop-ups/javolin-video}}
 {{>pop-ups/coming-soon}}
 {{>pop-ups/wait-list}}
+{{>pop-ups/support}}
 
 
 
 <script>
 
+        const headings = [
+             
+           {
+              module: "BANKS",
+              title: "Our Banks Trust Us",
+              content: "Javolin is connecting with many of the leading financial institutions on the continent.",
+              link: "/solutions/bank",
+              image: "/images/bank_hero.jpg" 
+          },
+             {
+                 module: "BUSINESSES",
+                 title: "Upgrade your business with innovative financial solutions from Javolin",
+                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.",
+                 link: "/solutions/business",
+                 image: "/images/business_hero.jpg" 
+             },
+             {
+                 module: "GOVERNMENT",
+                 title: "Assisting Governments with optimizing revenue",
+                 content: "Javolin provides government institutions the digital platform to positively transform the way they collect revenues and make payment.",
+                 link: "/solutions/government",
+                 image: "/images/government_hero.jpg" 
+             },
+             
+             
+         ];
+        // JavaScript code to handle the image transition
+        var images = document.querySelectorAll("#imageContainerHero img");
+       var texts = document.querySelectorAll("#heroSec .imageTextHero");
+       var textContainer = document.querySelector("#textSection a");
+       
+        var firstStart = false
+        var currentImageIndex = 0;
+        var zoomInDuration =  3000;
+        var zoomOutDuration = 2000;
+        var delayBetweenImages = 0;
+    
+        function transitionImages() {
+        var currentImage = images[currentImageIndex];
+        var currentText = texts[currentImageIndex];
+        textContainer.href = headings[currentImageIndex].link;
+        var nextImageIndex = (currentImageIndex + 1) % images.length;
+        var nextImage = images[nextImageIndex];
+        var nextText = texts[nextImageIndex];
+        
+        // Zoom in the next image and text
+        nextImage.style.transform = "scale(1.2)";
+        nextImage.style.opacity = "1";
+        nextImage.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
+        nextText.style.opacity = "1";
+        
+        // Zoom out the current image and text
+        currentImage.style.transform = "scale(1)";
+        currentImage.style.opacity = "0";
+        currentImage.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
+        currentText.style.opacity = "0";
+        
+        currentImageIndex = nextImageIndex;
+        }
+
+        // Initial transition to show the first image immediately
+        transitionImages();
+
+        // Start the image transition loop with a delay after the initial transition
+        var delayBeforeStart = 0; // Adjust the delay duration as needed for the initial load
+        setTimeout(function() {
+        setInterval(transitionImages, delayBetweenImages + zoomInDuration + zoomOutDuration);
+        }, delayBeforeStart);
+
+
+        
     document.addEventListener('alpine:init', () => {
+        
+        Alpine.data('supportMessage', () => ({
+            isLoading: false,
+            user_email: '',
+            name: '',
+            message: '',
+            subject:'',
+            country:'',
+            toggle() {
+                this.isLoading = !this.isLoading
+            },
+            sendSupportMessage() {
+                this.toggle();
+                axios.post("https://staging.api.javolin.com/api/support",{
+                    name: this.name,
+                    email: this.user_email,
+                    body: this.message,
+                    subject: this.subject,
+                    country: this.country,
+                }).then(res => {
+                    this.toggle();
+                    console.log(res);
+                    alert("Success: Message sent successfully");
+                    this.name = "";
+                    this.subject = "";
+                    this.message = "";
+                    this.user_email = "";
+                    this.country = ""
+                    
+                }).catch(err => {
+                    this.toggle();
+                    console.error(err);
+                    alert("Error: "+err.message)
+                })
+            },
+        })),
         Alpine.data('waitList', () => ({
             isLoading: false,
             first_name: '',
@@ -216,10 +516,74 @@
                     console.error(err);
                     alert("Error: "+err.message)
                 })
-            }
-
+            },
+            
         }))
     })
+
+
+
+     $(document).ready(function() {
+
+        $('#google_translate_element').bind('DOMNodeInserted', function(event) {
+      $('.goog-te-menu-value span:first').html('LANGUAGE');
+      $('.goog-te-menu-frame.skiptranslate').load(function(){
+        setTimeout(function(){
+          $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('LANGUAGE');    
+        }, 100);
+      });
+    });
+      
+
+
+
+    
+       
+
+
+
+        /** ---------------------------- //
+         *  @group viewport trigger script
+         * for adding or removing classes from elements in view within viewport
+        */
+
+
+        var $animationElements = $('.animation-element');
+        var $window = $(window);
+
+        // ps: Let's FIRST disable triggering on small devices!
+        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+        if (isMobile.matches) {
+            $animationElements.removeClass('animation-element');
+        }
+
+
+        function checkIfInView() {
+
+            var windowHeight = $window.height();
+            var windowTopPosition = $window.scrollTop();
+            var windowBottomPosition = (windowTopPosition + windowHeight);
+
+            $.each($animationElements, function () {
+                var $element = $(this);
+                var elementHeight = $element.outerHeight();
+                var elementTopPosition = $element.offset().top;
+                var elementBottomPosition = (elementTopPosition + elementHeight);
+
+            //check to see if this current container is within viewport
+                        if ((elementBottomPosition >= windowTopPosition) &&
+                            (elementTopPosition <= windowBottomPosition)) {
+                            $element.addClass('in-view');
+                        } else {
+                            $element.removeClass('in-view');
+                        }
+                    });
+                }
+
+        $window.on('scroll resize', checkIfInView);
+        $window.trigger('scroll');
+    });
+            
 </script>
 
 

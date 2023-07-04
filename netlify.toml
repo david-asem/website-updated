@@ -1,0 +1,8 @@
+[build]
+  command = "npm install && npm run build"
+  functions = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/views/index.hbs"
+  status = 200
