@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "watch": "nodemon --ext *"
+    "watch": "nodemon --ext js,ts,hbs .",
+    "dev": "nodemon app.js --ext js,ts,hbs"
   },
   "keywords": [],
   "author": "smith sese",

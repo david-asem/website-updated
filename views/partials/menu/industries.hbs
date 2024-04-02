@@ -40,12 +40,14 @@
 
                     
                         <div class="mx-2 flex flex-col leading-none">
-                            <h2 class="font-bold text-xl">Banks</h2>
+                            <h2 class="font-bold text-xl">Financial Institutions</h2>
                         </div>
                 </div>
             </a>
-            <a href="/solutions/government" @click="close($refs.button)" >
-                <div @mouseover="hoveritem = 'government'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
+            
+            {{!-- <a href="/solutions/government" @click="close($refs.button)">
+                <div @mouseover="hoveritem = 'government'"
+                    class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded  items-center">
                     <div class="w-10 h-10 bg-white rounded-full flex flex-none overflow-hidden justify-center items-center">
                         <img src="/images/icons/Gov-entities.gif" class="h-9 w-9" />
                     </div>
@@ -53,7 +55,8 @@
                         <h2 class="font-bold text-xl">Government Entities</h2>
                     </div>
                 </div>
-            </a>
+            </a> --}}
+            
 
             <a href="/solutions/business" @click="close($refs.button)">
                 <div @mouseover="hoveritem = 'business'" class="flex my-1 hover:bg-gray-100 p-2 cursor-pointer rounded items-center ">
