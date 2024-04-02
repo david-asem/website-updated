@@ -71,12 +71,12 @@ app.get("/blog/developing-fintech-in-africa-with-carl-powell",(req,res) => {
     })
  });
 
-  app.get("/solutions/digital-payments",(req,res) => {
+  app.get("/solutions/agri-commodities",(req,res) => {
     res.render("digitalpayments",{
     })
   });
  
-   app.get("/solutions/digital-infrastructure",(req,res) => {
+   app.get("/solutions/remittance",(req,res) => {
     res.render("Digital-infrastructure",{
     })
    });
