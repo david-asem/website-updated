@@ -118,16 +118,50 @@ function googleTranslateElementInit() {
       opacity: 0;
       transition: transform 1s, opacity 1s;
         }
-        #heroSec .imageTextHero {
-        position: absolute;
+       @keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%); /* Starts below the visible area of #heroSec */
         opacity: 0;
     }
+    100% {
+        transform: translateY(0); /* End at the initial position */
+        opacity: 1;
+    }
+}
 
-        
+#heroSec {
+    position: relative;
+    width: 100%;  /* Full width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /*.nav-link:hover {*/
-        /*    border-bottom: 2px solid #0032A0;*/
-        /*    cursor: pointer;*/
+#textSection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically within the text section */
+}
+
+.imageTextHero {
+    width: 956px;
+    margin: 0 auto; /* Centering horizontally if the text section is wider */
+    text-align: center;
+    font-size: 76px;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+    color: white;
+    animation: slideInFromBottom 1s ease-out forwards; /* Add the animation */
+}
+
         /*}*/
     </style>
 </head>
@@ -200,17 +234,17 @@ function googleTranslateElementInit() {
                 ],
                 language:{
                     'EN':{
-                        'Client Log-in':'Client Log-in',
+                        'Get a demo':'Get a demo',
                         'Industries': 'Industries',
                         'Solutions': 'Solutions',
-                        'Our Technology': 'Our Technology',
+                        'Technology': 'Technology',
                         'Resources': 'Resources',
                         'About us': 'About us',
                         'Support': 'Support',
                         
                     },
                     'FR':{
-                        'Client Log-in':'Connecter',
+                        'Get a demo':'Connecter',
                         'Industries': 'Secteurs',
                         'Solutions': 'Solutions',
                         'Platform': 'Plateforme',
@@ -223,141 +257,37 @@ function googleTranslateElementInit() {
       x-id="['dropdown-button']">
 
 
-<header class="h-20 w-full py-4 flex justify-between items-center px-4 my-0 lg:px-12 xl:px-20  bg-transparent absolute top-0 z-30" x-data="{supportOpen:false, platformOpened: false, aboutusOpened:false, resourcesOpened: false ,industriesOpened:false, solutionsOpened: false,investorOpened: false,navOpened: false }">
-    {{!-- <div class="flex h-full justify-center items-center"> --}}
-        <a class="lg:mr-2 flex-none" href="/">
-            <img class="lg:h-16 lg:w-60" src="/images/JAVOLIN_LOGO_RGB_REV.png" />
-        </a>
+<header
+    class="font-medium flex justify-between items-center lg:px-12 xl:px-20 fixed z-30 rounded-full bg-white shadow-lg"
+    :class="{'w-full top-0 rounded-none shadow-none': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
+    x-data="{ isAtTop: false }" @scroll.window="isAtTop = window.scrollY <= 20"
+    style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px; transition: width 0.5s ease-out, top 0.5s ease-out, border-radius 0.5s ease-out, background-color 0.5s ease-out, box-shadow 0.5s ease-out, color 0.5s ease-out;"
+    :style="{
+        'height': isAtTop ? '70px' : '64px',
+        'padding-top': isAtTop ? '0' : '8px',
+        'padding-bottom': isAtTop ? '0' : '8px'
+    }">
 
+    <a href="/" class="absolute" style="top: 20px; left: 36px;">
+        <img src="/images/jav_logo_color.png" alt="Javolin Logo" style="width: 130px; height: 30.23px;" />
+    </a>
+
+    <div class="flex-grow flex justify-center items-center gap-12">
         {{> nav }}
-       
-        {{!-- {{>language-dropdown}} --}}
-
-    {{!-- </div> --}}
-
-
-    {{!-- <div class="lg:flex justify-center align-center items-center hidden lg:inline-block"> --}}
-
-        <!--
-        <a target="_blank" href="https://staging.app.javolin.com/login" class="text-xs flex items-center text-indigo-700 bg-blue-100 shadow-sm xl:px-8 lg:px-8 font-bold  rounded-md h-9 font-heading">
-            Login
-        </a>
-        -->
-<a href="https://app.forex.javolin.com/"
-    x-text="language[selectedLang]['Client Log-in']"
-    class="max-w-[200px] truncate hidden lg:block cursor-pointer bg-[#040723] md:px-6 px-2 md:py-4 lg:px-6 lg:py-4 rounded-full lg:text-lg text-sm font-bold flex items-center text-white justify-center">
-    Client Log-in
-</a>
-
-
-
-
-
-    {{!-- </div> --}}
-
-
-    <button class="lg:hidden" @click=" navOpened = !navOpened ">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-    </button>
-
-    <div x-show="navOpened" class="absolute z-40 block lg:hidden bg-blue-800 w-full left-0 px-10 text-white right-0 top-20" style="font-family: 'Satoshi">
-
-        <div class=" flex flex-col space-y-3 px-3 py-5">
-
-            <div>
-               <button @click=" industriesOpened = !industriesOpened " class="font-bold text-sm">Industries</button>
-               <div x-show="industriesOpened"
-                   x-transition:enter="transition ease-out duration-100"
-                   x-transition:enter-start="scale-0"
-                   x-transition:enter-end="scale-100"
-                   class="flex flex-col space-y-2 ml-2 mt-2">
-                   <a href="/solutions/bank" class="text-gray-200 text-sm">Banks</a>
-                   <a href="/solutions/government" class="text-gray-200 text-sm">Government Entities</a>
-                   <a href="/solutions/business" class="text-gray-200 text-sm">Businesses</a>
-                   {{!-- <a href="/solutions/consumer" class="text-gray-200 text-sm">Consumer</a> --}}
-               </div>
-            </div>
-            <div>
-               <button @click=" solutionsOpened = !solutionsOpened " class="font-bold text-sm">Solutions</button>
-               <div x-show="solutionsOpened"
-                   x-transition:enter="transition ease-out duration-100"
-                   x-transition:enter-start="scale-0"
-                   x-transition:enter-end="scale-100"
-                   class="flex flex-col space-y-2 ml-2 mt-2">
-                   <a href="/solutions/agri-commodities" class="text-gray-200 text-sm">Digital payments</a>
-                   <a href="/solutions/digital-infrastructure" class="text-gray-200 text-sm">Digital Infrastructure</a>
-                   <a href="/solutions/foreign-exchange" class="text-gray-200 text-sm">Foreign Exchange</a>
-                   <a href="/solutions/collections" class="text-gray-200 text-sm">Collections</a>
-               </div>
-            </div>
-
-            <div>
-                <button @click = "platformOpened = !platformOpened" class="font-bold text-sm">Our Technology</button>
-                <div x-show="platformOpened"
-                      x-transition:enter="transition ease-out duration-100"
-                      x-transition:enter-start="translate-y-full"
-                      x-transition:enter-end="translate-y-0"
-                      class="flex flex-col space-y-1 ml-1 mt-2">
-
-                   <a href="/#platform" class="text-gray-200 text-sm">API Integration</a>
-                   <a href="/#platform" class="text-gray-200 text-sm">Municipal & Business Collection</a>
-                   <a href="/#platform" class="text-gray-200 text-sm">Payments & Settlements</a>
-
-                    {{!-- <button class="bg-white h-9 flex w-44  justify-center items-center text-blue-800 shadow-md rounded">
-                        <span class="text-xs">Login to get started</span>
-
-                        <svg class="w-4 h-4 mx-2 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 2.75H2C1.59 2.75 1.25 2.41 1.25 2C1.25 1.59 1.59 1.25 2 1.25H22C22.41 1.25 22.75 1.59 22.75 2C22.75 2.41 22.41 2.75 22 2.75Z"/>
-                            <path d="M16.67 22.34C16.54 22.6 16.27 22.75 16 22.75C15.89 22.75 15.77 22.72 15.67 22.67L12 20.84L8.33001 22.67C8.23001 22.72 8.11001 22.75 8.00001 22.75C7.73001 22.75 7.46001 22.6 7.33001 22.34C7.14001 21.96 7.29001 21.51 7.67001 21.33L11.25 19.54V17H12.75V19.54L16.33 21.33C16.71 21.51 16.86 21.96 16.67 22.34Z" fill="#0032A0"/>
-                            <path d="M3 2V14.1C3 16 4 17 5.9 17H18.1C20 17 21 16 21 14.1V2H3ZM16.98 8.58L13.83 11.21C13.54 11.45 13.17 11.55 12.82 11.49C12.46 11.43 12.15 11.21 11.96 10.89L10.91 9.14L7.98 11.58C7.84 11.7 7.67 11.75 7.5 11.75C7.29 11.75 7.07 11.66 6.92 11.48C6.65 11.16 6.7 10.69 7.02 10.42L10.17 7.79C10.46 7.55 10.83 7.45 11.18 7.51C11.54 7.57 11.85 7.79 12.04 8.11L13.09 9.86L16.02 7.42C16.34 7.15 16.81 7.2 17.08 7.52C17.34 7.84 17.3 8.31 16.98 8.58Z" fill="#0032A0"/>
-                        </svg>
-
-                    </button> --}}
-            </div>
-            </div>
-
-            <div>
-                <button @click = "resourcesOpened = !resourcesOpened" class="font-bold text-sm">Resources</button>
-                <div x-show="resourcesOpened"
-                      x-transition:enter="transition ease-out duration-100"
-                      x-transition:enter-start="translate-y-full"
-                      x-transition:enter-end="translate-y-0"
-                      class="flex flex-col space-y-1 ml-1 mt-2">
-
-                   <a href="/blog/developing-fintech-in-africa-with-carl-powell" class="text-gray-200 text-sm">In the news</a>
-                   <a href="/blog/javolin-opens-new-office-in-dakar-senegal" class="text-gray-200 text-sm">Blog</a>
-                </div>
-            </div>
-            <div>
-                <button @click = "aboutusOpened = !aboutusOpened" class="font-bold text-sm">About us</button>
-                <div x-show="aboutusOpened"
-                      x-transition:enter="transition ease-out duration-100"
-                      x-transition:enter-start="translate-y-full"
-                      x-transition:enter-end="translate-y-0"
-                      class="flex flex-col space-y-1 ml-1 mt-2">
-
-                   <a href="/about/company" class="text-gray-200 text-sm">Company</a>
-                   <a href="/about/clients" class="text-gray-200 text-sm">Clients</a>
-                </div>
-            </div>
-            <div>
-                <button @click = "supportOpen = !supportOpen" class="font-bold text-sm">Support</button>
-                <div x-show="supportOpen"
-                      x-transition:enter="transition ease-out duration-100"
-                      x-transition:enter-start="translate-y-full"
-                      x-transition:enter-end="translate-y-0"
-                      class="flex flex-col space-y-1 ml-1 mt-2">
-
-                   <div x-on:click="toggleSupport(), navOpened=false" class="text-gray-200 text-sm cursor-pointer">Jav center</div>
-                </div>
-            </div>
-
-
-        </div>
-
     </div>
 
+    <a href="https://app.forex.javolin.com/" x-text="language[selectedLang]['Get a demo']"
+        class="hidden lg:flex cursor-pointer bg-[#0032A0] text-white px-6 py-2 rounded-full text-lg font-bold items-center justify-center transition duration-300 ease-in-out"
+        style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;">
+        Get a demo
+    </a>
 </header>
+
+
+
+
+
+
 
 
 
@@ -375,76 +305,6 @@ function googleTranslateElementInit() {
 
 
 <script>
-
-        const headings = [
-             
-           {
-              module: "BANKS",
-              title: "Our Banks Trust Us",
-              content: "Javolin is connecting with many of the leading financial institutions on the continent.",
-              link: "/solutions/bank",
-              image: "/images/bank_hero.jpg" 
-          },
-             {
-                 module: "BUSINESSES",
-                 title: "Upgrade your business with innovative financial solutions from Javolin",
-                 content: "We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.",
-                 link: "/solutions/business",
-                 image: "/images/business_hero.jpg" 
-             },
-             {
-                 module: "AGRI COMMODITIES PLATFORM",
-                 title: "Empower Your Agri-Business with Our Comprehensive Agri Commodities Platform",
-                 content: "Access agricultural loans and market insights effortlessly with our Agri Commodities Platform. Simplify your journey to growth.",
-                 link: "/solutions/agri-commodities",
-                 image: "/images/cassava_large.jpg" 
-             },
-             
-             
-         ];
-        // JavaScript code to handle the image transition
-        var images = document.querySelectorAll("#imageContainerHero img");
-       var texts = document.querySelectorAll("#heroSec .imageTextHero");
-       var textContainer = document.querySelector("#textSection a");
-       
-        var firstStart = false
-        var currentImageIndex = 0;
-        var zoomInDuration =  3000;
-        var zoomOutDuration = 2000;
-        var delayBetweenImages = 0;
-    
-        function transitionImages() {
-        var currentImage = images[currentImageIndex];
-        var currentText = texts[currentImageIndex];
-        textContainer.href = headings[currentImageIndex].link;
-        var nextImageIndex = (currentImageIndex + 1) % images.length;
-        var nextImage = images[nextImageIndex];
-        var nextText = texts[nextImageIndex];
-        
-        // Zoom in the next image and text
-        nextImage.style.transform = "scale(1.2)";
-        nextImage.style.opacity = "1";
-        nextImage.style.transition = "transform " + zoomInDuration + "ms, opacity " + zoomInDuration + "ms";
-        nextText.style.opacity = "1";
-        
-        // Zoom out the current image and text
-        currentImage.style.transform = "scale(1)";
-        currentImage.style.opacity = "0";
-        currentImage.style.transition = "transform " + zoomOutDuration + "ms, opacity " + zoomOutDuration + "ms";
-        currentText.style.opacity = "0";
-        
-        currentImageIndex = nextImageIndex;
-        }
-
-        // Initial transition to show the first image immediately
-        transitionImages();
-
-        // Start the image transition loop with a delay after the initial transition
-        var delayBeforeStart = 0; // Adjust the delay duration as needed for the initial load
-        setTimeout(function() {
-        setInterval(transitionImages, delayBetweenImages + zoomInDuration + zoomOutDuration);
-        }, delayBeforeStart);
-
 
         
     document.addEventListener('alpine:init', () => {

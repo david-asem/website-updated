@@ -1,97 +1,67 @@
-    <section id="heroSec" style="height: 100vh;" class="relative">
+<section id="heroSec" style="height: 100vh; position: relative;">
 
-        {{!-- images for carousel --}}
-            <div id="imageContainerHero"  class="absolute top-0 w-screen h-screen overflow-hidden" >
-                
-                <img  class="w-screen h-screen bg-cover bg-clip-border object-cover" src="/images/bank_hero.jpg" />
-                <img  class="w-screen h-screen bg-cover bg-clip-border object-cover" src="/images/business_hero.jpg" />
-                <img class="w-screen h-screen bg-cover bg-clip-border object-cover" src="/images/woman-outdoors.jpg" />
-            </div>
+    <!-- Video for hero background -->
+    <video id="heroVideo" class="absolute top-0 w-screen h-screen object-cover" autoplay muted loop
+        style="z-index: -1;">
+        <source id="videoSource" src="/images/hero_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-        <div id="hero-overlay" class="absolute top-0 left-0 right-0 bottom-0 z-10" style="background: linear-gradient(90.18deg, #0032A0 0.14%, rgba(0, 50, 160, 0.7) 59.23%, rgba(0, 50, 160, 0) 124.53%);">
-        </div>
-
-    <div id="textSection" class="z-20 w-10/12 absolute h-full flex  flex-col text-white justify-center top-0 left-0  mx-10 lg:mx-24 xl:w-6/12 xl:mt-16">
-        
-    
-        <div class="imageTextHero flex flex-col text-white justify-center ">
-         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">FINANCIAL INSTITUTIONS</h3>
-        <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
-            
-            Our Financial Institutions Trust Us
-        </h2>
-
-        <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
-            Javolin is connecting with many of the leading financial institutions on the continent.
-        </span>
-
-        {{!-- <a href="#" id="industryLink">
-        <div class="flex flex-row rounded-full py-4 px-8 w-max text-[#0032A0] bg-white justify-center items-center mt-8 cursor-pointer">
-             <div style="font-weight: bold;" class="mr-2 text-bold">
-                Learn more
-            </div>
-        </div>
-        </a> --}}
+    <!-- Hero overlay -->
+    <div id="hero-overlay" class="absolute top-0 left-0 right-0 bottom-0"
+        style="background: rgba(0, 11, 107, 0.60); z-index: 0;">
     </div>
 
-   
-    
-    <div class="imageTextHero flex flex-col text-white justify-center">
-         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">BUSINESSES</h3>
-        <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
-            
-            Upgrade your business with innovative financial solutions from Javolin.
-        </h2>
-
-        <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
-            We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.
-        </span>
-
-        
+    <!-- Hero text content -->
+    <div id="textSection"
+        class="z-10 w-full absolute text-center text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <!-- Your hero text content here -->
     </div>
-
-
-<div class="imageTextHero flex flex-col text-white justify-center">
-    <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">AGRI COMMODITIES PLATFORM</h3>
-    <h2 id="heading" class="font-black text-3xl lg:text-5xl">
-
-        Empower Your Agri-Business with Our Comprehensive Agri Commodities Platform.
-    </h2>
-
-    <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
-        Access agricultural loans and market insights effortlessly with our Agri Commodities Platform. Simplify your journey to
-        growth.
-    </span>
-
-
-</div>
-
-    <div class="invisible flex flex-col text-white justify-center mb-8">
-         <h3 id="heading-module" class="text-green-600 font-bold my-1 lg:text-3xl">BUSINESSES</h3>
-        <h2 id="heading" class="font-black text-3xl lg:text-5xl" >
-            
-            Upgrade your business with innovative financial solutions from Javolin.
-        </h2>
-
-        <span id="heading-content" class="my-6 text-gray-200 text-2xl font-light">
-            We offer businesses a digital platform to manage their revenue collections, pay bills and get visa cards and apply for import/export loans.
-        </span>
-
-        
-    </div>
-        <a href="#" >
-            <div class="flex flex-row rounded-full py-4 px-8 w-max text-[#0032A0] bg-white justify-center items-center mt-8 cursor-pointer">
-                <div style="font-weight: bold;" class="mr-2 text-bold">
-                    Learn more
-                </div>
-            </div>
-            </a>
-
-    </div>
-    
-
 
 </section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const texts = [
+            { heading: "Our Financial Institutions Trust Us", video: "/images/hero_vid.mp4" },
+            { heading: "Upgrade your business.", video: "/images/hero_globe.mp4" },
+            { heading: "Empower Your Agri-Business", video: "/images/african_woman_agri.mp4" }
+        ];
+
+        const textSection = document.getElementById('textSection');
+        const videoSource = document.getElementById('videoSource');
+        const heroVideo = document.getElementById('heroVideo');
+        let index = 0;
+
+        function displayNextText() {
+            const text = texts[index];
+            textSection.innerHTML = `
+        <div class="imageTextHero">
+            <div style="width: 100%; text-align: center; color: white; font-size: 76px; font-family: 'Satoshi', sans-serif; font-weight: 900;">${text.heading}</div>
+        </div>
+        `;
+            // Update the video source
+            videoSource.src = text.video;
+            heroVideo.load(); // Needed to reload the video with new source
+            heroVideo.play(); // Ensure the video plays after source change
+
+            index = (index + 1) % texts.length;
+        }
+
+        displayNextText();
+        setInterval(displayNextText, 5000);
+    });
+</script>
+
+
+
+
+
+
+
+    
+
 
 
 <section class="p-4 flex flex-col lg:flex-row lg:px-24   bg-[#BAD2FD]" >
@@ -175,9 +145,8 @@ financial institutions.            </p>
                     Agri Commodities Platform
                 </div>
                 <div class="text-[#5D6066] pb-6">
-                    Elevate your agri-business with our Agri Commodities Platform, your gateway to streamlined agricultural loans and
-                    insightful market analytics. Navigate the end-to-end loan process with ease and gain valuable insights to inform your
-                    decisions. Transform your operations with our solution designed for growth and resilience.
+                    Helping small farmers expand their business by providing affordable financing solutions. Currently available in Ghana &
+                    Nigeria, with plans to expand into East & West Africa.
                 </div>
                 <div class="flex absolute bottom-4">
                     <div
@@ -251,8 +220,8 @@ financial institutions.            </p>
             Agri Commodities Exchange
         </h2>
         <p class="text-2xl text-gray-500 mb-6 font-medium">
-            Access agricultural loans and market insights effortlessly with our Agri Commodities Platform. Simplify your
-            journey to growth.
+            Helping small farmers expand their business by providing affordable financing solutions. Currently available in Ghana &
+            Nigeria, with plans to expand into East & West Africa.
         </p>
 
         <!-- Bulleted Points -->

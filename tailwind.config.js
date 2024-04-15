@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./view/**/*.hbs"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'satoshi': ['Satoshi', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
