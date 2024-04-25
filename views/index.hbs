@@ -60,40 +60,170 @@
 
 
 
-    
+<section class="relative py-4 lg:px-24 bg-cover bg-center bg-no-repeat" x-data="carousel()" x-init="init()" style="height: 800px; overflow-hidden; background-image: url('/images/value_bg.png');">
+    <!-- Carousel Title -->
+    <h2 class="slide fadeRight animation-element"
+        style="margin-top: 50px; width: 689px; margin-left: auto; margin-right: auto; text-align: center; color: #000638; font-size: 44px; font-family: 'Satoshi'; font-weight: 700; line-height: 55.20px; word-wrap: break-word;">
+        Aliquet tortor pulvinar egestas pellentesque enim pellentesque.
+    </h2>
+    <!-- Carousel container -->
+    <div class="flex justify-center  items-center h-full slide fadeRight animation-element" style="perspective: 1000px;">
+        <!-- Carousel slides -->
+        <template x-for="(slide, index) in slides" :key="index">
+            <div class="absolute transition-transform duration-300 ease-in-out"
+                :class="{ 'active': slide.active, 'inactive': !slide.active }" :style="slideStyles(index).style">
 
+                <!-- Card -->
+                <div :class="slideStyles(index).class" style="position: relative; padding: 1rem; border-radius: 1rem; margin-top: -6rem; ">
+                    <img :src="slide.image" class="object-contain" :style="'height: calc(2/3 * ' + slideHeight + 'px); width: 100%;'" />
+                
+                    <!-- Text Label -->
+                    <div class="absolute bottom-15 left-0 w-full text-center" style="padding: 1rem; bottom: 3rem;">
+                        <span x-text="slide.label" class="text-xl font-bold font-['Satoshi']"></span>
+                    </div>
+                
+                    <!-- Arrow -->
+                <div class="arrow-container" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);">
+                    <!-- SVG for active card's arrow -->
+                    <template x-if="slide.active">
+                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="19" cy="19" r="19" fill="white" />
+                            <path
+                                d="M24.6204 19.4001L19.5311 24.4893C19.425 24.5955 19.2811 24.6551 19.131 24.6551C18.981 24.6551 18.8371 24.5955 18.7309 24.4893C18.6248 24.3832 18.5652 24.2393 18.5652 24.0893C18.5652 23.9392 18.6248 23.7953 18.7309 23.6892L22.8554 19.5655H11.7798C11.6299 19.5655 11.486 19.5059 11.38 19.3998C11.2739 19.2938 11.2144 19.15 11.2144 18.9999C11.2144 18.85 11.2739 18.7062 11.38 18.6001C11.486 18.4941 11.6299 18.4345 11.7798 18.4345H22.8554L18.7309 14.3108C18.6248 14.2047 18.5652 14.0608 18.5652 13.9107C18.5652 13.7606 18.6248 13.6167 18.7309 13.5106C18.8371 13.4045 18.981 13.3449 19.131 13.3449C19.2811 13.3449 19.425 13.4045 19.5311 13.5106L24.6204 18.5999C24.673 18.6524 24.7147 18.7148 24.7431 18.7834C24.7716 18.8521 24.7862 18.9257 24.7862 18.9999C24.7862 19.0742 24.7716 19.1478 24.7431 19.2165C24.7147 19.2851 24.673 19.3475 24.6204 19.4001Z"
+                                fill="#0032A0" />
+                        </svg>
+                    </template>
+                
+                        <!-- SVG for non-active card's arrow -->
+                        <!-- SVG for non-active card's arrow -->
+                        <template x-if="!slide.active">
+                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="19" cy="19" r="19" fill="#E0EAFF" />
+                                <path
+                                    d="M24.6204 19.4001L19.5311 24.4893C19.425 24.5955 19.2811 24.6551 19.131 24.6551C18.981 24.6551 18.8371 24.5955 18.7309 24.4893C18.6248 24.3832 18.5652 24.2393 18.5652 24.0893C18.5652 23.9392 18.6248 23.7953 18.7309 23.6892L22.8554 19.5655H11.7798C11.6299 19.5655 11.486 19.5059 11.38 19.3998C11.2739 19.2938 11.2144 19.15 11.2144 18.9999C11.2144 18.85 11.2739 18.7062 11.38 18.6001C11.486 18.4941 11.6299 18.4345 11.7798 18.4345H22.8554L18.7309 14.3108C18.6248 14.2047 18.5652 14.0608 18.5652 13.9107C18.5652 13.7606 18.6248 13.6167 18.7309 13.5106C18.8371 13.4045 18.981 13.3449 19.131 13.3449C19.2811 13.3449 19.425 13.4045 19.5311 13.5106L24.6204 18.5999C24.673 18.6524 24.7147 18.7148 24.7431 18.7834C24.7716 18.8521 24.7862 18.9257 24.7862 18.9999C24.7862 19.0742 24.7716 19.1478 24.7431 19.2165C24.7147 19.2851 24.673 19.3475 24.6204 19.4001Z"
+                                    fill="#0032A0" />
+                            </svg>
+                        </template>
 
-
-<section class="p-4 flex flex-col lg:flex-row lg:px-24   bg-[#BAD2FD]" >
-    <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
-        
-        <div class="fadeLeft animation-element h-full w-full object-cover">
-            <img src="/images/new_africa_map.png" alt="african map"/>
-        </div>
-        <div class="slide fadeRight animation-element flex justify-center flex-col w-full">
-            <h2 class="text-5xl lg:text-[45px] text-[#000B6B] font-bold leading-[50px] lg:leading-[50px] xl:text-[50px] sm:text-[40px]">
-                The Value We Deliver
-            </h2>
-
-            
-            <p class="text-2xl mt-4  md:text-[28px] lg:text-[28px] text-[#3B404A] leading-10 ">
-JAVOLIN combines financial technology with innovation to create a seamless experience for businesses, consumers, and
-financial institutions.            </p>
-            <a href="/about/company">
-            <div class="flex flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center mt-8 cursor-pointer">
-             <div class="mr-2">
-                More about us
-            </div>
-                <div>
-                    <img src="/images/ArrowSquareOut.svg"/>
+                    </div>
                 </div>
+
+
+
             </div>
-            </a>
-        </div>
+        </template>
+
     </div>
-   
-   
+
+    <!-- Navigation Dots -->
+<div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
+    <template x-for="(slide, index) in slides" :key="index">
+        <div @click="setActiveSlide(index)" class="cursor-pointer">
+            <!-- Active dot with slight raise -->
+            <div x-show="slide.active" class="transform -translate-y-0.5">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8" cy="8" r="8" fill="#6CC24A" />
+                </svg>
+            </div>
+            <!-- Non-active dot -->
+            <div x-show="!slide.active">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
+                </svg>
+            </div>
+        </div>
+    </template>
+</div>
+
+
 </section>
+
+<script>
+    function carousel() {
+        return {
+            slides: [
+                { label: 'Javolin Fi', image: '/images/javolin_finance.png', active: false },
+                { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false },
+                { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true },
+                { label: 'FX & Payments', image: '/images/fx.png', active: false },
+                { label: 'Commodities', image: '/images/commodities.png', active: false },
+            ],
+            activeSlide: 2, // The index of the initially active slide
+            
+
+            init() {
+                this.arrangeSlides();
+            },
+
+            setActiveSlide(index) {
+                this.activeSlide = index;
+                this.arrangeSlides();
+            },
+
+            arrangeSlides() {
+                this.slides.forEach((slide, index) => {
+                    slide.active = index === this.activeSlide;
+                });
+            },
+
+            slideStyles(index) {
+                const slideOffset = this.activeSlide - index;
+                let zIndex = 30 - Math.abs(slideOffset);
+                let scale, xTranslate;
+                let textColorClass = slideOffset === 0 ? 'text-white' : 'text-gray-800'; 
+
+                // Default scale and translation adjustments
+                scale = slideOffset === 0 ? 1.1 : (Math.abs(slideOffset) === 1 ? 1.0 : 0.9);
+                xTranslate = slideOffset === 0 ? 0 : (slideOffset > 0 ? -90 : 90) * Math.abs(slideOffset);
+
+                // Adjustments when the active slide is either on the first, second, second-to-last, or last position
+                if (this.activeSlide === 0 && index > 2) { // If the first card is active, only show three cards
+                    xTranslate = 200; // Offsets the cards to the right out of view
+                    scale = 0; // Scales them down to hide
+                } else if (this.activeSlide === 1 && index > 3) { // If the second card is active, hide the last one
+                    xTranslate = 200; // Offsets the last card to the right out of view
+                    scale = 0; // Scales it down to hide
+                } else if (this.activeSlide === this.slides.length - 2 && index < 1) { // If the second-to-last card is active, hide the first one
+                    xTranslate = -200; // Offsets the first card to the left out of view
+                    scale = 0; // Scales it down to hide
+                } else if (this.activeSlide === this.slides.length - 1 && index < 2) { // If the last card is active, only show three cards
+                    xTranslate = -200; // Offsets the first two cards to the left out of view
+                    scale = 0; // Scales them down to hide
+                }
+
+                // Apply style with calculated xTranslate and scale
+               return {
+                    style: `transform: translateX(${xTranslate}%) scale(${scale}); z-index: ${zIndex};
+            height: ${slideOffset === 0 ? '355px' : (Math.abs(slideOffset) === 1 ? '368.89px' : '380px')};`, // Default height for scale 0.8 cards
+                    class: `${slideOffset === 0 ? 'w-80 bg-blue-800' : (Math.abs(slideOffset) === 1 ? 'w-72 bg-white border border-blue-800' : 'w-64 bg-white border border-blue-800')} h-96 rounded-2xl overflow-hidden shadow-lg relative ${textColorClass}`
+                };
+
+
+            }
+
+
+        };
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section id="solutions" class="p-10 flex flex-col justify-center  items-center lg:flex-row lg:px-24 " style="background: url('/images/bg_section.png') no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="flex flex-col justify-center  items-center">
@@ -594,46 +724,172 @@ financial institutions.            </p>
 
 
 
-<section x-data="{ shown: true }" x-intersect="shown = true"
-    class="relative flex flex-col lg:flex-row items-center p-10 lg:px-20 py-20 bg-white overflow-hidden">
-<div class="w-full lg:w-1/2 px-6 py-8 flex flex-col justify-center">
-    <span>
-        <span
-            style="background-color: #E9F6E4; color: #6CC24A; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Partners</span>
-    </span>
-
-    <h2 class="text-3xl lg:text-4xl font-bold text-[#000B6B] my-4 fadeLeft animation-element">
-        Exploring Our Network of International Partners Across the Continents
-    </h2>
-    <p class="text-2xl text-[#3B404A] mb-6 fadeRight animation-element">
-        Software Solutions empower financial participation by the banked and the unbanked sector
-    </p>
-
-    <!-- Read More Button -->
-    <div class="flex mt-2 lg:mt-8">
-        <div
-            class="flex text-center flex-row rounded-full py-4 px-8 w-max bg-[#0032A0] text-white justify-center items-center cursor-pointer">
-            <a href="#" class="mr-2">
-                Read more
-            </a>
-            <div>
-                <img src="/images/ArrowSquareOut.svg" alt="Read more arrow" />
+<section x-data="{ shown: false }" x-intersect="shown = true" class="p-10 flex flex-col lg:flex-row lg:px-24 py-20"
+    style="background: url('/images/partners_bg.png') no-repeat; background-size: cover; background-attachment: fixed;">
+    <div class="w-full ">
+        <div class="flex flex-col justify-center items-center fadeUp animation-element">
+            <div class="text-[42px] font-bold text-center text-[#000B6B]">
+                Our Partners Around the World
+            </div>
+            <div class="text-[24px] text-center text-center text-[#3B404A]">
+                Software Solutions empower financial participation by the banked and the unbanked sector
             </div>
         </div>
+
+        <div class="w-full">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mt-10">
+
+
+                <div x-show="shown" x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52  rounded-full flex flex-col justify-center items-center p-4">
+                        <img class="relative" src="/images/partners/corpay.png" class="p-6 object-fit" />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-3000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/uba_logo.png" class="p-4 object-fit" />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-3000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/zenith.png" class="p-6 lg:p-12  object-fit" />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center ">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/paps.png" class="p-4 object-fit" / />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center ">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center p-4">
+                        <img src="/images/coris_bank.png" class="object-fit" / />
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mt-10 justify-center">
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52 rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/google_logo.png" class="object-fit p-4" / />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52  rounded-full flex flex-col justify-center items-center px-4">
+                        <img src="/images/partners/integral.png" class="object-fit" / />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52  rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/multi_logo.svg" class="object-fit p-4" / />
+                    </div>
+                </div>
+                <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                    x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                    class="grid justify-center items-center">
+                    <div
+                        class="bg-white w-32 h-32 lg:w-52 lg:h-52  rounded-full flex flex-col justify-center items-center">
+                        <img src="/images/partners/absa_logo.png" class="object-fit w-24" />
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        {{!-- <div
+            class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center lg:-mt-12 md:mt-0 ">
+            <div x-show="shown" x-transition:enter="transition ease-out duration-3000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/uba_logo.png" style="width: 130px; height: 63px;" />
+                </div>
+            </div>
+            <div x-show="shown" x-transition:enter="transition ease-out duration-3000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64 rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/zenith.png" class="p-12" style="width: 100%; height: 100%;" />
+                </div>
+            </div>
+        </div> --}}
+
+        {{!-- <div
+            class="grid grid-cols-1 gap-6 grid-x-8 justify-center items-center md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-10">
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center ">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/paps.png" style="width: 130px; height: 63px;" />
+                </div>
+            </div>
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center ">
+                <div class="bg-white w-64 h-64 rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/e-transactions.png" style="height: 63px;" />
+                </div>
+            </div>
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/google_logo.png" />
+                </div>
+            </div>
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/integral.png" style=" height: 50px;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="grid  mt-0 grid-cols-1 gap-6 lg:grid-cols-2 md:grid-cols-2 justify-center items-center  ">
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/multi_logo.svg" />
+                </div>
+            </div>
+            <div x-show="shown" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-100 scale-0" x-transition:enter-end="opacity-100 scale-100"
+                class="grid justify-center items-center">
+                <div class="bg-white w-64 h-64  rounded-full flex flex-col justify-center items-center">
+                    <img src="/images/partners/absa_logo.png" />
+                </div>
+            </div>
+        </div> --}}
+
+
+
     </div>
-</div>
-
-    <!-- Right Column with Rounded Left Edge Overlapping -->
-    <div class=" fadeLeft animation-element lg:w-1/2 h-full flex justify-center items-center bg-[#F6F8FE] lg:absolute lg:right-0 lg:top-0 lg:bottom-0 rounded-l-full"
-        style="z-index:11; margin-left: -1rem;">
-        <div class="flex justify-center items-center w-full h-full">
-            <!-- UBA Logo Image -->
-            <div x-show="shown" x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-            <img src="/images/partners/Group281.png" alt="UBA Logo"
-                 class="w-4/5 h-4/5 object-contain"/>
-            </div>
-        </div>
     </div>
 </section>
 

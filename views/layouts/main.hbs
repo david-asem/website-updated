@@ -259,14 +259,22 @@ function googleTranslateElementInit() {
 
 <header
     class="font-medium flex justify-between items-center lg:px-12 xl:px-20 fixed z-30 rounded-full bg-white shadow-lg"
-    :class="{'w-full top-0 rounded-none shadow-none': isAtTop, 'w-[1248px] top-12': !isAtTop}"
-    x-data="{ isAtTop: false }" @scroll.window="isAtTop = window.scrollY <= 20"
-    style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px; transition: width 0.5s ease-out, top 0.5s ease-out, border-radius 0.5s ease-out, background-color 0.5s ease-out, box-shadow 0.5s ease-out, color 0.5s ease-out;"
-    :style="{
+    :class="{'w-full top-0 rounded-none bg-transparent shadow-none text-white': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
+    x-data="{ isAtTop: false, lastScroll: 0 }" 
+    
+    @scroll.window="handleScroll" x-init="handleScroll = () => {
+        isAtTop = window.scrollY > 0;
+        lastScroll = window.scrollY;
+    }" style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px;
+           transition: width 0.5s ease-out, top 0.5s ease-out, border-radius 0.5s ease-out,
+                       background-color 0.5s ease-out, box-shadow 0.5s ease-out, color 0.5s ease-out;" :style="{
         'height': isAtTop ? '70px' : '64px',
         'padding-top': isAtTop ? '0' : '8px',
-        'padding-bottom': isAtTop ? '0' : '8px'
+        'padding-bottom': isAtTop ? '0' : '8px',
+        'background-color': isAtTop ? 'white' : 'white',
+        'box-shadow': isAtTop ? 'none' : '0 2px 4px rgba(0,0,0,0.1)'
     }">
+
 
     <a href="/" class="absolute" style="top: 20px; left: 36px;">
         <img src="/images/jav_logo_color.png" alt="Javolin Logo" style="width: 130px; height: 30.23px;" />
