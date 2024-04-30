@@ -59,15 +59,150 @@
 
 
 
+<style>
+    #heroSec {
+        height: 100vh;
+        position: relative;
+        z-index: 2;
+        /* Ensures the hero section is above the carousel */
+        overflow: hidden;
+    }
 
-<section class="relative py-4 lg:px-24 bg-cover bg-center bg-no-repeat" x-data="carousel()" x-init="init()" style="height: 800px; overflow-hidden; background-image: url('/images/value_bg.png');">
+    .carousel-container {
+        position: relative;
+        transform: translateY(-100vh) scale(0.5);
+        /* Start scaled down and moved up */
+        transition: transform 0.5s ease-out;
+        /* Smooth transition for both moving and scaling */
+        z-index: 1;
+        visibility: hidden;
+        /* Initially hidden */
+        width: 100%;
+        /* Full width */
+        height: 800px;
+        /* Fixed height */
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const heroSec = document.getElementById('heroSec');
+        const carousel = document.querySelector('.carousel-container');
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+
+        function handleScroll(scrollPos) {
+            const heroHeight = heroSec.offsetHeight;
+            const scrollFraction = scrollPos / heroHeight;
+            const translateY = Math.max(-heroHeight, scrollPos - heroHeight);
+            let scale = 0.5 + scrollFraction * 0.5;
+
+            if (scrollPos < heroHeight) {
+                carousel.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                carousel.style.visibility = 'visible';
+            } else {
+                carousel.style.transform = 'translateY(0px) scale(1)';
+            }
+        }
+
+        // Ensure carousel is in place before making it visible
+        carousel.style.transform = 'translateY(-100vh) scale(0.5)';
+        setTimeout(() => {
+            carousel.style.visibility = 'visible'; // Only reveal after transform
+        }, 50); // Smaller delay to reduce initial flicker
+
+        window.addEventListener('scroll', function () {
+            lastKnownScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll(lastKnownScrollPosition);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+<section class="relative py-4 lg:px-24 bg-cover bg-center bg-no-repeat" x-data="carousel()" x-init="init()"
+    style="height: 800px; overflow: hidden; background-image: url('/images/value_bg.png'); background-attachment: fixed;">
     <!-- Carousel Title -->
     <h2 class="slide fadeRight animation-element"
         style="margin-top: 50px; width: 689px; margin-left: auto; margin-right: auto; text-align: center; color: #000638; font-size: 44px; font-family: 'Satoshi'; font-weight: 700; line-height: 55.20px; word-wrap: break-word;">
         Aliquet tortor pulvinar egestas pellentesque enim pellentesque.
     </h2>
     <!-- Carousel container -->
-    <div class="flex justify-center  items-center h-full slide fadeRight animation-element" style="perspective: 1000px;">
+    <div class=" flex justify-center items-center h-full slide fadeRight animation-element"
+        style="perspective: 1000px; position: relative;">
+        <!-- Left navigation arrow with circle -->
+        <div style="position: absolute; left: 5px; top: 30%; transform: translateY(-50%); z-index: 10; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                <g filter="url(#filter0_d_4264_4406)">
+                    <circle cx="34" cy="34" r="22" fill="white" />
+                    <circle cx="34" cy="34" r="21.5" stroke="#6CC24A" />
+                </g>
+                <defs>
+                    <filter id="filter0_d_4264_4406" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="6" />
+                        <feGaussianBlur stdDeviation="6" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4264_4406" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4264_4406" result="shape" />
+                    </filter>
+                </defs>
+                <!-- Left arrow icon inside the circle -->
+                <path transform="translate(24, 24)"
+                    d="M5.80783 10.4422L12.0578 16.6922C12.1159 16.7502 12.1848 16.7963 12.2607 16.8277C12.3366 16.8592 12.4179 16.8753 12.5 16.8753C12.5821 16.8753 12.6635 16.8592 12.7393 16.8277C12.8152 16.7963 12.8841 16.7502 12.9422 16.6922C13.0003 16.6341 13.0463 16.5652 13.0778 16.4893C13.1092 16.4134 13.1254 16.3321 13.1254 16.25C13.1254 16.1679 13.1092 16.0865 13.0778 16.0107C13.0463 15.9348 13.0003 15.8659 12.9422 15.8078L7.13361 9.99998L12.9422 4.19217C13.0595 4.07489 13.1254 3.91583 13.1254 3.74998C13.1254 3.58413 13.0595 3.42507 12.9422 3.30779C12.8249 3.19052 12.6659 3.12463 12.5 3.12463C12.3342 3.12463 12.1751 3.19052 12.0578 3.30779L5.80783 9.55779C5.74972 9.61584 5.70362 9.68477 5.67217 9.76064C5.64072 9.83652 5.62453 9.91785 5.62453 9.99998C5.62453 10.0821 5.64072 10.1634 5.67217 10.2393C5.70362 10.3152 5.74972 10.3841 5.80783 10.4422Z"
+                    fill="#6CC24A" />
+            </svg>
+        </div>
+    
+        <!-- Right navigation arrow with circle -->
+        <div style="position:absolute; right: 5px; top: 30%; transform: translateY(-50%); z-index: 10; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                <g filter="url(#filter0_d_4264_4406)">
+                    <circle cx="34" cy="34" r="22" fill="white" />
+                    <circle cx="34" cy="34" r="21.5" stroke="#6CC24A" />
+                </g>
+                <defs>
+                    <filter id="filter0_d_4264_4406" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="6" />
+                        <feGaussianBlur stdDeviation="6" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4264_4406" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4264_4406" result="shape" />
+                    </filter>
+                </defs>
+                <!-- Right arrow icon inside the circle -->
+                <path transform="translate(24, 24)"
+                    d="M14.1923 10.4422L7.94229 16.6922C7.88422 16.7502 7.81528 16.7963 7.73941 16.8277C7.66354 16.8592 7.58223 16.8753 7.5001 16.8753C7.41798 16.8753 7.33666 16.8592 7.26079 16.8277C7.18492 16.7963 7.11598 16.7502 7.05792 16.6922C6.99985 16.6341 6.95378 16.5652 6.92236 16.4893C6.89093 16.4134 6.87476 16.3321 6.87476 16.25C6.87476 16.1679 6.89093 16.0865 6.92236 16.0107C6.95378 15.9348 6.99985 15.8659 7.05792 15.8078L12.8665 9.99998L7.05792 4.19217C6.94064 4.07489 6.87476 3.91583 6.87476 3.74998C6.87476 3.58413 6.94064 3.42507 7.05792 3.30779C7.17519 3.19052 7.33425 3.12463 7.5001 3.12463C7.66596 3.12463 7.82502 3.19052 7.94229 3.30779L14.1923 9.55779C14.2504 9.61584 14.2965 9.68477 14.328 9.76064C14.3594 9.83652 14.3756 9.91785 14.3756 9.99998C14.3756 10.0821 14.3594 10.1634 14.328 10.2393C14.2965 10.3152 14.2504 10.3841 14.1923 10.4422Z"
+                    fill="#6CC24A" />
+            </svg>
+        </div>
         <!-- Carousel slides -->
         <template x-for="(slide, index) in slides" :key="index">
             <div class="absolute transition-transform duration-300 ease-in-out"
@@ -83,7 +218,8 @@
                     </div>
                 
                     <!-- Arrow -->
-                <div class="arrow-container" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);">
+                <div class="arrow-container"
+                    style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) rotate(-45deg); transform-origin: center;">
                     <!-- SVG for active card's arrow -->
                     <template x-if="slide.active">
                         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,13 +231,12 @@
                     </template>
                 
                         <!-- SVG for non-active card's arrow -->
-                        <!-- SVG for non-active card's arrow -->
                         <template x-if="!slide.active">
                             <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="19" cy="19" r="19" fill="#E0EAFF" />
                                 <path
                                     d="M24.6204 19.4001L19.5311 24.4893C19.425 24.5955 19.2811 24.6551 19.131 24.6551C18.981 24.6551 18.8371 24.5955 18.7309 24.4893C18.6248 24.3832 18.5652 24.2393 18.5652 24.0893C18.5652 23.9392 18.6248 23.7953 18.7309 23.6892L22.8554 19.5655H11.7798C11.6299 19.5655 11.486 19.5059 11.38 19.3998C11.2739 19.2938 11.2144 19.15 11.2144 18.9999C11.2144 18.85 11.2739 18.7062 11.38 18.6001C11.486 18.4941 11.6299 18.4345 11.7798 18.4345H22.8554L18.7309 14.3108C18.6248 14.2047 18.5652 14.0608 18.5652 13.9107C18.5652 13.7606 18.6248 13.6167 18.7309 13.5106C18.8371 13.4045 18.981 13.3449 19.131 13.3449C19.2811 13.3449 19.425 13.4045 19.5311 13.5106L24.6204 18.5999C24.673 18.6524 24.7147 18.7148 24.7431 18.7834C24.7716 18.8521 24.7862 18.9257 24.7862 18.9999C24.7862 19.0742 24.7716 19.1478 24.7431 19.2165C24.7147 19.2851 24.673 19.3475 24.6204 19.4001Z"
-                                    fill="#0032A0" />
+                                    fill="#0032A0" /> 
                             </svg>
                         </template>
 
@@ -140,191 +275,186 @@
 
 <script>
     function carousel() {
-        return {
-            slides: [
-                { label: 'Javolin Fi', image: '/images/javolin_finance.png', active: false },
-                { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false },
-                { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true },
-                { label: 'FX & Payments', image: '/images/fx.png', active: false },
-                { label: 'Commodities', image: '/images/commodities.png', active: false },
-            ],
-            activeSlide: 2, // The index of the initially active slide
-            
+            return {
+                slides: [
+                    { label: 'Javolin Finance', image: '/images/javolin_finance.png', active: false },
+                    { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false },
+                    { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true },
+                    { label: 'FX & Payments', image: '/images/fx.png', active: false },
+                    { label: 'Javolin Commodities', image: '/images/commodities.png', active: false },
+                ],
+                activeSlide: 2, // The index of the initially active slide
+                timer: null, // To store the interval timer
+                intervalTime: 9000, // Time in milliseconds between slide changes
 
-            init() {
-                this.arrangeSlides();
-            },
+                init() {
+                    this.arrangeSlides();
+                },
+                setActiveSlide(index) {
+                    this.activeSlide = index;
+                    this.arrangeSlides();
+                },
 
-            setActiveSlide(index) {
-                this.activeSlide = index;
-                this.arrangeSlides();
-            },
+                arrangeSlides() {
+                    this.slides.forEach((slide, index) => {
+                        slide.active = index === this.activeSlide;
+                    });
+                },
 
-            arrangeSlides() {
-                this.slides.forEach((slide, index) => {
-                    slide.active = index === this.activeSlide;
-                });
-            },
 
-            slideStyles(index) {
-                const slideOffset = this.activeSlide - index;
-                let zIndex = 30 - Math.abs(slideOffset);
-                let scale, xTranslate;
-                let textColorClass = slideOffset === 0 ? 'text-white' : 'text-gray-800'; 
 
-                // Default scale and translation adjustments
-                scale = slideOffset === 0 ? 1.1 : (Math.abs(slideOffset) === 1 ? 1.0 : 0.9);
-                xTranslate = slideOffset === 0 ? 0 : (slideOffset > 0 ? -90 : 90) * Math.abs(slideOffset);
+                slideStyles(index) {
+                    const numSlides = this.slides.length;
+                    const slideOffset = ((this.activeSlide - index + numSlides) % numSlides) - Math.floor(numSlides / 2);
+                    let zIndex = 30 - Math.abs(slideOffset);
+                    let scale, xTranslate;
+                    let textColorClass = slideOffset === 0 ? 'text-white' : 'text-gray-800';
 
-                // Adjustments when the active slide is either on the first, second, second-to-last, or last position
-                if (this.activeSlide === 0 && index > 2) { // If the first card is active, only show three cards
-                    xTranslate = 200; // Offsets the cards to the right out of view
-                    scale = 0; // Scales them down to hide
-                } else if (this.activeSlide === 1 && index > 3) { // If the second card is active, hide the last one
-                    xTranslate = 200; // Offsets the last card to the right out of view
-                    scale = 0; // Scales it down to hide
-                } else if (this.activeSlide === this.slides.length - 2 && index < 1) { // If the second-to-last card is active, hide the first one
-                    xTranslate = -200; // Offsets the first card to the left out of view
-                    scale = 0; // Scales it down to hide
-                } else if (this.activeSlide === this.slides.length - 1 && index < 2) { // If the last card is active, only show three cards
-                    xTranslate = -200; // Offsets the first two cards to the left out of view
-                    scale = 0; // Scales them down to hide
+                    // Scale and translation adjustments based on proximity to the active slide
+                    if (slideOffset === 0) {
+                        scale = 1.1;  // Active card larger
+                    } else if (Math.abs(slideOffset) === 1) {
+                        scale = 1.0;  // Direct neighbors slightly smaller than the active
+                    } else {
+                        scale = 0.9;  // Farther cards smaller
+                    }
+
+                    xTranslate = slideOffset * -90; // Position cards with 90% width offset for each step
+
+                    return {
+                        style: `transform: translateX(${xTranslate}%) scale(${scale}); z-index: ${zIndex}; transition: transform 0.5s ease-in-out;
+                height: ${slideOffset === 0 ? '355px' : (Math.abs(slideOffset) === 1 ? '368.89px' : '380px')};`,
+                        class: `${slideOffset === 0 ? 'w-80 bg-blue-800' : (Math.abs(slideOffset) === 1 ? 'w-72 bg-white border border-blue-800' : 'w-64 bg-white border border-blue-800')} h-96 rounded-2xl overflow-hidden shadow-lg relative ${textColorClass}`
+                    };
                 }
 
-                // Apply style with calculated xTranslate and scale
-               return {
-                    style: `transform: translateX(${xTranslate}%) scale(${scale}); z-index: ${zIndex};
-            height: ${slideOffset === 0 ? '355px' : (Math.abs(slideOffset) === 1 ? '368.89px' : '380px')};`, // Default height for scale 0.8 cards
-                    class: `${slideOffset === 0 ? 'w-80 bg-blue-800' : (Math.abs(slideOffset) === 1 ? 'w-72 bg-white border border-blue-800' : 'w-64 bg-white border border-blue-800')} h-96 rounded-2xl overflow-hidden shadow-lg relative ${textColorClass}`
-                };
 
+            };
+        }
 
-            }
-
-
-        };
-    }
 </script>
 
 
+<style>
+  /* Add this to your <style> tag or CSS file */
+  .card-hover-content {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .card:hover .card-hover-content {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  .card-title {
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .card:hover .card-title {
+    opacity: 0;
+  }
+</style>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section id="solutions" class="p-10 flex flex-col justify-center  items-center lg:flex-row lg:px-24 " style="background: url('/images/bg_section.png') no-repeat; background-size: cover; background-attachment: fixed;">
-    <div class="flex flex-col justify-center  items-center">
-        <div class="text-center w-full text-white  flex flex-col justify-center items-center">
-            <h1 class="text-4xl font-bold my-6">
-                Our Solutions
-            </h1>
-            <p class="text-2xl">
-                Our customizable solutions empower broader participation across borders for our clients.
-            </p>
-        </div>
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 my-12 justify-center relative">
-
-
-            <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element relative">
-                <div class="border border-green-600 w-20 h-20 p-4 rounded-full">
-                    <img src="/images/icons/exchange.gif" alt="icon payment" />
-                </div>
-                <div class="text-[#000C26] font-bold text-xl py-6">
-                    Foreign Exchange
-                </div>
-                <div class="text-[#5D6066] pb-6">
-                    Through our integrated partner program, we provide our clients access to 145+ currencies delivered to over
-                    200+ countries with up-to-the minute trading information through our foreign exchange platform.
-                </div>
-            
-                <div class="flex absolute bottom-4 z-30">
-                    <div
-                        class="flex text-center flex-row rounded-full w-max bg-white justify-center items-center mt-8 cursor-pointer">
-                        <a href="/solutions/foreign-exchange">
-                            <div style="font-weight: bold;" class="mr-2 text-[#0032A0] text-lg ">
-                                Learn More
-                            </div>
-                        </a>
-                        <div>
-                            <img src="/images/icons/ArrowSquareOutBlue.svg" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element relative">
-                <div class="border border-green-600 w-20 h-20 p-4 rounded-full">
-                    <img src="/images/icons/infras.gif" alt="icon payment" />
-                </div>
-                <div class="text-[#000C26] font-bold text-xl py-6">
-                    Agri Commodities Platform
-                </div>
-                <div class="text-[#5D6066] pb-6">
-                    Helping small farmers expand their business by providing affordable financing solutions. Currently available in Ghana &
-                    Nigeria, with plans to expand into East & West Africa.
-                </div>
-                <div class="flex absolute bottom-4">
-                    <div
-                        class="flex text-center flex-row rounded-full  w-max bg-white justify-center items-center mt-8 cursor-pointer">
-                        <a href="/solutions/digital-infrastructure">
-                            <div style="font-weight: bold;" class="mr-2 text-[#0032A0] text-lg">
-                                Learn More
-                            </div>
-                        </a>
-                        <div>
-                            <img src="/images/icons/ArrowSquareOutBlue.svg" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <div class="flex flex-col p-4 bg-white rounded-3xl fadeRight animation-element">
-            <div class="border border-green-600 w-20 h-20 p-4 rounded-full">
-                <img src="/images/icons/payment.gif" alt="icon payment" />
-            </div>
-            <div class="text-[#000C26] font-bold text-xl py-6">
-                Remittances
-            </div>
-            <div class="text-[#5D6066] pb-6">
-                We facilitate cross-border remittance and foreign exchange settlement services.
-            </div>
-    
-            <div class="flex absolute bottom-4">
-                <div
-                    class="flex text-center flex-row rounded-full  w-max bg-white justify-center items-center mt-8 cursor-pointer">
-                    <a href="/solutions/digital-payments">
-                        <div style="font-weight: bold;" class="mr-2 text-[#0032A0] text-lg  ">
-                            Learn More
-                        </div>
-                    </a>
-                    <div>
-                        <img src="/images/icons/ArrowSquareOutBlue.svg" />
-                    </div>
-                </div>
-            </div>
+<section id="solutions" class="p-10 flex flex-col justify-center items-center lg:flex-row lg:px-24"
+    style="bg-white no-repeat; background-size: cover; background-attachment: fixed;">
+    <div class="flex flex-col justify-center items-center">
+        <div class="slide fadeLeft animation-element"
+            style="text-align: center; color: #0032A0; font-size: 20px; font-family: 'Satoshi', sans-serif; font-weight: 500; letter-spacing: 1.2px;">
+            OUR SOLUTION
         </div>
         
-       
-    </div>
+        <div class="slide fadeRight animation-element"
+            style="width: 725px; margin: 0 auto; text-align: center; color: #000638; font-size: 44px; font-family: 'Satoshi', sans-serif; font-weight: 700; line-height: 55.2px;">
+            Quisque ut lorem aliquam vestibulum enim vel diam hend.
+        </div>
 
-        
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-12 my-12 justify-center relative">
+
+            <!-- Foreign Exchange Card -->
+            <div class="card slide fadeRight animation-element"
+                style="width: 398px; height: 467px; position: relative; box-shadow: 0px 10px 20px rgba(37.73, 40.08, 60.57, 0.30); border-radius: 16px; overflow: hidden">
+                <div style="width: 398px; height: 467px; position: absolute; background: #000638"></div>
+                <img style="width: 398px; height: 467px; position: absolute" src="/images/forexS.png" alt="Foreign Exchange" />
+                <div class="card-title"
+                    style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
+                    Foreign exchange services
+                </div>
+                <div class="card-hover-content"
+                    style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
+                    <div
+                        style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+                            <div
+                                style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
+                                Foreign exchange services</div>
+                        <div
+                            style="width: 334px; height: 203px; color: #5D6066; font-size: 16px; font-family: Satoshi; font-weight: 500; word-wrap: break-word">
+                            Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus aliquam. Felis convallis
+                            ante faucibus sed ipsum. Platea viverra justo consequat arcu fringilla id. Ac facilisi porta varius egestas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card slide fadeRight animation-element"
+                style="width: 398px; height: 467px; position: relative; box-shadow: 0px 10px 20px rgba(37.73, 40.08, 60.57, 0.30); border-radius: 16px; overflow: hidden">
+                <div style="width: 398px; height: 467px; position: absolute; background: #000638"></div>
+                <img style="width: 398px; height: 467px; position: absolute" src="/images/remi.png" alt="Foreign Exchange" />
+                <div class="card-title"
+                    style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
+                    Remittance services
+                </div>
+                <div class="card-hover-content"
+                    style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
+                    <div
+                        style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+                        <div
+                            style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
+                            Remittance services</div>
+                        <div
+                            style="width: 334px; height: 203px; color: #5D6066; font-size: 16px; font-family: Satoshi; font-weight: 500; word-wrap: break-word">
+                            Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus aliquam. Felis convallis
+                            ante faucibus sed ipsum. Platea viverra justo consequat arcu fringilla id. Ac facilisi porta varius egestas. 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card slide fadeRight animation-element"
+                style="width: 398px; height: 467px; position: relative; box-shadow: 0px 10px 20px rgba(37.73, 40.08, 60.57, 0.30); border-radius: 16px; overflow: hidden">
+                <div style="width: 398px; height: 467px; position: absolute; background: #000638"></div>
+                <img style="width: 398px; height: 467px; position: absolute" src="/images/agricom.png" alt="Foreign Exchange" />
+                <div class="card-title"
+                    style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
+                    Agri-commodities exchange
+                </div>
+                <div class="card-hover-content"
+                    style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
+                    <div
+                        style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+                        <div
+                            style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
+                            Agri-commodities exchange</div>
+                        <div
+                            style="width: 334px; height: 203px; color: #5D6066; font-size: 16px; font-family: Satoshi; font-weight: 500; word-wrap: break-word">
+                            Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus aliquam. Felis convallis
+                            ante faucibus sed ipsum. Platea viverra justo consequat arcu fringilla id. Ac facilisi porta varius egestas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
+
+
+
+
 
 <section x-data="{ shown: true }" x-intersect="shown = true"
     class="relative flex flex-col lg:flex-row items-center overflow-hidden" style="min-height: 600px;">
