@@ -139,203 +139,202 @@
 
 
 <section class="relative py-4 lg:px-24 bg-cover bg-center bg-no-repeat" x-data="carousel()" x-init="init()"
-    style="height: 800px; overflow: hidden; background-image: url('/images/value_bg.png'); background-attachment: fixed;">
+    style="height: 800px; overflow: hidden; background-image: url('/images/new-value-bg.png'); background-attachment: fixed;">
     <!-- Carousel Title -->
     <h2 class="slide fadeRight animation-element"
         style="margin-top: 50px; width: 689px; margin-left: auto; margin-right: auto; text-align: center; color: #000638; font-size: 44px; font-family: 'Satoshi'; font-weight: 700; line-height: 55.20px; word-wrap: break-word;">
         Aliquet tortor pulvinar egestas pellentesque enim pellentesque.
     </h2>
     <!-- Carousel container -->
-    <div class=" flex justify-center items-center h-full slide fadeRight animation-element"
-        style="perspective: 1000px; position: relative;">
+    <div class="flex justify-center items-center h-full slide fadeRight animation-element"
+        style="perspective: 1000px; position: relative; overflow: visible; width: 90%; margin: 0 auto; margin-top: -2rem;">
+
         <!-- Left navigation arrow with circle -->
-        <div style="position: absolute; left: 5px; top: 30%; transform: translateY(-50%); z-index: 10; cursor: pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
-                <g filter="url(#filter0_d_4264_4406)">
-                    <circle cx="34" cy="34" r="22" fill="white" />
-                    <circle cx="34" cy="34" r="21.5" stroke="#6CC24A" />
-                </g>
-                <defs>
-                    <filter id="filter0_d_4264_4406" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha" />
-                        <feOffset dy="6" />
-                        <feGaussianBlur stdDeviation="6" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4264_4406" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4264_4406" result="shape" />
-                    </filter>
-                </defs>
-                <!-- Left arrow icon inside the circle -->
-                <path transform="translate(24, 24)"
-                    d="M5.80783 10.4422L12.0578 16.6922C12.1159 16.7502 12.1848 16.7963 12.2607 16.8277C12.3366 16.8592 12.4179 16.8753 12.5 16.8753C12.5821 16.8753 12.6635 16.8592 12.7393 16.8277C12.8152 16.7963 12.8841 16.7502 12.9422 16.6922C13.0003 16.6341 13.0463 16.5652 13.0778 16.4893C13.1092 16.4134 13.1254 16.3321 13.1254 16.25C13.1254 16.1679 13.1092 16.0865 13.0778 16.0107C13.0463 15.9348 13.0003 15.8659 12.9422 15.8078L7.13361 9.99998L12.9422 4.19217C13.0595 4.07489 13.1254 3.91583 13.1254 3.74998C13.1254 3.58413 13.0595 3.42507 12.9422 3.30779C12.8249 3.19052 12.6659 3.12463 12.5 3.12463C12.3342 3.12463 12.1751 3.19052 12.0578 3.30779L5.80783 9.55779C5.74972 9.61584 5.70362 9.68477 5.67217 9.76064C5.64072 9.83652 5.62453 9.91785 5.62453 9.99998C5.62453 10.0821 5.64072 10.1634 5.67217 10.2393C5.70362 10.3152 5.74972 10.3841 5.80783 10.4422Z"
-                    fill="#6CC24A" />
-            </svg>
-        </div>
-    
+        {{{leftArrowSVG}}}
+
         <!-- Right navigation arrow with circle -->
-        <div style="position:absolute; right: 5px; top: 30%; transform: translateY(-50%); z-index: 10; cursor: pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
-                <g filter="url(#filter0_d_4264_4406)">
-                    <circle cx="34" cy="34" r="22" fill="white" />
-                    <circle cx="34" cy="34" r="21.5" stroke="#6CC24A" />
-                </g>
-                <defs>
-                    <filter id="filter0_d_4264_4406" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha" />
-                        <feOffset dy="6" />
-                        <feGaussianBlur stdDeviation="6" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4264_4406" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4264_4406" result="shape" />
-                    </filter>
-                </defs>
-                <!-- Right arrow icon inside the circle -->
-                <path transform="translate(24, 24)"
-                    d="M14.1923 10.4422L7.94229 16.6922C7.88422 16.7502 7.81528 16.7963 7.73941 16.8277C7.66354 16.8592 7.58223 16.8753 7.5001 16.8753C7.41798 16.8753 7.33666 16.8592 7.26079 16.8277C7.18492 16.7963 7.11598 16.7502 7.05792 16.6922C6.99985 16.6341 6.95378 16.5652 6.92236 16.4893C6.89093 16.4134 6.87476 16.3321 6.87476 16.25C6.87476 16.1679 6.89093 16.0865 6.92236 16.0107C6.95378 15.9348 6.99985 15.8659 7.05792 15.8078L12.8665 9.99998L7.05792 4.19217C6.94064 4.07489 6.87476 3.91583 6.87476 3.74998C6.87476 3.58413 6.94064 3.42507 7.05792 3.30779C7.17519 3.19052 7.33425 3.12463 7.5001 3.12463C7.66596 3.12463 7.82502 3.19052 7.94229 3.30779L14.1923 9.55779C14.2504 9.61584 14.2965 9.68477 14.328 9.76064C14.3594 9.83652 14.3756 9.91785 14.3756 9.99998C14.3756 10.0821 14.3594 10.1634 14.328 10.2393C14.2965 10.3152 14.2504 10.3841 14.1923 10.4422Z"
-                    fill="#6CC24A" />
-            </svg>
-        </div>
+        {{{ rightArrowSVG }}}
+
         <!-- Carousel slides -->
         <template x-for="(slide, index) in slides" :key="index">
-            <div class="absolute transition-transform duration-300 ease-in-out"
+            <div @click="setActiveSlide(index)" @mouseenter="flipCard(index)" @mouseleave="flipCard(index)"
+                class="absolute transition-transform duration-300 ease-in-out cursor-pointer"
                 :class="{ 'active': slide.active, 'inactive': !slide.active }" :style="slideStyles(index).style">
 
                 <!-- Card -->
-                <div :class="slideStyles(index).class" style="position: relative; padding: 1rem; border-radius: 1rem; margin-top: -6rem; ">
-                    <img :src="slide.image" class="object-contain" :style="'height: calc(2/3 * ' + slideHeight + 'px); width: 100%;'" />
-                
-                    <!-- Text Label -->
-                    <div class="absolute bottom-15 left-0 w-full text-center" style="padding: 1rem; bottom: 3rem;">
-                        <span x-text="slide.label" class="text-xl font-bold font-['Satoshi']"></span>
+                <div :class="slideStyles(index).class"
+                    style="position: relative; padding: 1rem; border-radius: 1rem; margin-top: -6rem; perspective: 1000px;">
+                    <div :class="{ 'flip-card-inner': true, 'flipped': slide.flipped }"
+                        style="transition: transform 0.8s;">
+                        <div class="flip-card-front"
+                            style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;">
+                            <img :src="slide.image" class="object-contain"
+                                :style="'height: calc(2/3 * ' + slideHeight + 'px); width: 100%;'" />
+                            <!-- Text Label -->
+                            <div class="absolute bottom-15 left-0 w-full text-center"
+                                style="padding: 1rem; bottom: 3rem;">
+                                <span x-text="slide.label" class="text-xl font-bold font-['Satoshi']"></span>
+                            </div>
+                        </div>
+                        <div class="flip-card-back js-tilt"
+                            style="border-radius: 1rem;position: absolute; width: 100%; height: 100%; background-color: white; color: black; display: flex; align-items: center; justify-content: center; backface-visibility: hidden; transform: rotateY(180deg);">
+                            <span class="text-xl items-center text-center">
+                                <p>Quam vitae fermentum sit nibh tempus auctor amet. Risus ac venenatis sit cras commodo integer et. At et et sit non
+                                tortor morbi fusce. Pretium eu congue a ut viverra aliquet.</p>
+                            </span>
+                        </div>
                     </div>
-                
+
                     <!-- Arrow -->
-                <div class="arrow-container"
-                    style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) rotate(-45deg); transform-origin: center;">
-                    <!-- SVG for active card's arrow -->
-                    <template x-if="slide.active">
-                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="19" cy="19" r="19" fill="white" />
-                            <path
-                                d="M24.6204 19.4001L19.5311 24.4893C19.425 24.5955 19.2811 24.6551 19.131 24.6551C18.981 24.6551 18.8371 24.5955 18.7309 24.4893C18.6248 24.3832 18.5652 24.2393 18.5652 24.0893C18.5652 23.9392 18.6248 23.7953 18.7309 23.6892L22.8554 19.5655H11.7798C11.6299 19.5655 11.486 19.5059 11.38 19.3998C11.2739 19.2938 11.2144 19.15 11.2144 18.9999C11.2144 18.85 11.2739 18.7062 11.38 18.6001C11.486 18.4941 11.6299 18.4345 11.7798 18.4345H22.8554L18.7309 14.3108C18.6248 14.2047 18.5652 14.0608 18.5652 13.9107C18.5652 13.7606 18.6248 13.6167 18.7309 13.5106C18.8371 13.4045 18.981 13.3449 19.131 13.3449C19.2811 13.3449 19.425 13.4045 19.5311 13.5106L24.6204 18.5999C24.673 18.6524 24.7147 18.7148 24.7431 18.7834C24.7716 18.8521 24.7862 18.9257 24.7862 18.9999C24.7862 19.0742 24.7716 19.1478 24.7431 19.2165C24.7147 19.2851 24.673 19.3475 24.6204 19.4001Z"
-                                fill="#0032A0" />
-                        </svg>
-                    </template>
-                
+                    <div class="arrow-container"
+                        style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) rotate(-45deg); transform-origin: center;">
+                        <!-- SVG for active card's arrow -->
+                        {{{activeCardArrowSVG}}}
+                    
                         <!-- SVG for non-active card's arrow -->
                         <template x-if="!slide.active">
                             <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="19" cy="19" r="19" fill="#E0EAFF" />
                                 <path
                                     d="M24.6204 19.4001L19.5311 24.4893C19.425 24.5955 19.2811 24.6551 19.131 24.6551C18.981 24.6551 18.8371 24.5955 18.7309 24.4893C18.6248 24.3832 18.5652 24.2393 18.5652 24.0893C18.5652 23.9392 18.6248 23.7953 18.7309 23.6892L22.8554 19.5655H11.7798C11.6299 19.5655 11.486 19.5059 11.38 19.3998C11.2739 19.2938 11.2144 19.15 11.2144 18.9999C11.2144 18.85 11.2739 18.7062 11.38 18.6001C11.486 18.4941 11.6299 18.4345 11.7798 18.4345H22.8554L18.7309 14.3108C18.6248 14.2047 18.5652 14.0608 18.5652 13.9107C18.5652 13.7606 18.6248 13.6167 18.7309 13.5106C18.8371 13.4045 18.981 13.3449 19.131 13.3449C19.2811 13.3449 19.425 13.4045 19.5311 13.5106L24.6204 18.5999C24.673 18.6524 24.7147 18.7148 24.7431 18.7834C24.7716 18.8521 24.7862 18.9257 24.7862 18.9999C24.7862 19.0742 24.7716 19.1478 24.7431 19.2165C24.7147 19.2851 24.673 19.3475 24.6204 19.4001Z"
-                                    fill="#0032A0" /> 
+                                    fill="#0032A0" />
                             </svg>
                         </template>
-
                     </div>
                 </div>
-
-
-
             </div>
         </template>
 
     </div>
 
     <!-- Navigation Dots -->
-<div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
-    <template x-for="(slide, index) in slides" :key="index">
-        <div @click="setActiveSlide(index)" class="cursor-pointer">
-            <!-- Active dot with slight raise -->
-            <div x-show="slide.active" class="transform -translate-y-0.5">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8" cy="8" r="8" fill="#6CC24A" />
-                </svg>
+    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <template x-for="(slide, index) in slides" :key="index">
+            <div @click="setActiveSlide(index)" class="cursor-pointer">
+                <!-- Active dot with slight raise -->
+                <div x-show="slide.active" class="transform -translate-y-0.5">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#6CC24A" />
+                    </svg>
+                </div>
+                <!-- Non-active dot -->
+                <div x-show="!slide.active">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
+                    </svg>
+                </div>
             </div>
-            <!-- Non-active dot -->
-            <div x-show="!slide.active">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
-                </svg>
-            </div>
-        </div>
-    </template>
-</div>
-
-
+        </template>
+    </div>
 </section>
 
 <script>
     function carousel() {
-            return {
-                slides: [
-                    { label: 'Javolin Finance', image: '/images/javolin_finance.png', active: false },
-                    { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false },
-                    { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true },
-                    { label: 'FX & Payments', image: '/images/fx.png', active: false },
-                    { label: 'Javolin Commodities', image: '/images/commodities.png', active: false },
-                ],
-                activeSlide: 2, // The index of the initially active slide
-                timer: null, // To store the interval timer
-                intervalTime: 9000, // Time in milliseconds between slide changes
+        return {
+            slides: [
+                { label: 'Javolin Finance', image: '/images/javolin_finance.png', active: false, flipped: false },
+                { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false, flipped: false },
+                { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true, flipped: false },
+                { label: 'FX & Payments', image: '/images/fx.png', active: false, flipped: false },
+                { label: 'Javolin Commodities', image: '/images/commodities.png', active: false, flipped: false },
+            ],
+            activeSlide: 2, // Initially active slide
 
-                init() {
-                    this.arrangeSlides();
-                },
-                setActiveSlide(index) {
-                    this.activeSlide = index;
-                    this.arrangeSlides();
-                },
+            init() {
+                this.arrangeSlides();
+            },
+            setActiveSlide(index) {
+                this.activeSlide = index;
+                this.arrangeSlides();
+            },
+            nextSlide() {
+                this.setActiveSlide((this.activeSlide + 1) % this.slides.length);
+            },
+            previousSlide() {
+                this.setActiveSlide((this.activeSlide - 1 + this.slides.length) % this.slides.length);
+            },
+            arrangeSlides() {
+                this.slides.forEach((slide, index) => {
+                    slide.active = index === this.activeSlide;
+                    slide.flipped = false; // Reset flipped state when arranging slides
+                });
+            },
+            flipCard(index) {
+                if (this.slides[index].active) {
+                    this.slides[index].flipped = !this.slides[index].flipped;
 
-                arrangeSlides() {
-                    this.slides.forEach((slide, index) => {
-                        slide.active = index === this.activeSlide;
+                    // Ensure the DOM updates are processed before initializing or destroying tilt
+                    this.$nextTick(() => {
+                        if (this.slides[index].flipped) {
+                            // Initialize tilt on the flipped back of the card
+                            $(`.flip-card-inner[data-index="${index}"] .flip-card-back`).tilt({
+                                scale: 1.2,  // Scale the card back on hover
+                                maxTilt: 10,
+                                perspective: 1000,   // Transform perspective, the lower the more extreme the tilt gets.
+                                easing: "cubic-bezier(.03,.98,.52,.99)",  // Easing on enter/exit.
+                                speed: 300,    // Speed of the enter/exit transition.
+                                transition: true,   // Set a transition on enter/exit.
+                                reset: true    // If the tilt effect has to be reset on exit.
+                            });
+                        } else {
+                            // Destroy tilt instance when card is flipped back
+                            $(`.flip-card-inner[data-index="${index}"] .flip-card-back`).tilt.destroy();
+                        }
                     });
-                },
+                }
+            },
 
 
+            slideStyles(index) {
+                const numSlides = this.slides.length;
+                const distance = Math.abs(index - this.activeSlide);
+                let zIndex = numSlides - distance;
+                let scale = 1.099 - 0.095 * distance; // Each non-active card is slightly smaller than the one before it
+                let textColor = index === this.activeSlide ? 'text-white' : 'text-gray-800';
 
-                slideStyles(index) {
-                    const numSlides = this.slides.length;
-                    const slideOffset = ((this.activeSlide - index + numSlides) % numSlides) - Math.floor(numSlides / 2);
-                    let zIndex = 30 - Math.abs(slideOffset);
-                    let scale, xTranslate;
-                    let textColorClass = slideOffset === 0 ? 'text-white' : 'text-gray-800';
-
-                    // Scale and translation adjustments based on proximity to the active slide
-                    if (slideOffset === 0) {
-                        scale = 1.1;  // Active card larger
-                    } else if (Math.abs(slideOffset) === 1) {
-                        scale = 1.0;  // Direct neighbors slightly smaller than the active
-                    } else {
-                        scale = 0.9;  // Farther cards smaller
-                    }
-
-                    xTranslate = slideOffset * -90; // Position cards with 90% width offset for each step
-
-                    return {
-                        style: `transform: translateX(${xTranslate}%) scale(${scale}); z-index: ${zIndex}; transition: transform 0.5s ease-in-out;
-                height: ${slideOffset === 0 ? '355px' : (Math.abs(slideOffset) === 1 ? '368.89px' : '380px')};`,
-                        class: `${slideOffset === 0 ? 'w-80 bg-blue-800' : (Math.abs(slideOffset) === 1 ? 'w-72 bg-white border border-blue-800' : 'w-64 bg-white border border-blue-800')} h-96 rounded-2xl overflow-hidden shadow-lg relative ${textColorClass}`
-                    };
+                if (index === this.activeSlide) {
+                    scale = 1.1;
                 }
 
+                let opacity = index === this.activeSlide ? 1.2 : 1.1;
 
-            };
-        }
+                return {
+                    style: `transform: scale(${scale}); z-index: ${zIndex}; opacity: ${opacity}; transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1s ease-in; position: absolute; left: ${index * 18.5}%;`,
+                    class: `${index === this.activeSlide ? 'w-80 bg-blue-900 ' + textColor : 'w-72 bg-white border border-blue-900 ' + textColor} h-96 rounded-2xl overflow-hidden shadow-lg relative`
+                };
+            }
+        };
+    }
 
 </script>
 
+<style>
+    .flip-card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card-inner.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        backface-visibility: hidden;
+    }
+</style>
+
+
+
+
+
 
 <style>
+    
+
+    
   /* Add this to your <style> tag or CSS file */
   .card-hover-content {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -355,6 +354,8 @@
   .card:hover .card-title {
     opacity: 0;
   }
+
+  
 </style>
 
 
@@ -385,6 +386,15 @@
                 </div>
                 <div class="card-hover-content"
                     style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
+
+                    <div class="absolute bottom-8 right-8 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
+                        <!-- Arrow in white -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19" fill="white">
+                            <path
+                                d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
+                        </svg>
+                    </div>
+
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
                             <div
@@ -407,20 +417,33 @@
                     style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
                     Remittance services
                 </div>
-                <div class="card-hover-content"
-                    style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
+
+
+                <div class="card-hover-content" style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+                        <!-- Arrow container adjusted to the far right bottom corner -->
+                        <div class="absolute bottom-0 right-0 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
+                            <!-- Arrow in white -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19" fill="white">
+                                <path
+                                    d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
+                            </svg>
+                        </div>
                         <div
                             style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
-                            Remittance services</div>
+                            Remittance services
+                        </div>
                         <div
                             style="width: 334px; height: 203px; color: #5D6066; font-size: 16px; font-family: Satoshi; font-weight: 500; word-wrap: break-word">
-                            Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus aliquam. Felis convallis
-                            ante faucibus sed ipsum. Platea viverra justo consequat arcu fringilla id. Ac facilisi porta varius egestas. 
+                            Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus aliquam. Felis
+                            convallis ante faucibus sed ipsum. Platea viverra justo consequat arcu fringilla id. Ac facilisi porta
+                            varius egestas.
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
 
@@ -436,6 +459,14 @@
                     style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+
+                        <div class="absolute bottom-2 right-2 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
+                            <!-- Arrow in white -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19" fill="white">
+                                <path
+                                    d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
+                            </svg>
+                        </div>
                         <div
                             style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
                             Agri-commodities exchange</div>
