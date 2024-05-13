@@ -360,6 +360,47 @@
 
 
 
+<section x-data="{ shown: true }" x-intersect="shown = true"
+    class="relative flex justify-center items-center p-[59px] min-h-screen" style="background: #6CC24A">
+    <!-- Video Background Container -->
+    <div class="w-[1247px] h-[696px] relative rounded-58 overflow-hidden flex flex-col justify-start items-start">
+        <!-- Video Placeholder (Replace with actual video source) -->
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted>
+            <source src="/images/agri-vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay Content -->
+        <div
+            class="mb-10mt-10 w-[631.87px] h-[306.10px] absolute bg-slate-900/60 rounded-20 border-2 border-blue-800 blur-34 p-[34.20px] top-[298px] left-[89px]">
+            <div class="flex flex-col justify-start items-start gap-[20.52px]">
+                <div class="text-white text-[35.91px] font-black">Agribusiness Trading Platform</div>
+                <div class="text-neutral-50/80 text-[20.52px] font-medium">
+                    Quam vitae fermentum sit nibh tempus auctor amet. Risus ac venenatis sit cras commodo integer et. At
+                    et sit non tortor morbi fusce. Pretium eu congue a ut viverra aliquet.
+                </div>
+                <div class="relative w-[169.30px] h-[56.43px]">
+                    <div
+                        class="absolute bg-blue-800/50 rounded-[85.50px] blur-85 w-[147.07px] h-[49.59px] left-[12.83px] top-[6.84px]">
+                    </div>
+
+                    <div
+                        class="h-12 mb-2 flex text-center flex-row rounded-3xl py-4 px-8 w-44 bg-[#0032A0] text-white justify-center items-center mt-2 cursor-pointer">
+                        <div style="font-weight: bold;" class="mr-2">
+                            Read more
+                        </div>
+                        <div>
+                            <img src="/images/ArrowSquareOut.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <section id="solutions" class="p-10 flex flex-col justify-center items-center lg:flex-row lg:px-24"
     style="bg-white no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="flex flex-col justify-center items-center">
@@ -486,66 +527,23 @@
 
 
 
+<style>
+    .rounded-58 {
+        border-radius: 58.65px;
+    }
 
-<section x-data="{ shown: true }" x-intersect="shown = true"
-    class="relative flex flex-col lg:flex-row items-center overflow-hidden" style="min-height: 600px;">
-    <!-- Left Column with Half Vertical Background and Image -->
-    <div class="w-full lg:w-1/2 py-8 flex flex-col justify-center relative" style="min-height: 600px;">
-        <!-- Pseudo-element for half background -->
-        <div class="absolute top-0 left-0 w-full lg:w-1/2 h-full bg-[#F6F8FE]" style="z-index: -1;"></div>
+    .rounded-20 {
+        border-radius: 20.52px;
+    }
 
-        <!-- Image placed to overlap between backgrounds -->
-        <img src="/images/partners/Group283.png" alt="Partner Logo"
-            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 "
-            style="z-index: 0; width: 95%; max-width: 600px;">
-    </div>
+    .blur-34 {
+        backdrop-filter: blur(34.20px);
+    }
 
-    <!-- Right Column with White Background and Adjusted Content Alignment -->
-    <div class="w-full lg:w-1/2 px-6 flex flex-col justify-center bg-white" style="z-index: 10; padding-top: 0;">
-        <span>
-            <span
-                style="background-color: #E9F6E4; color: #6CC24A; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Business</span>
-        </span>
-
-        <h2 class="text-3xl lg:text-4xl font-bold text-[#000B6B] my-4 fadeLeft animation-element">
-            Agri Commodities Exchange
-        </h2>
-        <p class="text-2xl text-gray-500 mb-6 font-medium">
-            Helping small farmers expand their business by providing affordable financing solutions. Currently available in Ghana &
-            Nigeria, with plans to expand into East & West Africa.
-        </p>
-
-        <!-- Bulleted Points -->
-        <style>
-            .custom-list li {
-                list-style-type: none;
-                /* Remove default list styling */
-                background-image: url('/images/partners/Group282.png');
-                background-repeat: no-repeat;
-                background-position: 0 50%;
-                /* Align the background image to the left and center it vertically */
-                background-size: 25px 25px;
-                /* Set the size of the bullet image */
-                padding-left: 35px;
-                /* Adjust the padding to ensure text does not overlap the image */
-                margin-bottom: 10px;
-                /* Optional: Adds space between list items */
-            }
-        </style>
-        
-        <ul class="custom-list font-medium pl-5 text-gray-500 text-2xl  mt-4">
-            <li class="fadeRight animation-element">Top professionalism</li>
-            <li class="fadeLeft animation-element">Advanced technology in agric</li>
-            <li class="fadeRight animation-element">Improved productivity</li>
-        </ul>
-
-    </div>
-</section>
-
-
-
-
-
+    .blur-85 {
+        filter: blur(85.50px);
+    }
+</style>
 
 
 
