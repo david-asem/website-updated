@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico" />
     <title>Javolin - Digital Wallet that works for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" type="text/css" href="../../styles/index.css" />
@@ -14,85 +15,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 
-    {{!-- <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script> --}}
-    {{!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
-    {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+    {{!--
+    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script> --}}
+    {{!--
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+    {{!--
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
-    <script src="/js/alphineData.js" ></script>
-    
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/alphineData.js"></script>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: "en,fr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "en,fr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <meta name="author" content="Javolin LLC | smith sese" />
     <meta name="description" content="Digital Wallet that works for you">
     <style>
-        @font-face { font-family: 'Product-Sans'; src: url('/fonts/product-sans/font-regular.ttf'); }
-        @font-face { font-family: 'Product-Sans'; font-weight: bold; src: url('/fonts/product-sans/font-bold.ttf');}
-        @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi/Satoshi-Regular.ttf'); }
-        @font-face { font-family: 'Satoshi'; font-weight: bold; src: url('/fonts/satoshi/Satoshi-Bold.ttf');}
+        @font-face {
+            font-family: 'Product-Sans';
+            src: url('/fonts/product-sans/font-regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'Product-Sans';
+            font-weight: bold;
+            src: url('/fonts/product-sans/font-bold.ttf');
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('/fonts/satoshi/Satoshi-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            font-weight: bold;
+            src: url('/fonts/satoshi/Satoshi-Bold.ttf');
+        }
 
         .goog-te-gadget-icon {
-            display:none;
+            display: none;
         }
 
-        body > .skiptranslate > iframe.skiptranslate {
-        display: none !important;
-        visibility: hidden !important;
+        body>.skiptranslate>iframe.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
         }
+
         .goog-te-banner-frame.skiptranslate {
             display: none !important;
-            } 
-        
-
-        .goog-te-banner-frame{
-            display:none !important
-        }
-
-        .goog-te-banner-frame .VIpgJd-ZVi9od-ORHb{
-            display:none !important
         }
 
 
-    .goog-te-gadget-simple {
-        background-color: #ecebf0 !important;
-        border:0 !important;
-        font-size: 10pt;
-    font-weight:800;
-        display: inline-block;
-        padding:10px 10px !important;
-        cursor: pointer;
-        zoom: 1;
-    }
+        .goog-te-banner-frame {
+            display: none !important
+        }
 
-    .goog-te-gadget-simple  span {
-    color:#3e3065 !important;
+        .goog-te-banner-frame .VIpgJd-ZVi9od-ORHb {
+            display: none !important
+        }
 
-    }
-    .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
-    color: #000;
-    display: flex !important;
-}
-        body{
+
+        .goog-te-gadget-simple {
+            background-color: #ecebf0 !important;
+            border: 0 !important;
+            font-size: 10pt;
+            font-weight: 800;
+            display: inline-block;
+            padding: 10px 10px !important;
+            cursor: pointer;
+            zoom: 1;
+        }
+
+        .goog-te-gadget-simple span {
+            color: #3e3065 !important;
+
+        }
+
+        .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+            color: #000;
+            display: flex !important;
+        }
+
+        body {
             font-family: 'Satoshi', sans-serif;
             margin: 0;
-            top: 0px !important; 
-            position: static !important; 
+            top: 0px !important;
+            position: static !important;
         }
+
         h2 {
             font-family: 'Satoshi';
             font-weight: bold;
             font-size: 54px;
         }
+
         .nav-link {
             font-family: 'Satoshi';
         }
@@ -102,67 +127,148 @@ function googleTranslateElementInit() {
             font-family: 'Satoshi';
         }
 
-        ::marker{
+        ::marker {
             margin-top: 1em;
         }
 
         #imageContainerHero {
-     
-        position: relative;
-        overflow: hidden;
+
+            position: relative;
+            overflow: hidden;
         }
 
         #imageContainerHero img {
             position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: transform 1s, opacity 1s;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
         }
-       @keyframes slideInFromBottom {
-    0% {
-        transform: translateY(100%); /* Starts below the visible area of #heroSec */
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0); /* End at the initial position */
-        opacity: 1;
-    }
-}
 
-#heroSec {
-    position: relative;
-    width: 100%;  /* Full width */
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+                /* Starts below the visible area of #heroSec */
+                opacity: 0;
+            }
 
-#textSection {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    text-align: center; /* Center text horizontally */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically within the text section */
-}
+            100% {
+                transform: translateY(0);
+                /* End at the initial position */
+                opacity: 1;
+            }
+        }
 
-.imageTextHero {
-    width: 956px;
-    margin: 0 auto; /* Centering horizontally if the text section is wider */
-    text-align: center;
-    font-size: 76px;
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 900;
-    color: white;
-    animation: slideInFromBottom 1s ease-out forwards; /* Add the animation */
-}
+        #heroSec {
+            position: relative;
+            width: 100%;
+            /* Full width */
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #textSection {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            /* Center text horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically within the text section */
+        }
+
+        .imageTextHero {
+            width: 956px;
+            margin: 0 auto;
+            /* Centering horizontally if the text section is wider */
+            text-align: center;
+            font-size: 76px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 900;
+            color: white;
+            animation: slideInFromBottom 1s ease-out forwards;
+            /* Add the animation */
+        }
+
+        .ts svg path {
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+
+
+        .ts svg path:hover {
+            fill: none;
+            stroke: white;
+            stroke-width: 2px;
+        }
+
+        .unfocus-tech svg path {
+            fill: none;
+            stroke: white;
+            stroke-width: 0.5px;
+            stroke-opacity: 0.5;
+        }
+
+        .unfocus-tech svg circle {
+            fill: none;
+            stroke: white;
+            stroke-width: 0.5px;
+            stroke-opacity: 0.5;
+        }
+
+        .unfocus-tech {
+            border: solid 1px #0000BE !important;
+            background-color: #00006B !important;
+            transition: all;
+        }
+
+        .unfocus-tech .art-text {
+            display: none;
+        }
+
+        .scroll-sec {
+            -ms-overflow-style: none;
+            /* for Internet Explorer, Edge */
+            scrollbar-width: none;
+            /* for Firefox */
+            overflow-y: scroll;
+        }
+
+        .scroll-sec::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+
+        @keyframes moveLine {
+            0% {
+                stroke-dashoffset: 200px;
+                /* Start position */
+            }
+
+            20% {
+                stroke-dashoffset: 0;
+                /* Move to the first box */
+            }
+
+
+            100% {
+                stroke-dashoffset: -500px;
+                /* Move to the fourth box */
+            }
+        }
+
+        .animated-line {
+            animation: moveLine 4s infinite;
+            /* Animation properties with cubic-bezier timing function */
+        }
 
         /*}*/
     </style>
@@ -255,16 +361,13 @@ function googleTranslateElementInit() {
                         'Support': 'Soutien',
                     },
                 }
-            }"
-      x-id="['dropdown-button']">
+            }" x-id="['dropdown-button']">
 
 
-<header
-    class="font-medium flex justify-between items-center lg:px-12 xl:px-20 fixed z-30 rounded-full bg-white shadow-2xl"
-    :class="{'w-full top-0 rounded-none bg-transparent shadow-none text-white': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
-    x-data="{ isAtTop: false, lastScroll: 0 }" 
-    
-    @scroll.window="handleScroll" x-init="handleScroll = () => {
+    <header
+        class="font-medium flex justify-between items-center lg:px-12 xl:px-20 fixed z-30 rounded-full bg-white shadow-2xl"
+        :class="{'w-full top-0 rounded-none bg-transparent shadow-none text-white': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
+        x-data="{ isAtTop: false, lastScroll: 0 }" @scroll.window="handleScroll" x-init="handleScroll = () => {
         isAtTop = window.scrollY > 0;
         lastScroll = window.scrollY;
     }" style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px;
@@ -278,22 +381,20 @@ function googleTranslateElementInit() {
     }">
 
 
-    <a href="/" class="absolute" style="top: 20px; left: 36px;">
-        <img src="/images/jav_logo_color.png" alt="Javolin Logo" style="width: 130px; height: 30.23px;" />
-    </a>
+        <a href="/" class="absolute" style="top: 20px; left: 36px;">
+            <img src="/images/jav_logo_color.png" alt="Javolin Logo" style="width: 130px; height: 30.23px;" />
+        </a>
 
-    <div class="flex-grow flex justify-center items-center gap-12">
-        {{> nav }}
-    </div>
+        <div class="flex-grow flex justify-center items-center gap-12">
+            {{> nav }}
+        </div>
 
-    <a href="https://app.forex.javolin.com/" x-text="language[selectedLang]['Get a demo']"
-        class="hidden lg:flex cursor-pointer bg-[#0032A0] text-white px-6 py-2 rounded-full text-lg font-bold items-center justify-center transition duration-300 ease-in-out"
-        style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;">
-        Get a demo
-    </a>
-</header>
-
-
+        <a href="https://app.forex.javolin.com/" x-text="language[selectedLang]['Get a demo']"
+            class="hidden lg:flex cursor-pointer bg-[#0032A0] text-white px-6 py-2 rounded-full text-lg font-bold items-center justify-center transition duration-300 ease-in-out"
+            style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;">
+            Get a demo
+        </a>
+    </header>
 
 
 
@@ -301,166 +402,169 @@ function googleTranslateElementInit() {
 
 
 
-{{{ body }}}
-
-{{!-- {{>download-app}} --}}
-
-{{>footer}}
-
-{{>pop-ups/javolin-video}}
-{{>pop-ups/coming-soon}}
-{{>pop-ups/wait-list}}
-{{>pop-ups/support}}
 
 
-<script type="module" src="/js/main.js"></script>
-<script type="text/javascript" src="/js/globe/third-party/Detector.js"></script>
-<script type="text/javascript" src="/js/globe/third-party/three.min.js"></script>
-<script type="text/javascript" src="/js/globe/globe.js"></script>
+    {{{ body }}}
+
+    {{!-- {{>download-app}} --}}
+
+    {{>footer}}
+
+    {{>pop-ups/javolin-video}}
+    {{>pop-ups/coming-soon}}
+    {{>pop-ups/wait-list}}
+    {{>pop-ups/support}}
+
+
+    <script type="module" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/globe/third-party/Detector.js"></script>
+    <script type="text/javascript" src="/js/globe/third-party/three.min.js"></script>
+    <script type="text/javascript" src="/js/globe/globe.js"></script>
+    <script type="text/javascript" src="/js/techsection.js"></script>
 
 
 
-<script>
+    <script>
 
-        
-    document.addEventListener('alpine:init', () => {
-        
-        Alpine.data('supportMessage', () => ({
-            isLoading: false,
-            user_email: '',
-            name: '',
-            message: '',
-            subject:'',
-            country:'',
-            toggle() {
-                this.isLoading = !this.isLoading
-            },
-            sendSupportMessage() {
-                this.toggle();
-                axios.post("https://staging.api.javolin.com/api/support",{
-                    name: this.name,
-                    email: this.user_email,
-                    body: this.message,
-                    subject: this.subject,
-                    country: this.country,
-                }).then(res => {
+
+        document.addEventListener('alpine:init', () => {
+
+            Alpine.data('supportMessage', () => ({
+                isLoading: false,
+                user_email: '',
+                name: '',
+                message: '',
+                subject: '',
+                country: '',
+                toggle() {
+                    this.isLoading = !this.isLoading
+                },
+                sendSupportMessage() {
                     this.toggle();
-                    console.log(res);
-                    alert("Success: Message sent successfully");
-                    this.name = "";
-                    this.subject = "";
-                    this.message = "";
-                    this.user_email = "";
-                    this.country = ""
-                    
-                }).catch(err => {
-                    this.toggle();
-                    console.error(err);
-                    alert("Error: "+err.message)
-                })
-            },
-        })),
-        Alpine.data('waitList', () => ({
-            isLoading: false,
-            first_name: '',
-            last_name : '',
-            email : '',
-            referral_code: '',
-            phone_number : '',
-            toggle() {
-                this.isLoading = !this.isLoading
-            },
-            joinWaitList() {
-                this.toggle();
-                axios.post("https://staging.api.javolin.com/api/waitlist/create",{
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    email: this.email,
-                    phone_number: this.phone_number,
-                    referral_code: this.referral_code
-                }).then(res => {
-                    this.toggle();
-                    console.log(res);
-                    alert("Success: Joined successfully");
-                    this.first_name = "";
-                    this.last_name = "";
-                    this.phone_number = "";
-                    this.email = "";
-                    this.referral_code = "";
-                }).catch(err => {
-                    this.toggle();
-                    console.error(err);
-                    alert("Error: "+err.message)
-                })
-            },
-            
-        }))
-    })
+                    axios.post("https://staging.api.javolin.com/api/support", {
+                        name: this.name,
+                        email: this.user_email,
+                        body: this.message,
+                        subject: this.subject,
+                        country: this.country,
+                    }).then(res => {
+                        this.toggle();
+                        console.log(res);
+                        alert("Success: Message sent successfully");
+                        this.name = "";
+                        this.subject = "";
+                        this.message = "";
+                        this.user_email = "";
+                        this.country = ""
+
+                    }).catch(err => {
+                        this.toggle();
+                        console.error(err);
+                        alert("Error: " + err.message)
+                    })
+                },
+            })),
+                Alpine.data('waitList', () => ({
+                    isLoading: false,
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    referral_code: '',
+                    phone_number: '',
+                    toggle() {
+                        this.isLoading = !this.isLoading
+                    },
+                    joinWaitList() {
+                        this.toggle();
+                        axios.post("https://staging.api.javolin.com/api/waitlist/create", {
+                            first_name: this.first_name,
+                            last_name: this.last_name,
+                            email: this.email,
+                            phone_number: this.phone_number,
+                            referral_code: this.referral_code
+                        }).then(res => {
+                            this.toggle();
+                            console.log(res);
+                            alert("Success: Joined successfully");
+                            this.first_name = "";
+                            this.last_name = "";
+                            this.phone_number = "";
+                            this.email = "";
+                            this.referral_code = "";
+                        }).catch(err => {
+                            this.toggle();
+                            console.error(err);
+                            alert("Error: " + err.message)
+                        })
+                    },
+
+                }))
+        })
 
 
 
-     $(document).ready(function() {
+        $(document).ready(function () {
 
-        $('#google_translate_element').bind('DOMNodeInserted', function(event) {
-      $('.goog-te-menu-value span:first').html('LANGUAGE');
-      $('.goog-te-menu-frame.skiptranslate').load(function(){
-        setTimeout(function(){
-          $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('LANGUAGE');    
-        }, 100);
-      });
-    });
-      
-
-
-
-    
-       
+            $('#google_translate_element').bind('DOMNodeInserted', function (event) {
+                $('.goog-te-menu-value span:first').html('LANGUAGE');
+                $('.goog-te-menu-frame.skiptranslate').load(function () {
+                    setTimeout(function () {
+                        $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('LANGUAGE');
+                    }, 100);
+                });
+            });
 
 
 
-        /** ---------------------------- //
-         *  @group viewport trigger script
-         * for adding or removing classes from elements in view within viewport
-        */
 
 
-        var $animationElements = $('.animation-element');
-        var $window = $(window);
-
-        // ps: Let's FIRST disable triggering on small devices!
-        var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-        if (isMobile.matches) {
-            $animationElements.removeClass('animation-element');
-        }
 
 
-        function checkIfInView() {
 
-            var windowHeight = $window.height();
-            var windowTopPosition = $window.scrollTop();
-            var windowBottomPosition = (windowTopPosition + windowHeight);
 
-            $.each($animationElements, function () {
-                var $element = $(this);
-                var elementHeight = $element.outerHeight();
-                var elementTopPosition = $element.offset().top;
-                var elementBottomPosition = (elementTopPosition + elementHeight);
+            /** ---------------------------- //
+             *  @group viewport trigger script
+             * for adding or removing classes from elements in view within viewport
+            */
 
-            //check to see if this current container is within viewport
-                        if ((elementBottomPosition >= windowTopPosition) &&
-                            (elementTopPosition <= windowBottomPosition)) {
-                            $element.addClass('in-view');
-                        } else {
-                            $element.removeClass('in-view');
-                        }
-                    });
-                }
 
-        $window.on('scroll resize', checkIfInView);
-        $window.trigger('scroll');
-    });
-            
-</script>
+            var $animationElements = $('.animation-element');
+            var $window = $(window);
+
+            // ps: Let's FIRST disable triggering on small devices!
+            var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+            if (isMobile.matches) {
+                $animationElements.removeClass('animation-element');
+            }
+
+
+            function checkIfInView() {
+
+                var windowHeight = $window.height();
+                var windowTopPosition = $window.scrollTop();
+                var windowBottomPosition = (windowTopPosition + windowHeight);
+
+                $.each($animationElements, function () {
+                    var $element = $(this);
+                    var elementHeight = $element.outerHeight();
+                    var elementTopPosition = $element.offset().top;
+                    var elementBottomPosition = (elementTopPosition + elementHeight);
+
+                    //check to see if this current container is within viewport
+                    if ((elementBottomPosition >= windowTopPosition) &&
+                        (elementTopPosition <= windowBottomPosition)) {
+                        $element.addClass('in-view');
+                    } else {
+                        $element.removeClass('in-view');
+                    }
+                });
+            }
+
+            $window.on('scroll resize', checkIfInView);
+            $window.trigger('scroll');
+        });
+
+    </script>
 
 
 
