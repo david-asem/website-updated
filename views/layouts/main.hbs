@@ -342,57 +342,58 @@
                 ],
                 language:{
                     'EN':{
-                        'Get a demo':'Get a demo',
-                        'Industries': 'Industries',
+                        'Client sign-in':'Client sign-in',
+                        'Products': 'Products',
                         'Solutions': 'Solutions',
-                        'Technology': 'Technology',
-                        'Resources': 'Resources',
+                        'Technologies': 'Technologies',
+                        'Agribusiness': 'Agribusiness',
                         'About us': 'About us',
                         'Support': 'Support',
                         
                     },
                     'FR':{
-                        'Get a demo':'Connecter',
-                        'Industries': 'Secteurs',
+                        'Client sign-in':'Connecter',
+                        'Products': 'Produits',
+                        'Agribusiness': 'Secteur agroalimentaire',
                         'Solutions': 'Solutions',
-                        'Platform': 'Plateforme',
-                        'Resources': 'Ressources',
+                        'Technologies': 'Les technologies',
                         'About us': 'Á notre propos',
                         'Support': 'Soutien',
                     },
                 }
-            }" x-id="['dropdown-button']">
+            }"
+      x-id="['dropdown-button']">
 
 
     <header
         class="font-medium flex justify-between items-center lg:px-12 xl:px-20 fixed z-30 rounded-full bg-white shadow-2xl"
-        :class="{'w-full top-0 rounded-none bg-transparent shadow-none text-white': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
+        :class="{'w-full top-0 rounded-none bg-transparent text-white': isAtTop, 'w-[1248px] top-12 text-black': !isAtTop}"
         x-data="{ isAtTop: false, lastScroll: 0 }" @scroll.window="handleScroll" x-init="handleScroll = () => {
-        isAtTop = window.scrollY > 0;
-        lastScroll = window.scrollY;
-    }" style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px;
-           transition: width 0.5s ease-out, top 0.5s ease-out, border-radius 0.5s ease-out,
-                       background-color 0.5s ease-out, box-shadow 0.5s ease-out, color 0.5s ease-out;" :style="{
-        'height': isAtTop ? '70px' : '64px',
-        'padding-top': isAtTop ? '0' : '8px',
-        'padding-bottom': isAtTop ? '0' : '8px',
-        'background-color': isAtTop ? 'white' : 'white',
-        'box-shadow': isAtTop ? 'none' : '0 2px 4px rgba(0,0,0,0.1)'
-    }">
-
-
+            isAtTop = window.scrollY > 0;
+            lastScroll = window.scrollY;
+        }" style="left: 50%; transform: translateX(-50%) translateZ(0); padding-left: 176px;
+               transition: width 0.5s ease-out, top 0.5s ease-out, border-radius 0.5s ease-out,
+                           background-color 0.5s ease-out, box-shadow 0.5s ease-out, color 0.5s ease-out;" :style="{
+            'height': isAtTop ? '70px' : '64px',
+            'padding-top': isAtTop ? '0' : '8px',
+            'padding-bottom': isAtTop ? '0' : '8px',
+            'background-color': isAtTop ? 'white' : 'white',
+            'box-shadow': isAtTop ? '0 2px 4px rgba(0,0,0,0.4)' : '0 4px 8px rgba(0,0,0,0.7)'
+        }">
+    
+    
         <a href="/" class="absolute" style="top: 20px; left: 36px;">
             <img src="/images/jav_logo_color.png" alt="Javolin Logo" style="width: 130px; height: 30.23px;" />
         </a>
-
+    
         <div class="flex-grow flex justify-center items-center gap-12">
             {{> nav }}
         </div>
-
-        <a href="https://app.forex.javolin.com/" x-text="language[selectedLang]['Get a demo']"
+    
+        <a href="https://app.forex.javolin.com/" x-text="language[selectedLang]['Client sign-in']"
             class="hidden lg:flex cursor-pointer bg-[#0032A0] text-white px-6 py-2 rounded-full text-lg font-bold items-center justify-center transition duration-300 ease-in-out"
             style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;">
-            Get a demo
+            Client sign-in
         </a>
     </header>
 

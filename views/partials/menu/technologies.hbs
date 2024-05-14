@@ -13,26 +13,24 @@
 
                     focusAfter && focusAfter.focus()
                 }
-            }"
-     x-id="['dropdown-button']">
+            }" x-id="['dropdown-button']">
 
 
-    <button x-on:click="toggle()" :aria-expanded="open"
-            :aria-controls="$id('dropdown-button')" class="text-xl mx-4 nav-link cursor-pointer">
+    <button x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')"
+        class="text-xl mx-4 nav-link cursor-pointer">
         <div class="flex items-center text-black font-medium">
-            
-                <a href="/#platform">
-                <span
-                x-text="language[selectedLang]['Technology']">
-                Technology
+
+            <a href="/#platform">
+                <span x-text="language[selectedLang]['Technologies']">
+                    Technologies
                 </span>
-                </a>
-                        
-            
+            </a>
+
+
         </div>
     </button>
 
-    
+
     <!-- <div  x-transition.origin.top.left x-ref="menuHolderolder" x-show="open" x-bind:class="open ? '' : 'hidden'" x-on:click.outside="close($refs.button)" class="hidden absolute z-40 left-0 bg-white border shadow-md rounded-md w-[600px] mt-2 flex flex-row min-h-[312px]">
         <div class="border-r-[10px] border-r-transparent border-l-[10px] border-l-transparent border-b-[15px] border-b-white absolute -top-2 left-6">
 

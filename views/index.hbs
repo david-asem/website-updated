@@ -355,44 +355,121 @@
 
 
 
-<section x-data="{ shown: true }" x-intersect="shown = true"
-    class="relative flex justify-center items-center p-[59px] min-h-screen" style="background: #6CC24A">
-    <!-- Video Background Container -->
-    <div class="w-[1247px] h-[696px] relative rounded-58 overflow-hidden flex flex-col justify-start items-start">
-        <!-- Video Placeholder (Replace with actual video source) -->
-        <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted>
-            <source src="/images/agri-vid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+<section id="agrisection" x-data="{ shrink: false }"
+    x-init="window.addEventListener('scroll', () => { shrink = window.scrollY > $el.offsetTop; })"
+    class="relative flex justify-center items-center p-[59px] min-h-screen transform transition-transform duration-2000 ease-in-out"
+    style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
 
-        <!-- Overlay Content -->
-        <div
-            class="mb-10mt-10 w-[631.87px] h-[306.10px] absolute bg-slate-900/60 rounded-20 border-2 border-blue-800 blur-34 p-[34.20px] top-[298px] left-[89px]">
-            <div class="flex flex-col justify-start items-start gap-[20.52px]">
-                <div class="text-white text-[35.91px] font-black">Agribusiness Trading Platform</div>
-                <div class="text-neutral-50/80 text-[20.52px] font-medium">
-                    Quam vitae fermentum sit nibh tempus auctor amet. Risus ac venenatis sit cras commodo integer et. At
-                    et sit non tortor morbi fusce. Pretium eu congue a ut viverra aliquet.
+    <!-- Video Background -->
+    <video :class="shrink ? 'w-[1247px] h-[696px] rounded-58' : 'absolute inset-0 w-full h-full'"
+        class="object-cover z-0 transition-all duration-2000 ease-in-out" autoplay loop muted>
+        <source src="/images/agri-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay Content -->
+    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+        <div class="relative w-[1247px] h-[696px] transition-all duration-2000 ease-in-out"
+            :class="shrink ? 'rounded-58' : ''">
+            <div :class="shrink ? 'card-shrink' : 'card-normal'" class="transition-all duration-2000 ease-in-out">
+                <div class="text-white text-[35.91px] font-black font-satoshi mb-[20.52px]" style="width: 554.06px;">
+                    Agribusiness Trading Platform
                 </div>
-                <div class="relative w-[169.30px] h-[56.43px]">
-                    <div
-                        class="absolute bg-blue-800/50 rounded-[85.50px] blur-85 w-[147.07px] h-[49.59px] left-[12.83px] top-[6.84px]">
-                    </div>
-
-                    <div
-                        class="h-12 mb-2 flex text-center flex-row rounded-3xl py-4 px-8 w-44 bg-[#0032A0] text-white justify-center items-center mt-2 cursor-pointer">
-                        <div style="font-weight: bold;" class="mr-2">
-                            Read more
-                        </div>
-                        <div>
-                            <img src="/images/ArrowSquareOut.svg" />
-                        </div>
-                    </div>
+                <div class="text-neutral-50/80 text-[20.52px] font-medium font-satoshi"
+                    style="width: 554px; height: 169px;">
+                    Arcu malesuada porta sed eros adipiscing egestas nam. Amet vitae quis lobortis sit fames venenatis
+                    non tellus praesent. Massa accumsan imperdiet mauris sit consectetur suscipit. Egestas aliquam
+                    mauris platea leo. Ac porttitor tincidunt neque sed amet quis quis tincidunt morbi. Adipiscing
+                    parturient quis ut vel.
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .transition-all {
+        transition: all 2s ease-in-out;
+    }
+
+    .rounded-58 {
+        border-radius: 58px;
+    }
+
+    .bg-custom {
+        background: rgba(0, 6, 56, 0.60);
+    }
+
+    .border-custom {
+        border: 2.57px solid;
+        border-color: rgba(29, 78, 216, 0.8);
+    }
+
+    .backdrop-blur-custom {
+        backdrop-filter: blur(34.20px);
+    }
+
+    .font-satoshi {
+        font-family: 'Satoshi', sans-serif;
+    }
+
+    .card-normal {
+        position: absolute;
+        left: 89px;
+        top: 298px;
+        width: 631.87px;
+        height: 306.10px;
+        background: rgba(0, 6, 56, 0.60);
+        border: 2.57px solid rgba(29, 78, 216, 0.8);
+        backdrop-filter: blur(34.20px);
+        padding: 34.20px;
+        border-radius: 20.52px;
+    }
+
+    .card-shrink {
+        position: absolute;
+        left: 89px;
+        top: 298px;
+        width: 631.87px;
+        height: 306.10px;
+        background: rgba(0, 6, 56, 0.60);
+        border: 2.57px solid rgba(29, 78, 216, 0.8);
+        backdrop-filter: blur(34.20px);
+        padding: 34.20px;
+        border-radius: 20.52px;
+    }
+</style>
+
+
+
+<style>
+    .card-hover-content {
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    .card:hover .card-hover-content {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    .card-title {
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .card:hover .card-title {
+        opacity: 0;
+    }
+
+    .card img {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .card:hover img {
+        transform: translateY(-100px);
+    }
+</style>
 
 
 
@@ -424,14 +501,7 @@
                 <div class="card-hover-content"
                     style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
 
-                    <div
-                        class="absolute bottom-8 right-8 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
-                        <!-- Arrow in white -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19" fill="white">
-                            <path
-                                d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
-                        </svg>
-                    </div>
+
 
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
@@ -465,15 +535,7 @@
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
                         <!-- Arrow container adjusted to the far right bottom corner -->
-                        <div
-                            class="absolute bottom-0 right-0 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
-                            <!-- Arrow in white -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19"
-                                fill="white">
-                                <path
-                                    d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
-                            </svg>
-                        </div>
+
                         <div
                             style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
                             Remittance services
@@ -507,15 +569,7 @@
                     <div
                         style="left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
 
-                        <div
-                            class="absolute bottom-2 right-2 bg-blue-900 rounded-full w-9 h-9 flex items-center justify-center">
-                            <!-- Arrow in white -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 19 19"
-                                fill="white">
-                                <path
-                                    d="M14.1407 4.52498V11.8781C14.1407 12.0281 14.0811 12.172 13.975 12.2781C13.8689 12.3841 13.7251 12.4437 13.575 12.4437C13.425 12.4437 13.2812 12.3841 13.1751 12.2781C13.069 12.172 13.0094 12.0281 13.0094 11.8781V5.89025L4.92523 13.9752C4.81909 14.0813 4.67514 14.1409 4.52505 14.1409C4.37495 14.1409 4.231 14.0813 4.12487 13.9752C4.01873 13.869 3.95911 13.7251 3.95911 13.575C3.95911 13.4249 4.01873 13.2809 4.12487 13.1748L12.2098 5.0906H6.22192C6.07191 5.0906 5.92804 5.03101 5.82196 4.92493C5.71589 4.81886 5.6563 4.67499 5.6563 4.52498C5.6563 4.37496 5.71589 4.23109 5.82196 4.12502C5.92804 4.01894 6.07191 3.95935 6.22192 3.95935H13.575C13.7251 3.95935 13.8689 4.01894 13.975 4.12502C14.0811 4.23109 14.1407 4.37496 14.1407 4.52498Z" />
-                            </svg>
-                        </div>
+
                         <div
                             style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
                             Agri-commodities exchange</div>
@@ -823,14 +877,14 @@
         </div>
         <div class="grid grid-cols-3 lg:px-32">
             <div>
-                <img src="/images/com1.png" alt="community service" />
+                <img src="/images/comm1.png" alt="community service" />
             </div>
             <div class="grid grid-rows-2 gap-2">
-                <div><img src="/images/com2.png" alt="community service 2" /></div>
+                <div><img src="/images/comm2.png" alt="community service 2" /></div>
                 <div><img src="/images/com21.png" alt="community service 21" /></div>
             </div>
             <div>
-                <div><img src="/images/com3.png" alt="community service 3" /></div>
+                <div><img src="/images/comm3.png" alt="community service 3" /></div>
             </div>
         </div>
     </div>
@@ -843,7 +897,7 @@
         <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
 
             <div class="fadeLeft animation-element z-50">
-                <h3 class="text-[#6CC24A] text-[20px] ">GLOBAL FORIEGN EXCHANGE</h3>
+                <h3 class="text-[#6CC24A] text-[20px] ">GLOBAL LENDING PLATFORM</h3>
                 <p class="text-[44px] text-white mt-2 font-bold">Amet auctor erat accumsan sed massa. Faucibus a
                     orci
                     aliquam molestie ridiculus.</p>
@@ -895,25 +949,27 @@
             </div>
         </div>
 </section>
-<section class="p-10 relative  lg:px-24 py-20">
+
+
+<section class="p-10 relative lg:px-24 py-20">
     <div>
         <h2 class="text-[#0032A0] text-[40px] my-8 font-bold">In The News</h2>
     </div>
     <div style="box-shadow: 0px 20.952px 38.095px 0px rgba(0, 0, 0, 0.10);"
-        class="rounded-[20px] grid grid-cols-2 border-[0.29px] border-[#95989D] h-[300px]">
-        <div class="bg-cover" style="background-image: url('/images/new-01a.png'); ">
+        class="rounded-[20px] grid grid-cols-1 lg:grid-cols-2 border-[0.29px] border-[#95989D] lg:h-[300px]">
+        <div class="bg-cover h-[300px] lg:h-auto" style="background-image: url('/images/new-01a.png');">
             {{!-- <img src="/images/new-01a.png" /> --}}
         </div>
-        <div class="flex flex-col justify-center w-[700px] p-9">
-            <div class="text-[#000C26] text-[34px]">Javolin Launches Collections Program</div>
+        <div class="flex flex-col justify-center p-9">
+            <div class="text-[#000C26] text-[24px] lg:text-[34px]">Javolin Launches Collections Program</div>
             <div>
-                <p class="text-[#3A3A3A] text-[18px]">
+                <p class="text-[#3A3A3A] text-[16px] lg:text-[18px]">
                     Embarking on a new journey, Javolin unveils its ground-breaking Collections Program, a strategic
                     move set to redefine the industry.
                 </p>
             </div>
             <div class="flex flex-row text-[13px] items-center mt-4 font-bold">
-                <div class="py-2 px-4 text-[#6CC24A] bg-[#E9F6E4] rounded-3xl ">
+                <div class="py-2 px-4 text-[#6CC24A] bg-[#E9F6E4] rounded-3xl">
                     BUSINESS
                 </div>
                 <div class="text-[#5D6066] ml-6">
@@ -922,49 +978,43 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-2 gap-4 mt-10">
-        <div style="box-shadow: 0px 20.952px 38.095px 0px rgba(0, 0, 0, 0.10);"
-            class="grid grid-rows-2 border-[0.29px] border-[#95989D] rounded-[20px]">
-            <div class="bg-cover" style="background-image: url('/images/new2.png');">
-
-            </div>
-            <div class="flex flex-col justify-center w-[700px] p-9">
-                <div class="text-[#000C26] text-[34px]">Javolin Launches Collections Program</div>
-                <div>
-                    <p class="text-[#3A3A3A] text-[18px]">
-                        Embarking on a new journey, Javolin unveils its ground-breaking Collections Program, a strategic
-                        move set to redefine the industry.
-                    </p>
+    <div class="flex justify-between gap-[22.86px] mt-10">
+        <div class="w-[617.14px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col">
+            <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new2.png" />
+            <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
+                <div class="flex-col justify-start items-start gap-[11.43px] flex">
+                    <div class="text-slate-950 text-2xl font-bold font-['Satoshi']">Redefining Profitability: Strategies
+                        for sustainable growth in the digital age</div>
                 </div>
-                <div class="flex flex-row text-[13px] items-center mt-4 font-bold">
-                    <div class="py-2 px-4 text-[#6CC24A] bg-[#E9F6E4] rounded-3xl ">
-                        BUSINESS
+                <div class="flex justify-start items-center gap-[15.24px]">
+                    <div
+                        class="px-[15.24px] py-[3.81px] bg-red-100 rounded-[47.62px] justify-center items-center gap-[9.52px] flex">
+                        <div class="text-center text-amber-700 text-sm font-bold font-['Satoshi']">ANALYTICS</div>
                     </div>
-                    <div class="text-[#5D6066] ml-6">
-                        April 6 • 8mins read
+                    <div class="flex justify-start items-center gap-[7.62px]">
+                        <div class="text-zinc-600 text-sm font-bold font-['Satoshi']">Feb 13</div>
+                        <div class="w-[3.81px] h-[3.81px] bg-zinc-500 rounded-full"></div>
+                        <div class="text-zinc-600 text-sm font-bold font-['Satoshi']">10 mins read</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="box-shadow: 0px 20.952px 38.095px 0px rgba(0, 0, 0, 0.10);"
-            class="grid grid-rows-2 border-[0.29px] border-[#95989D] rounded-[20px] hover:scale-105 ease-in duration-300">
-            <div class="bg-cover" style="background-image: url('/images/new3.png');">
-
-            </div>
-            <div class="flex flex-col justify-center w-[700px] p-9">
-                <div class="text-[#000C26] text-[34px]">Javolin Launches Collections Program</div>
-                <div>
-                    <p class="text-[#3A3A3A] text-[18px]">
-                        Embarking on a new journey, Javolin unveils its ground-breaking Collections Program, a strategic
-                        move set to redefine the industry.
-                    </p>
+        <div class="w-[617.14px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col">
+            <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new3.png" />
+            <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
+                <div class="flex-col justify-start items-start gap-[11.43px] flex">
+                    <div class="text-slate-950 text-2xl font-bold font-['Satoshi']">Innovating for Tomorrow: How
+                        companies must embrace disruption to stay ahead</div>
                 </div>
-                <div class="flex flex-row text-[13px] items-center mt-4 font-bold">
-                    <div class="py-2 px-4 text-[#6CC24A] bg-[#E9F6E4] rounded-3xl ">
-                        BUSINESS
+                <div class="flex justify-start items-center gap-[15.24px]">
+                    <div
+                        class="px-[15.24px] py-[3.81px] bg-slate-200 rounded-[47.62px] justify-center items-center gap-[9.52px] flex">
+                        <div class="text-center text-blue-800 text-sm font-bold font-['Satoshi']">INNOVATION</div>
                     </div>
-                    <div class="text-[#5D6066] ml-6">
-                        April 6 • 8mins read
+                    <div class="flex justify-start items-center gap-[7.62px]">
+                        <div class="text-zinc-600 text-sm font-bold font-['Satoshi']">Mar 03</div>
+                        <div class="w-[3.81px] h-[3.81px] bg-zinc-500 rounded-full"></div>
+                        <div class="text-zinc-600 text-sm font-bold font-['Satoshi']">6 mins read</div>
                     </div>
                 </div>
             </div>
