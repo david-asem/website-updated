@@ -98,7 +98,7 @@ DAT.Globe = function (container, opts) {
 
     scene = new THREE.Scene();
 
-    var geometry = new THREE.SphereGeometry(270, 40, 30);
+    var geometry = new THREE.SphereGeometry(240, 40, 30);
 
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -254,7 +254,7 @@ DAT.Globe = function (container, opts) {
     camera.position.y = distance * Math.sin(rotation.y);
     camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
 
-    target.x += 0.002;
+    //target.x += 0.002;
 
     camera.lookAt(mesh.position);
 

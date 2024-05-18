@@ -177,7 +177,7 @@
                                 <span x-text="slide.label" class="text-xl font-bold font-['Satoshi']"></span>
                             </div>
                         </div>
-                        <div class="flip-card-back js-tilt bg-blue-800"
+                        <div class="flip-card-back bg-blue-800"
                             style="border-radius: 1rem; position: absolute; width: 100%; height: 100%; color: white; display: flex; align-items: center; justify-content: center; backface-visibility: hidden; transform: rotateY(180deg);">
                             <div class="flex flex-col items-center text-center space-y-10">
                                 <!-- Adjust margin to move the title up -->
@@ -240,11 +240,11 @@
     function carousel() {
         return {
             slides: [
-                { label: 'Javolin Finance', image: '/images/javolin_finance.png', active: false, flipped: false },
-                { label: 'Javolin Tech', image: '/images/javolin_tech.png', active: false, flipped: false },
-                { label: 'Logistics & Infrastructure', image: '/images/middle.png', active: true, flipped: false },
-                { label: 'FX & Payments', image: '/images/fx.png', active: false, flipped: false },
-                { label: 'Javolin Commodities', image: '/images/commodities.png', active: false, flipped: false },
+                { label: 'JAV Finance', image: '/images/javolin_finance.png', active: false, flipped: false },
+                { label: 'JAV Tech', image: '/images/javolin_tech.png', active: false, flipped: false },
+                { label: 'JAV Infrastructure', image: '/images/middle.png', active: true, flipped: false },
+                { label: 'JAV FX & Payments', image: '/images/fx.png', active: false, flipped: false },
+                { label: 'JAV Commodities', image: '/images/commodities3.png', active: false, flipped: false },
             ],
             activeSlide: 2, // Initially active slide
 
@@ -270,25 +270,6 @@
             flipCard(index) {
                 if (this.slides[index].active) {
                     this.slides[index].flipped = !this.slides[index].flipped;
-
-                    // Ensure the DOM updates are processed before initializing or destroying tilt
-                    /**this.$nextTick(() => {
-                        if (this.slides[index].flipped) {
-                            // Initialize tilt on the flipped back of the card
-                            $(`.flip-card-inner[data-index="${index}"] .flip-card-back`)({
-                                scale: 1.2,  // Scale the card back on hover
-                                maxTilt: 10,
-                                perspective: 1000,   // Transform perspective, the lower the more extreme the tilt gets.
-                                easing: "cubic-bezier(.03,.98,.52,.99)",  // Easing on enter/exit.
-                                speed: 300,    // Speed of the enter/exit transition.
-                                transition: true,   // Set a transition on enter/exit.
-                                reset: true    // If the tilt effect has to be reset on exit.
-                            });
-                        } else {
-                            // Destroy tilt instance when card is flipped back
-                            $(`.flip-card-inner[data-index="${index}"] .flip-card-back`).destroy();
-                        }
-                    });**/
                 }
             },
 
@@ -363,6 +344,254 @@
 </style>
 
 
+<section id="platform"
+    style="background: url('/images/tech_bg.png') no-repeat; background-size: cover; background-color: #00007E; background-blend-mode: overlay;"
+    class="p-10 relative  lg:px-24 py-20 bg-[#1A1A40]">
+    <div class="flex flex-col lg:flex-col h-[550px]">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center relative t-service">
+            <div class="fadeLeft animation-element z-30 transition duration-150 ease-in-out absolute top-0">
+                <h3 class="text-[#6CC24A] text-[20px] ">OUR TECHNOLOGY</h3>
+                <div class="opacity-100 transition duration-150 ease-in-out absolute tech-service w-[500px]">
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold l">Digital KYC</p>
+                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
+                        1 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
+                        mauris
+                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
+                        ut
+                        fringilla accumsan.
+                        Placerat amet ultricies eu urna pretium pharetra
+                    </p>
+                </div>
+                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Country Connect</p>
+                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
+                        2 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
+                        mauris
+                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
+                        ut
+                        fringilla accumsan.
+                        Placerat amet ultricies eu urna pretium pharetra
+                    </p>
+                </div>
+                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory API</p>
+                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
+                        3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
+                        mauris
+                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
+                        ut
+                        fringilla accumsan.
+                        Placerat amet ultricies eu urna pretium pharetra
+                    </p>
+                </div>
+                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory AI</p>
+                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
+                        3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
+                        mauris
+                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
+                        ut
+                        fringilla accumsan.
+                        Placerat amet ultricies eu urna pretium pharetra
+                    </p>
+                </div>
+            </div>
+            <div class="ts-icons grid grid-cols-4 grid-rows-4 grid-flow-col gap-4 col-start-2">
+                <div class="ts w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="53" height="51" viewBox="0 0 53 51" fill="none">
+                            <g clip-path="url(#clip0_4288_1448)">
+                                <path
+                                    d="M0.5 2.73684C0.5 1.22533 1.72533 0 3.23684 0H35.7653C37.3939 0 38.6621 1.41354 38.4862 3.03258L35.5488 30.0564C35.4522 30.9446 34.9282 31.7298 34.1451 32.1598L4.55397 48.4059C2.73004 49.4072 0.5 48.0876 0.5 46.0068V2.73684Z"
+                                    fill="url(#paint0_angular_4288_1448)" />
+                                <circle cx="35.3943" cy="32.158" r="17.1053" fill="#6EDB64" fill-opacity="0.7" />
+                            </g>
+                            <defs>
+                                <radialGradient id="paint0_angular_4288_1448" cx="0" cy="0" r="1"
+                                    gradientUnits="userSpaceOnUse"
+                                    gradientTransform="translate(19.6579 25.3158) rotate(57.5336) scale(23.9233 18.1041)">
+                                    <stop stop-color="#D1A03F" />
+                                    <stop offset="1" stop-color="#D2B241" />
+                                </radialGradient>
+                                <clipPath id="clip0_4288_1448">
+                                    <rect width="52" height="50.6316" fill="white" transform="translate(0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="art-text text-black text-lg">
+                        Digital KYC
+                    </div>
+                </div>
+                <div
+                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center col-start-4 ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
+                            <g clip-path="url(#clip0_4244_3553)">
+                                <path
+                                    d="M33.4324 36.9645C31.2565 38.2748 28.4654 36.8165 28.2982 34.282L26.3645 4.95933C26.1903 2.31814 28.9737 0.504141 31.3197 1.72989L58.428 15.8934C60.774 17.1192 60.8746 20.44 58.607 21.8054L33.4324 36.9645Z"
+                                    fill="#D2AC41" />
+                                <circle cx="25.0934" cy="40.5231" r="22.4762" fill="url(#paint0_angular_4244_3553)"
+                                    fill-opacity="0.9" />
+                            </g>
+                            <defs>
+                                <radialGradient id="paint0_angular_4244_3553" cx="0" cy="0" r="1"
+                                    gradientUnits="userSpaceOnUse"
+                                    gradientTransform="translate(25.0934 40.5231) rotate(73.0725) scale(35.2411)">
+                                    <stop stop-color="#CF52B4" />
+                                    <stop offset="1" stop-color="#AD2C91" />
+                                </radialGradient>
+                                <clipPath id="clip0_4244_3553">
+                                    <rect width="63" height="63" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="art-text text-black text-lg ">
+                        Country CONN
+                    </div>
+                </div>
+                <div
+                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center row-start-2 col-start-3 ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="77" height="59" viewBox="0 0 77 59" fill="none">
+                            <g clip-path="url(#clip0_4244_3620)">
+                                <path
+                                    d="M66.4288 11.7692C65.6893 9.68755 63.4023 8.59947 61.3206 9.33895L23.691 22.7061C22.2633 23.2133 21.2447 24.4835 21.0599 25.9873L19.2305 40.8681C19.0731 42.1485 19.5428 43.4262 20.4921 44.2997L30.9678 53.9391C32.0594 54.9436 33.6173 55.2615 35.0152 54.7649L72.7017 41.3775C74.7834 40.6381 75.8714 38.351 75.132 36.2693L66.4288 11.7692Z"
+                                    fill="url(#paint0_angular_4244_3620)" />
+                                <path
+                                    d="M0 4C0 1.79086 1.79086 0 4 0H43.9333C45.4484 0 46.8334 0.856009 47.511 2.21115L54.216 15.6212C54.7929 16.775 54.778 18.1362 54.1758 19.2771L47.5311 31.867C46.8387 33.179 45.4771 34 43.9936 34H4C1.79086 34 0 32.2091 0 30V4Z"
+                                    fill="#6EDB64" fill-opacity="0.7" />
+                            </g>
+                            <defs>
+                                <radialGradient id="paint0_angular_4244_3620" cx="0" cy="0" r="1"
+                                    gradientUnits="userSpaceOnUse"
+                                    gradientTransform="translate(44.8031 33.2472) rotate(-129.149) scale(21.2754 34.5006)">
+                                    <stop stop-color="#4AC2C2" />
+                                    <stop offset="1" stop-color="#449C9C" />
+                                </radialGradient>
+                                <clipPath id="clip0_4244_3620">
+                                    <rect width="76.4709" height="58.4944" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="art-text text-black">
+                        API
+                    </div>
+                </div>
+                <div
+                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center row-start-3 col-start-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="69" viewBox="0 0 65 69" fill="none">
+                            <path
+                                d="M38.1328 19.0664C38.1328 29.5965 30.9829 38.7286 19.0664 48.8577C5.95825 36.3453 0 29.5965 0 19.0664C0 8.53632 8.53632 0 19.0664 0C29.5965 0 38.1328 8.53632 38.1328 19.0664Z"
+                                fill="url(#paint0_angular_4244_3672)" fill-opacity="0.9" />
+                            <path
+                                d="M25.198 61.3312C17.7513 54.1649 16.1591 42.8937 17.1057 27.5732C34.875 26.8186 43.7026 27.1979 51.1493 34.3642C58.5961 41.5304 58.8234 53.3766 51.6572 60.8233C44.4909 68.27 32.6448 68.4974 25.198 61.3312Z"
+                                fill="url(#paint1_angular_4244_3672)" fill-opacity="0.8" />
+                            <defs>
+                                <radialGradient id="paint0_angular_4244_3672" cx="0" cy="0" r="1"
+                                    gradientUnits="userSpaceOnUse"
+                                    gradientTransform="translate(19.0664 24.4288) rotate(76.6376) scale(37.6629 30.4028)">
+                                    <stop stop-color="#CF52B4" />
+                                    <stop offset="1" stop-color="#AD2C91" />
+                                </radialGradient>
+                                <radialGradient id="paint1_angular_4244_3672" cx="0" cy="0" r="1"
+                                    gradientUnits="userSpaceOnUse"
+                                    gradientTransform="translate(34.3815 44.1983) rotate(16.8783) scale(59.4421 76.1602)">
+                                    <stop offset="0.35566" stop-color="#2F61D0" />
+                                    <stop offset="0.529116" stop-color="#3D75F0" />
+                                    <stop offset="1" stop-color="#12398F" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="art-text text-black">
+                        AI
+                    </div>
+                </div>
+
+            </div>
+            <div class="bg-white">
+                <svg class="javLineLink" data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
+                    style="position: absolute; z-index: 0; left: 901px; top: 40px; height: 104px; width: 413px;">
+                    <defs>
+                        <linearGradient class="RotatingGradient" id="Sticky-techmovement" gradientUnits="userSpaceOnUse"
+                            data-js-controller="RotatingGradient" data-js-start-rotation="" data-js-speed=""
+                            x1="82.37275434096986" x2="17.627245659029725" y1="88.1051804401871" y2="11.89481955981325">
+                            <stop offset="0" stop-color="#11EFE3"></stop>
+                            <stop offset="1" stop-color="#9966FF"></stop>
+                        </linearGradient>
+                    </defs>
+                    <!-- Horizontal line -->
+                    <path stroke="url(#Sticky-techmovement)" stroke-width="2" fill="none"
+                        data-js-target="javLineLink.path" d="M1,52 L503,52"
+                        style="stroke-dasharray: 503px; stroke-dashoffset: 503px;"></path>
+                </svg>
+            </div>
+            <div>
+                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
+                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
+                    style="position: absolute; z-index: 0; left: 1203px; top: 140px; height: 104px;">
+                    <defs>
+                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
+                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
+                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
+                            y1="88.1051804401871" y2="11.89481955981325">
+                            <stop offset="0" stop-color="#11EFE3"></stop>
+                            <stop offset="1" stop-color="#9966FF"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
+                        data-js-target="javLineLink.path" d="M200,20 L200,100 L80,100"
+                        style="stroke-dasharray: 300px; stroke-dashoffset: 300px;"></path>
+                </svg>
+            </div>
+            <div>
+                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
+                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
+                    style="position: absolute; z-index: 0; left: 723px; top: 250px; height: 104px; width:400px;">
+                    <defs>
+                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
+                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
+                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
+                            y1="88.1051804401871" y2="11.89481955981325">
+                            <stop offset="0" stop-color="#11EFE3"></stop>
+                            <stop offset="1" stop-color="#9966FF"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
+                        data-js-target="javLineLink.path" d="M500,20 L100,20 L100,400"
+                        style="stroke-dasharray: 500px; stroke-dashoffset: 500px;"></path>
+                </svg>
+            </div>
+            <div>
+                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
+                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
+                    style="position: absolute; z-index: 0; left: 803px; top: 160px; height:300px;">
+                    <defs>
+                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
+                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
+                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
+                            y1="88.1051804401871" y2="11.89481955981325">
+                            <stop offset="0" stop-color="#11EFE3"></stop>
+                            <stop offset="1" stop-color="#9966FF"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
+                        data-js-target="javLineLink.path" d="M10,196 L10,0"
+                        style="stroke-dasharray: 300px; stroke-dashoffset: 300px;"></path>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 
 <section id="agrisection" x-data="{ shrink: false }"
     x-init="window.addEventListener('scroll', () => { shrink = window.scrollY > $el.offsetTop; })"
@@ -376,16 +605,15 @@
         Your browser does not support the video tag.
     </video>
 
-    <!-- Overlay Content -->
-    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+    <!-- Overlay Content --><div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
         <div class="relative w-[1247px] h-[696px] transition-all duration-2000 ease-in-out"
             :class="shrink ? 'rounded-58' : ''">
             <div :class="shrink ? 'card-shrink' : 'card-normal'" class="transition-all duration-2000 ease-in-out">
                 <div class="text-white text-[35.91px] font-black font-satoshi mb-[20.52px]" style="width: 554.06px;">
                     Agribusiness Trading Platform
                 </div>
-                <div class="text-neutral-50/80 text-[20.52px] font-medium font-satoshi"
-                    style="width: 554px; height: 169px;">
+                <div class="text-neutral-50/80 text-[20.52px] font-medium font-satoshi pb-14"
+                    style="width: 554px; height: 180px;">
                     Arcu malesuada porta sed eros adipiscing egestas nam. Amet vitae quis lobortis sit fames venenatis
                     non tellus praesent. Massa accumsan imperdiet mauris sit consectetur suscipit. Egestas aliquam
                     mauris platea leo. Ac porttitor tincidunt neque sed amet quis quis tincidunt morbi. Adipiscing
@@ -394,6 +622,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 <style>
@@ -571,7 +800,7 @@
                     alt="Foreign Exchange" />
                 <div class="card-title"
                     style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
-                    Agri-commodities exchange
+                    Technology as a service
                 </div>
                 <div class="card-hover-content"
                     style="width: 398px; height: 362px; position: absolute; bottom: 0; background: white;">
@@ -581,7 +810,7 @@
 
                         <div
                             style="width: 334px; color: #000C26; font-size: 28px; font-family: Satoshi; font-weight: 700; word-wrap: break-word">
-                            Agri-commodities exchange</div>
+                            Technology as a service</div>
                         <div
                             style="width: 334px; height: 203px; color: #5D6066; font-size: 16px; font-family: Satoshi; font-weight: 500; word-wrap: break-word">
                             Risus eu aliquet eu dignissim scelerisque leo adipiscing tincidunt. Integer sed purus tempus
@@ -621,252 +850,6 @@
 
 
 
-<section id="platform"
-    style="background: url('/images/tech_bg.png') no-repeat; background-size: cover; background-color: #00007E; background-blend-mode: overlay;"
-    class="p-10 relative  lg:px-24 py-20 bg-[#1A1A40]">
-    <div class="flex flex-col lg:flex-col h-[550px]">
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center relative t-service">
-            <div class="fadeLeft animation-element z-30 transition duration-150 ease-in-out absolute top-0">
-                <h3 class="text-[#6CC24A] text-[20px] ">TECHNOLOGY AS A SERVICE</h3>
-                <div class="opacity-100 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold l">Digital KYC</p>
-                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
-                        1 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
-                        mauris
-                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
-                        ut
-                        fringilla accumsan.
-                        Placerat amet ultricies eu urna pretium pharetra
-                    </p>
-                </div>
-                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">CountryCxt</p>
-                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
-                        2 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
-                        mauris
-                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
-                        ut
-                        fringilla accumsan.
-                        Placerat amet ultricies eu urna pretium pharetra
-                    </p>
-                </div>
-                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory API</p>
-                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
-                        3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
-                        mauris
-                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
-                        ut
-                        fringilla accumsan.
-                        Placerat amet ultricies eu urna pretium pharetra
-                    </p>
-                </div>
-                <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory AI</p>
-                    <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
-                        3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
-                        mauris
-                        massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus
-                        ut
-                        fringilla accumsan.
-                        Placerat amet ultricies eu urna pretium pharetra
-                    </p>
-                </div>
-            </div>
-            <div class="ts-icons grid grid-cols-4 grid-rows-4 grid-flow-col gap-4 col-start-2">
-                <div class="ts w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center ">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="53" height="51" viewBox="0 0 53 51" fill="none">
-                            <g clip-path="url(#clip0_4288_1448)">
-                                <path
-                                    d="M0.5 2.73684C0.5 1.22533 1.72533 0 3.23684 0H35.7653C37.3939 0 38.6621 1.41354 38.4862 3.03258L35.5488 30.0564C35.4522 30.9446 34.9282 31.7298 34.1451 32.1598L4.55397 48.4059C2.73004 49.4072 0.5 48.0876 0.5 46.0068V2.73684Z"
-                                    fill="url(#paint0_angular_4288_1448)" />
-                                <circle cx="35.3943" cy="32.158" r="17.1053" fill="#6EDB64" fill-opacity="0.7" />
-                            </g>
-                            <defs>
-                                <radialGradient id="paint0_angular_4288_1448" cx="0" cy="0" r="1"
-                                    gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(19.6579 25.3158) rotate(57.5336) scale(23.9233 18.1041)">
-                                    <stop stop-color="#D1A03F" />
-                                    <stop offset="1" stop-color="#D2B241" />
-                                </radialGradient>
-                                <clipPath id="clip0_4288_1448">
-                                    <rect width="52" height="50.6316" fill="white" transform="translate(0.5)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="art-text text-black text-lg">
-                        Digital KYC
-                    </div>
-                </div>
-                <div
-                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center col-start-4 ">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
-                            <g clip-path="url(#clip0_4244_3553)">
-                                <path
-                                    d="M33.4324 36.9645C31.2565 38.2748 28.4654 36.8165 28.2982 34.282L26.3645 4.95933C26.1903 2.31814 28.9737 0.504141 31.3197 1.72989L58.428 15.8934C60.774 17.1192 60.8746 20.44 58.607 21.8054L33.4324 36.9645Z"
-                                    fill="#D2AC41" />
-                                <circle cx="25.0934" cy="40.5231" r="22.4762" fill="url(#paint0_angular_4244_3553)"
-                                    fill-opacity="0.9" />
-                            </g>
-                            <defs>
-                                <radialGradient id="paint0_angular_4244_3553" cx="0" cy="0" r="1"
-                                    gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(25.0934 40.5231) rotate(73.0725) scale(35.2411)">
-                                    <stop stop-color="#CF52B4" />
-                                    <stop offset="1" stop-color="#AD2C91" />
-                                </radialGradient>
-                                <clipPath id="clip0_4244_3553">
-                                    <rect width="63" height="63" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="art-text text-black text-lg ">
-                        CountryCxt
-                    </div>
-                </div>
-                <div
-                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center row-start-2 col-start-3 ">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="77" height="59" viewBox="0 0 77 59" fill="none">
-                            <g clip-path="url(#clip0_4244_3620)">
-                                <path
-                                    d="M66.4288 11.7692C65.6893 9.68755 63.4023 8.59947 61.3206 9.33895L23.691 22.7061C22.2633 23.2133 21.2447 24.4835 21.0599 25.9873L19.2305 40.8681C19.0731 42.1485 19.5428 43.4262 20.4921 44.2997L30.9678 53.9391C32.0594 54.9436 33.6173 55.2615 35.0152 54.7649L72.7017 41.3775C74.7834 40.6381 75.8714 38.351 75.132 36.2693L66.4288 11.7692Z"
-                                    fill="url(#paint0_angular_4244_3620)" />
-                                <path
-                                    d="M0 4C0 1.79086 1.79086 0 4 0H43.9333C45.4484 0 46.8334 0.856009 47.511 2.21115L54.216 15.6212C54.7929 16.775 54.778 18.1362 54.1758 19.2771L47.5311 31.867C46.8387 33.179 45.4771 34 43.9936 34H4C1.79086 34 0 32.2091 0 30V4Z"
-                                    fill="#6EDB64" fill-opacity="0.7" />
-                            </g>
-                            <defs>
-                                <radialGradient id="paint0_angular_4244_3620" cx="0" cy="0" r="1"
-                                    gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(44.8031 33.2472) rotate(-129.149) scale(21.2754 34.5006)">
-                                    <stop stop-color="#4AC2C2" />
-                                    <stop offset="1" stop-color="#449C9C" />
-                                </radialGradient>
-                                <clipPath id="clip0_4244_3620">
-                                    <rect width="76.4709" height="58.4944" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="art-text text-black">
-                        API
-                    </div>
-                </div>
-                <div
-                    class="ts unfocus-tech w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center row-start-3 col-start-1">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="69" viewBox="0 0 65 69" fill="none">
-                            <path
-                                d="M38.1328 19.0664C38.1328 29.5965 30.9829 38.7286 19.0664 48.8577C5.95825 36.3453 0 29.5965 0 19.0664C0 8.53632 8.53632 0 19.0664 0C29.5965 0 38.1328 8.53632 38.1328 19.0664Z"
-                                fill="url(#paint0_angular_4244_3672)" fill-opacity="0.9" />
-                            <path
-                                d="M25.198 61.3312C17.7513 54.1649 16.1591 42.8937 17.1057 27.5732C34.875 26.8186 43.7026 27.1979 51.1493 34.3642C58.5961 41.5304 58.8234 53.3766 51.6572 60.8233C44.4909 68.27 32.6448 68.4974 25.198 61.3312Z"
-                                fill="url(#paint1_angular_4244_3672)" fill-opacity="0.8" />
-                            <defs>
-                                <radialGradient id="paint0_angular_4244_3672" cx="0" cy="0" r="1"
-                                    gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(19.0664 24.4288) rotate(76.6376) scale(37.6629 30.4028)">
-                                    <stop stop-color="#CF52B4" />
-                                    <stop offset="1" stop-color="#AD2C91" />
-                                </radialGradient>
-                                <radialGradient id="paint1_angular_4244_3672" cx="0" cy="0" r="1"
-                                    gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(34.3815 44.1983) rotate(16.8783) scale(59.4421 76.1602)">
-                                    <stop offset="0.35566" stop-color="#2F61D0" />
-                                    <stop offset="0.529116" stop-color="#3D75F0" />
-                                    <stop offset="1" stop-color="#12398F" />
-                                </radialGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="art-text text-black">
-                        AI
-                    </div>
-                </div>
-
-            </div>
-            <div class="bg-white">
-                <svg class="javLineLink" data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 901px; top: 40px; height: 104px; width: 413px;">
-                    <defs>
-                        <linearGradient class="RotatingGradient" id="Sticky-techmovement" gradientUnits="userSpaceOnUse"
-                            data-js-controller="RotatingGradient" data-js-start-rotation="" data-js-speed=""
-                            x1="82.37275434096986" x2="17.627245659029725" y1="88.1051804401871" y2="11.89481955981325">
-                            <stop offset="0" stop-color="#11EFE3"></stop>
-                            <stop offset="1" stop-color="#9966FF"></stop>
-                        </linearGradient>
-                    </defs>
-                    <!-- Horizontal line -->
-                    <path stroke="url(#Sticky-techmovement)" stroke-width="2" fill="none"
-                        data-js-target="javLineLink.path" d="M1,52 L503,52"
-                        style="stroke-dasharray: 503px; stroke-dashoffset: 503px;"></path>
-                </svg>
-            </div>
-            <div>
-                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
-                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 1203px; top: 140px; height: 104px;">
-                    <defs>
-                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
-                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
-                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
-                            y1="88.1051804401871" y2="11.89481955981325">
-                            <stop offset="0" stop-color="#11EFE3"></stop>
-                            <stop offset="1" stop-color="#9966FF"></stop>
-                        </linearGradient>
-                    </defs>
-                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
-                        data-js-target="javLineLink.path" d="M200,20 L200,100 L80,100"
-                        style="stroke-dasharray: 300px; stroke-dashoffset: 300px;"></path>
-                </svg>
-            </div>
-            <div>
-                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
-                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 723px; top: 250px; height: 104px; width:400px;">
-                    <defs>
-                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
-                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
-                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
-                            y1="88.1051804401871" y2="11.89481955981325">
-                            <stop offset="0" stop-color="#11EFE3"></stop>
-                            <stop offset="1" stop-color="#9966FF"></stop>
-                        </linearGradient>
-                    </defs>
-                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
-                        data-js-target="javLineLink.path" d="M500,20 L100,20 L100,400"
-                        style="stroke-dasharray: 500px; stroke-dashoffset: 500px;"></path>
-                </svg>
-            </div>
-            <div>
-                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
-                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 803px; top: 160px; height:300px;">
-                    <defs>
-                        <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
-                            gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
-                            data-js-start-rotation="" data-js-speed="" x1="82.37275434096986" x2="17.627245659029725"
-                            y1="88.1051804401871" y2="11.89481955981325">
-                            <stop offset="0" stop-color="#11EFE3"></stop>
-                            <stop offset="1" stop-color="#9966FF"></stop>
-                        </linearGradient>
-                    </defs>
-                    <path stroke="url(#Sticky-techConnectionGradient)" stroke-width="2" fill="none"
-                        data-js-target="javLineLink.path" d="M10,196 L10,0"
-                        style="stroke-dasharray: 300px; stroke-dashoffset: 300px;"></path>
-                </svg>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 <section class="p-10 relative lg:px-24 py-20">
     <div>
@@ -874,12 +857,33 @@
             <h3 class="text-center text-blue-800 text-xl font-medium font-['Satoshi'] tracking-wide">COMMUNITY IMPACT
             </h3>
         </div>
-        <div class="flex justify-center items-center mb-16 flex-row">
-            <div class="w-[1058px] text-center text-slate-900 text-[44px] font-bold font-['Satoshi'] leading-tight fadeLeft animation-element">
-                <span class="text-[#6CC24A] text-[64px]">“</span>
-                We improve the communities in which we live and work by increasing access to healthcare, essential
-                resources, education, and athletics
-                <span class="text-[#6CC24A] text-[64px]">”</span>
+        <div class="flex justify-center items-center mb-4 flex-row relative">
+            <div style="position: absolute; left: -5px; top: -10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path
+                        d="M42.8625 21.5326C43.9763 18.7314 45.7312 15.9639 48.0769 13.2976C48.8194 12.4538 48.9206 11.2389 48.3131 10.2939C47.8406 9.5514 47.0644 9.14642 46.2206 9.14642C45.9844 9.14642 45.7481 9.1632 45.5118 9.24767C40.5507 10.6989 28.9575 15.8457 28.6368 32.3495C28.5188 38.7114 33.1762 44.1788 39.2344 44.8032C42.5925 45.1407 45.9337 44.0439 48.4144 41.8164C50.8949 39.572 52.3125 36.3657 52.3125 33.0245C52.3125 27.4558 48.3637 22.5788 42.8625 21.5326Z"
+                        fill="#6CC24A" />
+                    <path
+                        d="M12.298 44.8032C15.6394 45.1407 18.9806 44.0439 21.4612 41.8164C23.9418 39.572 25.3594 36.3657 25.3594 33.0245C25.3594 27.4558 21.4106 22.5789 15.9093 21.5326C17.0231 18.7314 18.7781 15.9639 21.1237 13.2976C21.8662 12.4539 21.9675 11.2389 21.3599 10.2939C20.8874 9.55142 20.1112 9.14643 19.2674 9.14643C19.0312 9.14643 18.795 9.16322 18.5587 9.24768C13.5975 10.6989 2.00433 15.8458 1.6837 32.3496V32.5857C1.6837 38.8464 6.29054 44.1788 12.298 44.8032Z"
+                        fill="#6CC24A" />
+                </svg>
+            </div>
+            <div
+                class="w-[1058px] text-center text-[#000638] text-[44px] font-bold font-['Satoshi'] fadeLeft animation-element" style="line-height: 1.1;">
+                <p style="margin: 0;">We improve the communities in which we live and</p>
+                <p style="margin: 0;">work by increasing access to healthcare, essential</p>
+                <p style="margin: 0;">resources, education, and athletics
+                    <span style="display: inline-block; vertical-align: middle; margin-left: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
+                            <path
+                                d="M11.1375 21.5326C10.0237 18.7314 8.26878 15.9639 5.92314 13.2976C5.18064 12.4538 5.07939 11.2389 5.68687 10.2939C6.15943 9.5514 6.93561 9.14642 7.77936 9.14642C8.01562 9.14642 8.25191 9.1632 8.48817 9.24767C13.4493 10.6989 25.0425 15.8457 25.3632 32.3495C25.4812 38.7114 20.8238 44.1788 14.7656 44.8032C11.4075 45.1407 8.0663 44.0439 5.58562 41.8164C3.10505 39.572 1.6875 36.3657 1.6875 33.0245C1.6875 27.4558 5.6363 22.5788 11.1375 21.5326Z"
+                                fill="#6CC24A" />
+                            <path
+                                d="M41.702 44.8032C38.3606 45.1407 35.0194 44.0439 32.5388 41.8164C30.0582 39.572 28.6406 36.3657 28.6406 33.0245C28.6406 27.4558 32.5894 22.5789 38.0907 21.5326C36.9769 18.7314 35.2219 15.9639 32.8763 13.2976C32.1338 12.4539 32.0325 11.2389 32.6401 10.2939C33.1126 9.55142 33.8888 9.14643 34.7326 9.14643C34.9688 9.14643 35.205 9.16322 35.4413 9.24768C40.4025 10.6989 51.9957 15.8458 52.3163 32.3496V32.5857C52.3163 38.8464 47.7095 44.1788 41.702 44.8032Z"
+                                fill="#6CC24A" />
+                        </svg>
+                    </span>
+                </p>
             </div>
         </div>
         <div class="grid grid-cols-3 gap-12 lg:px-32">
@@ -902,6 +906,12 @@
 
 
 
+
+
+
+
+
+
 <section class="p-10 relative  lg:px-24 py-20 mt-6 bg-[#1A1A40] overflow-hidden">
     <div class="top-0 absolute left-[400px]" id="globe">
     </div>
@@ -909,7 +919,7 @@
         <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
 
             <div class="fadeLeft animation-element z-50">
-                <h3 class="text-[#6CC24A] text-[20px] ">GLOBAL LENDING PLATFORM</h3>
+                <h3 class="text-[#6CC24A] text-[20px] ">JAV Finance</h3>
                 <p class="text-[44px] text-white mt-2 font-bold">Amet auctor erat accumsan sed massa. Faucibus a
                     orci
                     aliquam molestie ridiculus.</p>
@@ -990,8 +1000,9 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-between gap-[22.86px] mt-10 ">
-        <div class="w-[617.14px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeLeft animation-element">
+    <div class="flex justify-between mt-10">
+        <div
+            class="w-[655px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeLeft animation-element">
             <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new2.png" />
             <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
                 <div class="flex-col justify-start items-start gap-[11.43px] flex">
@@ -1011,7 +1022,8 @@
                 </div>
             </div>
         </div>
-        <div class="w-[617.14px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
+        <div
+            class="w-[650px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
             <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new3.png" />
             <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
                 <div class="flex-col justify-start items-start gap-[11.43px] flex">
@@ -1032,4 +1044,5 @@
             </div>
         </div>
     </div>
+
 </section>
