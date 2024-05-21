@@ -665,7 +665,7 @@
     class="relative flex justify-center items-center p-[59px] min-h-screen transform transition-transform duration-2000 ease-in-out"
     style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
 
-    <video :class="shrink ? 'w-[1247px] h-[696px] rounded-58' : 'absolute inset-0 w-full h-full'"
+    <video :class="shrink ? 'shrink-video' : 'full-video'"
         class="object-cover z-0 transition-all duration-2000 ease-in-out" autoplay loop muted>
         <source src="/images/agri-vid.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -679,7 +679,8 @@
                 <!-- JAV AgriTech Button -->
                 <div style="width: 334px; height: 92px; background: white; border-radius: 100px"
                     class="flex justify-center items-center py-10 px-0 mb-6">
-                    <div class="font-bold" style="color: #0032A0; font-size: 32px; font-family: Satoshi; font-weight: 900; word-wrap: break-word">
+                    <div class="font-bold"
+                        style="color: #0032A0; font-size: 32px; font-family: Satoshi; font-weight: 900; word-wrap: break-word">
                         JAV AgriTech
                     </div>
                 </div>
@@ -738,41 +739,38 @@
 
 </section>
 
-
 <style>
-    .transition-all {
+    .full-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
         transition: all 2s ease-in-out;
     }
 
-    .rounded-58 {
+    .shrink-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1247px;
+        height: 696px;
         border-radius: 58px;
+        transform: translate(-50%, -50%);
+        transition: all 2s ease-in-out;
     }
 
     .font-satoshi {
         font-family: 'Satoshi', sans-serif;
     }
 
-
     .border-custom {
         border: 2.57px solid;
         border-color: rgba(29, 78, 216, 0.8);
     }
 
-
-    .card-normal {
-        position: absolute;
-        left: 64px;
-        top: 150px;
-        width: 1118px;
-        bottom: 127px;
-        height: 419px;
-        background: rgba(0, 6, 56, 0.60);
-        backdrop-filter: blur(34.20px);
-        padding: 34.20px;
-        border-radius: 20.52px;
-        border-radius: 20.52px;
-    }
-
+    .card-normal,
     .card-shrink {
         position: absolute;
         left: 64px;
@@ -784,6 +782,10 @@
         backdrop-filter: blur(34.20px);
         padding: 34.20px;
         border-radius: 20.52px;
+    }
+
+    .transition-all {
+        transition: all 2s ease-in-out;
     }
 </style>
 
