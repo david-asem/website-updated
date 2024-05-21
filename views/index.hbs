@@ -158,7 +158,7 @@
 
         <!-- Carousel slides -->
         <template x-for="(slide, index) in slides" :key="index">
-            <div @click="setActiveSlide(index)" @mouseenter="flipCard(index)" @mouseleave="flipCard(index)"
+            <div @click="setActiveSlide(index)" @mouseenter="mouseEnter(index)" @mouseleave="mouseLeave(index)"
                 class="absolute transition-transform duration-300 ease-in-out cursor-pointer"
                 :class="{ 'active': slide.active, 'inactive': !slide.active }" :style="slideStyles(index).style">
 
@@ -240,20 +240,25 @@
     function carousel() {
         return {
             slides: [
-                { label: 'JAV Finance', image: '/images/javolin_finance.png', active: false, flipped: false },
-                { label: 'JAV Tech', image: '/images/javolin_tech.png', active: false, flipped: false },
-                { label: 'JAV Infrastructure', image: '/images/infra.png', active: true, flipped: false },
-                { label: 'JAV FX & Payments', image: '/images/fx.png', active: false, flipped: false },
-                { label: 'JAV Commodities', image: '/images/commodities3.png', active: false, flipped: false },
+                { label: 'JAV Finance', image: '/images/javolin_finance.png', active: false, flipped: false, hovered: false },
+                { label: 'JAV Tech', image: '/images/javolin_tech.png', active: false, flipped: false, hovered: false },
+                { label: 'JAV Infrastructure', image: '/images/infra.png', active: true, flipped: false, hovered: false },
+                { label: 'JAV FX & Payments', image: '/images/fx.png', active: false, flipped: false, hovered: false },
+                { label: 'JAV Commodities', image: '/images/commodities.png', active: false, flipped: false, hovered: false },
             ],
             activeSlide: 2, // Initially active slide
+            observer: null,
 
             init() {
                 this.arrangeSlides();
+                this.observeSection();
             },
             setActiveSlide(index) {
                 this.activeSlide = index;
                 this.arrangeSlides();
+                if (this.slides[index].hovered) {
+                    this.flipCard(index); // Flip the card if the mouse is already on it
+                }
             },
             nextSlide() {
                 this.setActiveSlide((this.activeSlide + 1) % this.slides.length);
@@ -264,16 +269,44 @@
             arrangeSlides() {
                 this.slides.forEach((slide, index) => {
                     slide.active = index === this.activeSlide;
-                    slide.flipped = false; // Reset flipped state when arranging slides
+                    if (!slide.active) {
+                        slide.flipped = false; // Reset flipped state when arranging slides
+                    }
                 });
             },
             flipCard(index) {
                 if (this.slides[index].active) {
-                    this.slides[index].flipped = !this.slides[index].flipped;
+                    this.slides[index].flipped = true;
                 }
             },
+            mouseEnter(index) {
+                this.slides[index].hovered = true;
+                if (this.slides[index].active) {
+                    this.flipCard(index);
+                }
+            },
+            mouseLeave(index) {
+                this.slides[index].hovered = false;
+                if (this.slides[index].active) {
+                    this.slides[index].flipped = false;
+                }
+            },
+            observeSection() {
+                const section = document.getElementById('products');
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // When the section is visible, flip the active card
+                            const activeIndex = this.activeSlide;
+                            if (this.slides[activeIndex].hovered) {
+                                this.flipCard(activeIndex);
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
 
-
+                this.observer.observe(section);
+            },
             slideStyles(index) {
                 const numSlides = this.slides.length;
                 const distance = Math.abs(index - this.activeSlide);
@@ -294,7 +327,6 @@
             }
         };
     }
-
 </script>
 
 <style>
@@ -396,8 +428,8 @@
                     </p>
                 </div>
             </div>
-            <div class="ts-icons grid grid-cols-4 grid-rows-4 grid-flow-col gap-4 col-start-2">
-                <div class="ts w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center ">
+            <div class="ts-icons grid grid-cols-4 grid-rows-4 grid-flow-col gap-4 col-start-2 z-20">
+                <div class="ts w-40 h-40 bg-white rounded-2xl flex flex-col items-center justify-center">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="53" height="51" viewBox="0 0 53 51" fill="none">
                             <g clip-path="url(#clip0_4288_1448)">
@@ -514,8 +546,9 @@
 
             </div>
             <div class="bg-white">
-                <svg class="javLineLink" data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 901px; top: 40px; height: 104px; width: 413px;">
+                <svg class="javLineLink left-[53.8vw] top-[40px] height-[104px] w-[413px]"
+                    data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
+                    style="position: absolute; z-index: 0;">
                     <defs>
                         <linearGradient class="RotatingGradient" id="Sticky-techmovement" gradientUnits="userSpaceOnUse"
                             data-js-controller="RotatingGradient" data-js-start-rotation="" data-js-speed=""
@@ -531,9 +564,9 @@
                 </svg>
             </div>
             <div>
-                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
+                <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal left-[70vw] top-[140px] h-[104px]"
                     data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 1203px; top: 140px; height: 104px;">
+                    style="position: absolute; z-index: 0;">
                     <defs>
                         <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
                             gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
@@ -551,7 +584,7 @@
             <div>
                 <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
                     data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 723px; top: 250px; height: 104px; width:400px;">
+                    style="position: absolute; z-index: 0; left: 44vw; top: 250px; height: 104px; width:400px;">
                     <defs>
                         <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
                             gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
@@ -569,7 +602,7 @@
             <div>
                 <svg class="javLineLink HomepageFrontdoorSuiteAnimation__connection--paymentsTerminal"
                     data-js-controller="javLineLink" data-js-id="Sticky-techConnection"
-                    style="position: absolute; z-index: 0; left: 803px; top: 160px; height:300px;">
+                    style="position: absolute; z-index: 0; left: 47vw; top: 160px; height:300px;">
                     <defs>
                         <linearGradient class="RotatingGradient" id="Sticky-techConnectionGradient"
                             gradientUnits="userSpaceOnUse" data-js-controller="RotatingGradient"
@@ -591,21 +624,20 @@
 
 </section>
 
-
-
+<!--
 <section id="agrisection" x-data="{ shrink: false }"
     x-init="window.addEventListener('scroll', () => { shrink = window.scrollY > $el.offsetTop; })"
     class="relative flex justify-center items-center p-[59px] min-h-screen transform transition-transform duration-2000 ease-in-out"
     style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
 
-    <!-- Video Background -->
+
     <video :class="shrink ? 'w-[1247px] h-[696px] rounded-58' : 'absolute inset-0 w-full h-full'"
         class="object-cover z-0 transition-all duration-2000 ease-in-out" autoplay loop muted>
         <source src="/images/agri-vid.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Overlay Content --><div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
         <div class="relative w-[1247px] h-[696px] transition-all duration-2000 ease-in-out"
             :class="shrink ? 'rounded-58' : ''">
             <div :class="shrink ? 'card-shrink' : 'card-normal'" class="transition-all duration-2000 ease-in-out">
@@ -624,6 +656,88 @@
     </div>
 
 </section>
+-->
+
+
+
+<section id="agrisection" x-data="{ shrink: false }"
+    x-init="window.addEventListener('scroll', () => { shrink = window.scrollY > $el.offsetTop; })"
+    class="relative flex justify-center items-center p-[59px] min-h-screen transform transition-transform duration-2000 ease-in-out"
+    style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
+
+    <video :class="shrink ? 'w-[1247px] h-[696px] rounded-58' : 'absolute inset-0 w-full h-full'"
+        class="object-cover z-0 transition-all duration-2000 ease-in-out" autoplay loop muted>
+        <source src="/images/agri-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+        <div class="relative"
+            style="width: 1118px; height: 470px; background: rgba(0, 6, 56, 0.60); border-radius: 20.52px;  backdrop-filter: blur(34.20px); padding-bottom: 100px;">
+            <div class="flex flex-col items-center justify-center h-full">
+
+                <!-- JAV AgriTech Button -->
+                <div style="width: 334px; height: 92px; background: white; border-radius: 100px"
+                    class="flex justify-center items-center py-10 px-0 mb-6">
+                    <div class="font-bold" style="color: #0032A0; font-size: 32px; font-family: Satoshi; font-weight: 900; word-wrap: break-word">
+                        JAV AgriTech
+                    </div>
+                </div>
+
+                <!-- Overview Title -->
+                <div style="width: 983px; text-align: center; color: white; font-size: 28px; font-family: Satoshi; font-weight: 900; word-wrap: break-word"
+                    class="mb-6">
+                    Overview
+                </div>
+
+                <!-- Overview Text -->
+                <div style="width: 983px; text-align: center; color: rgba(250, 250, 250, 0.80); font-size: 20.52px; font-family: Satoshi; font-weight: 500; word-wrap: break-word"
+                    class="mb-6">
+                    Arcu malesuada porta sed eros adipiscing egestas nam. Amet vitae quis lobortis sit fames venenatis
+                    non tellus praesent. Massa accumsan imperdiet mauris sit consectetur suscipit. Egestas aliquam
+                    mauris platea leo. Ac porttitor tincidunt neque sed amet quis quis tincidunt morbi. Adipiscing
+                    parturient quis ut vel.
+                </div>
+
+                <!-- Horizontal Line -->
+                <div style="width: 748px; height: 0px; border: 1px rgba(255, 255, 255, 0.20) solid" class="mb-6"></div>
+
+                <!-- Tech Title -->
+                <div style="text-align: center; color: white; font-size: 28px; font-family: Satoshi; font-weight: 900; word-wrap: break-word"
+                    class="mb-6">
+                    Tech
+                </div>
+
+                <!-- Tech Grid Section -->
+                <div class="flex justify-between w-full px-10 mb-10">
+                    <div class="flex items-center">
+                        <div class="h-10 w-[5px] bg-green-500 rounded-r-full mr-2"></div>
+                        <div style="color: white; font-size: 20px; font-family: Satoshi; font-weight: bold">Payments &
+                            Procurement</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-10 w-[5px] bg-[#FFA500] rounded-r-full mr-2"></div>
+                        <div style="color: white; font-size: 20px; font-family: Satoshi; font-weight: bold">Inventory
+                            Management</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-10 w-[5px] bg-[#EB00FF] rounded-r-full mr-2"></div>
+                        <div style="color: white; font-size: 20px; font-family: Satoshi; font-weight: bold">Logistic
+                            Tracking</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-10 w-[5px] bg-[#00B2FF] rounded-r-full mr-2"></div>
+                        <div style="color: white; font-size: 20px; font-family: Satoshi; font-weight: bold">Commodities
+                            Market Place</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
 
 <style>
     .transition-all {
@@ -634,49 +748,45 @@
         border-radius: 58px;
     }
 
-    .bg-custom {
-        background: rgba(0, 6, 56, 0.60);
+    .font-satoshi {
+        font-family: 'Satoshi', sans-serif;
     }
+
 
     .border-custom {
         border: 2.57px solid;
         border-color: rgba(29, 78, 216, 0.8);
     }
 
-    .backdrop-blur-custom {
-        backdrop-filter: blur(34.20px);
-    }
-
-    .font-satoshi {
-        font-family: 'Satoshi', sans-serif;
-    }
 
     .card-normal {
         position: absolute;
-        left: 89px;
-        top: 298px;
-        width: 631.87px;
-        height: 306.10px;
+        left: 64px;
+        top: 150px;
+        width: 1118px;
+        bottom: 127px;
+        height: 419px;
         background: rgba(0, 6, 56, 0.60);
-        border: 2.57px solid rgba(29, 78, 216, 0.8);
         backdrop-filter: blur(34.20px);
         padding: 34.20px;
+        border-radius: 20.52px;
         border-radius: 20.52px;
     }
 
     .card-shrink {
         position: absolute;
-        left: 89px;
-        top: 298px;
-        width: 631.87px;
-        height: 306.10px;
+        left: 64px;
+        top: 150px;
+        width: 1118px;
+        bottom: 127px;
+        height: 419px;
         background: rgba(0, 6, 56, 0.60);
-        border: 2.57px solid rgba(29, 78, 216, 0.8);
         backdrop-filter: blur(34.20px);
         padding: 34.20px;
         border-radius: 20.52px;
     }
 </style>
+
 
 
 
@@ -715,8 +825,8 @@
     style="bg-white no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="flex flex-col justify-center items-center">
         <div class="slide fadeLeft animation-element"
-            style="text-align: center; color: #0032A0; font-size: 20px; font-family: 'Satoshi', sans-serif; font-weight: 500; letter-spacing: 1.2px;">
-            OUR SOLUTION
+            style="text-align: center; color: #0032A0; font-size: 20px; font-family: 'Satoshi', sans-serif; font-weight: 500; letter-spacing: 1.20px; word-wrap: break-word">
+            OUR SOLUTIONS
         </div>
 
         <div class="slide fadeRight animation-element"
@@ -796,7 +906,7 @@
             <div class="card slide fadeRight animation-element"
                 style="width: 398px; height: 467px; position: relative; box-shadow: 0px 10px 20px rgba(37.73, 40.08, 60.57, 0.30); border-radius: 16px; overflow: hidden">
                 <div style="width: 398px; height: 467px; position: absolute; background: #000638"></div>
-                <img style="width: 398px; height: 467px; position: absolute" src="/images/agricom.png"
+                <img style="width: 398px; height: 467px; position: absolute" src="/images/tech-service.png"
                     alt="Foreign Exchange" />
                 <div class="card-title"
                     style="width: 337px; position: absolute; left: 32px; top: 281px; color: white; font-size: 40px; font-family: 'Satoshi', sans-serif; font-weight: 700; word-wrap: break-word">
@@ -827,6 +937,35 @@
 </section>
 
 
+<section class="p-10 relative  lg:px-24 py-20 mt-6 bg-[#1A1A40] overflow-hidden">
+    <div class="top-0 absolute left-[400px]" id="globe">
+    </div>
+    <div class="flex flex-col lg:flex-col">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
+
+            <div class="fadeLeft animation-element z-50">
+                <h3 class="text-[#6CC24A] text-[20px] ">JAV FINANCE</h3>
+                <p class="text-[44px] text-white mt-2 font-bold">Amet auctor erat accumsan sed massa. Faucibus a
+                    orci
+                    aliquam molestie ridiculus.</p>
+                <p class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
+                    Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing mauris
+                    massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus ut
+                    fringilla accumsan.
+                    Placerat amet ultricies eu urna pretium pharetra
+                </p>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="grid lg:grid-cols-5 text-white mt-40 mb-16 ">
+
+
+        </div>
+</section>
+
+
 
 
 <style>
@@ -850,147 +989,290 @@
 
 
 
+<style>
+    .quote {
+        width: 100%;
+        text-align: center;
+        color: #000638;
+        font-size: 44px;
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 700;
+        position: relative;
+        line-height: 1.3;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0 60px;
+    }
 
-<section class="p-10 relative lg:px-24 py-20">
+    .quote::before,
+    .quote::after {
+        font-size: 100px;
+        color: #6CC24A;
+        position: absolute;
+        top: -5px;
+    }
+
+    .quote::before {
+        content: '“';
+        left: 0;
+    }
+
+    .quote::after {
+        content: '”';
+        right: 0;
+    }
+
+    @keyframes slideInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideOutToTop {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+    }
+
+    .slide-in {
+        animation: slideInFromBottom 1s ease-out forwards;
+    }
+
+    .slide-out {
+        animation: slideOutToTop 1s ease-out forwards;
+    }
+</style>
+
+
+
+<section class="p-10 relative lg:px-24 py-20"
+    style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
     <div>
-        <div class="flex justify-center items-center mb-4 fadeLeft animation-element">
-            <h3 class="text-center text-blue-800 text-xl font-medium font-['Satoshi'] tracking-wide">COMMUNITY IMPACT
-            </h3>
-        </div>
-        <div class="flex justify-center items-center mb-4 flex-row relative">
-            <div style="position: absolute; left: -5px; top: -10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
-                    <path
-                        d="M42.8625 21.5326C43.9763 18.7314 45.7312 15.9639 48.0769 13.2976C48.8194 12.4538 48.9206 11.2389 48.3131 10.2939C47.8406 9.5514 47.0644 9.14642 46.2206 9.14642C45.9844 9.14642 45.7481 9.1632 45.5118 9.24767C40.5507 10.6989 28.9575 15.8457 28.6368 32.3495C28.5188 38.7114 33.1762 44.1788 39.2344 44.8032C42.5925 45.1407 45.9337 44.0439 48.4144 41.8164C50.8949 39.572 52.3125 36.3657 52.3125 33.0245C52.3125 27.4558 48.3637 22.5788 42.8625 21.5326Z"
-                        fill="#6CC24A" />
-                    <path
-                        d="M12.298 44.8032C15.6394 45.1407 18.9806 44.0439 21.4612 41.8164C23.9418 39.572 25.3594 36.3657 25.3594 33.0245C25.3594 27.4558 21.4106 22.5789 15.9093 21.5326C17.0231 18.7314 18.7781 15.9639 21.1237 13.2976C21.8662 12.4539 21.9675 11.2389 21.3599 10.2939C20.8874 9.55142 20.1112 9.14643 19.2674 9.14643C19.0312 9.14643 18.795 9.16322 18.5587 9.24768C13.5975 10.6989 2.00433 15.8458 1.6837 32.3496V32.5857C1.6837 38.8464 6.29054 44.1788 12.298 44.8032Z"
-                        fill="#6CC24A" />
-                </svg>
-            </div>
-            <div
-                class="w-[1058px] text-center text-[#000638] text-[44px] font-bold font-['Satoshi'] fadeLeft animation-element" style="line-height: 1.1;">
-                <p style="margin: 0;">We improve the communities in which we live and</p>
-                <p style="margin: 0;">work by increasing access to healthcare, essential</p>
-                <p style="margin: 0;">resources, education, and athletics
-                    <span style="display: inline-block; vertical-align: middle; margin-left: 10px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
-                            <path
-                                d="M11.1375 21.5326C10.0237 18.7314 8.26878 15.9639 5.92314 13.2976C5.18064 12.4538 5.07939 11.2389 5.68687 10.2939C6.15943 9.5514 6.93561 9.14642 7.77936 9.14642C8.01562 9.14642 8.25191 9.1632 8.48817 9.24767C13.4493 10.6989 25.0425 15.8457 25.3632 32.3495C25.4812 38.7114 20.8238 44.1788 14.7656 44.8032C11.4075 45.1407 8.0663 44.0439 5.58562 41.8164C3.10505 39.572 1.6875 36.3657 1.6875 33.0245C1.6875 27.4558 5.6363 22.5788 11.1375 21.5326Z"
-                                fill="#6CC24A" />
-                            <path
-                                d="M41.702 44.8032C38.3606 45.1407 35.0194 44.0439 32.5388 41.8164C30.0582 39.572 28.6406 36.3657 28.6406 33.0245C28.6406 27.4558 32.5894 22.5789 38.0907 21.5326C36.9769 18.7314 35.2219 15.9639 32.8763 13.2976C32.1338 12.4539 32.0325 11.2389 32.6401 10.2939C33.1126 9.55142 33.8888 9.14643 34.7326 9.14643C34.9688 9.14643 35.205 9.16322 35.4413 9.24768C40.4025 10.6989 51.9957 15.8458 52.3163 32.3496V32.5857C52.3163 38.8464 47.7095 44.1788 41.702 44.8032Z"
-                                fill="#6CC24A" />
-                        </svg>
-                    </span>
-                </p>
+        <div class="flex justify-center items-center mb-4">
+            <div class="text-center text-blue-800 text-[40px] font-bold font-['Satoshi'] tracking-wider community-text">
+                Community Impact
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-12 lg:px-32">
-            <div class="flex justify-center items-center fadeLeft animation-element">
-                <img src="/images/comm1.png" alt="community service" class="w-full h-auto" />
+        <div class="flex justify-center items-center my-16 flex-row relative">
+            <div id="quoteText" class="quote community-text">
+                We improve the communities in which we live and work by increasing access to healthcare, essential
+                resources, education, and athletics.
             </div>
-            <div class="flex flex-col justify-center items-center">
-                <img src="/images/comm2.png" alt="community service 2" class="w-full h-auto mb-10" />
-                <img src="/images/com21.png" alt="community service 21" class="w-full h-auto" />
+        </div>
+        <div class="mt-14 relative flex justify-center overflow-hidden" style="width: 1200px;">
+            <div class="carousel flex" style="width: 9999px; gap: 32px; transition: transform 0.5s ease;">
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm4.png" alt="community service"> <!-- Duplicate last image -->
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm1.png" alt="community service">
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm2.png" alt="community service 2">
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/com21.png" alt="community service 3">
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm4.png" alt="community service 4">
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm1.png" alt="community service"> <!-- Duplicate first image -->
+                <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
+                    src="/images/comm2.png" alt="community service 2"> <!-- Duplicate second image -->
             </div>
-            <div class="flex justify-center items-center fadeRight animation-element">
-                <img src="/images/comm4.png" alt="community service 3" class="w-full h-auto" />
+        </div>
+        <!-- Navigation Dots -->
+        <div class="flex justify-center mt-4">
+            <div class="flex space-x-2">
+                <div class="navigation-dot cursor-pointer" data-index="0">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#6CC24A" />
+                    </svg>
+                </div>
+                <div class="navigation-dot cursor-pointer" data-index="1">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
+                    </svg>
+                </div>
+                <div class="navigation-dot cursor-pointer" data-index="2">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
+                    </svg>
+                </div>
+                <div class="navigation-dot cursor-pointer" data-index="3">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="6" r="6" fill="#CAD9C5" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slides = document.querySelectorAll('.community-image');
+        const dots = document.querySelectorAll('.navigation-dot');
+        const carousel = document.querySelector('.carousel');
+        let currentIndex = 1; // Start from the first actual image
+        const totalSlides = slides.length - 4; // Exclude the duplicated slides
+
+        function setActiveSlide(index) {
+            let offset = -(384 + 32) * (index + 1); // +1 to account for the duplicated slide at the beginning
+
+            if (index === -1) {
+                offset = -(384 + 32) * totalSlides;
+            } else if (index === totalSlides) {
+                offset = -(384 + 32);
+            }
+
+            carousel.style.transform = `translateX(${offset}px)`;
+
+            slides.forEach((slide, i) => {
+                slide.style.boxShadow = (i === index + 1) ? '0 10px 30px rgba(0, 0, 0, 0.8)' : 'none';
+            });
+
+            dots.forEach((dot, i) => {
+                const circle = dot.querySelector('circle');
+                if (i === index || (index === totalSlides && i === 0)) {
+                    circle.setAttribute('fill', '#6CC24A');
+                    circle.setAttribute('r', '8');
+                } else {
+                    circle.setAttribute('fill', '#CAD9C5');
+                    circle.setAttribute('r', '6');
+                }
+            });
+
+            currentIndex = index;
+        }
+
+        function handleTransitionEnd() {
+            if (currentIndex === totalSlides) {
+                carousel.style.transition = 'none';
+                currentIndex = 0;
+                carousel.style.transform = `translateX(-${(384 + 32)}px)`;
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 0.5s ease';
+                }, 0);
+            } else if (currentIndex === -1) {
+                carousel.style.transition = 'none';
+                currentIndex = totalSlides - 1;
+                carousel.style.transform = `translateX(-${(384 + 32) * totalSlides}px)`;
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 0.5s ease';
+                }, 0);
+            }
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'), 10);
+                setActiveSlide(index);
+            });
+        });
+
+        carousel.addEventListener('transitionend', handleTransitionEnd);
+
+        // Initialize first slide as active
+        setActiveSlide(currentIndex);
+    });
+</script>
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const texts = [
+                { text: "We improve the communities in which we live and work by increasing access to healthcare, essential resources, education, and athletics", duration: 10000 },
+                { text: "Our goal is to leave the world better than we found it.", duration: 5000 }
+            ];
+            const quoteElement = document.getElementById('quoteText');
+            let index = 0;
+
+            function displayNextText() {
+                quoteElement.classList.remove('slide-in');
+                quoteElement.classList.add('slide-out');
+
+                setTimeout(() => {
+                    index = (index + 1) % texts.length;
+                    quoteElement.innerText = texts[index].text;
+                    quoteElement.classList.remove('slide-out');
+                    quoteElement.classList.add('slide-in');
+                }, 1000); // Duration of slide-out animation
+
+                setTimeout(displayNextText, texts[index].duration + 1000); // Adding 1s for the transition
+            }
+
+            // Initial display for the first text duration without animation
+            setTimeout(() => {
+                quoteElement.classList.add('slide-in');
+                setTimeout(displayNextText, texts[0].duration);
+            }, 0); // Start the initial text display immediately
+        });
+    
+    </script>
+
+    
+
+
+
+
+<style>
+    .quote {
+        transition: transform 1s ease-out, opacity 1s ease-out;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .slide-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .slide-out {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+</style>
 
 
 
 
 
 
-
-
-
-
-<section class="p-10 relative  lg:px-24 py-20 mt-6 bg-[#1A1A40] overflow-hidden">
-    <div class="top-0 absolute left-[400px]" id="globe">
-    </div>
-    <div class="flex flex-col lg:flex-col">
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
-
-            <div class="fadeLeft animation-element z-50">
-                <h3 class="text-[#6CC24A] text-[20px] ">JAV Finance</h3>
-                <p class="text-[44px] text-white mt-2 font-bold">Amet auctor erat accumsan sed massa. Faucibus a
-                    orci
-                    aliquam molestie ridiculus.</p>
-                <p class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
-                    Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing mauris
-                    massa et dignissim. Eget leo dui risus quam turpis et. At elit vivamus rhoncus at. Sit faucibus ut
-                    fringilla accumsan.
-                    Placerat amet ultricies eu urna pretium pharetra
-                </p>
-            </div>
-            <div>
-
-            </div>
-        </div>
-        <div class="grid lg:grid-cols-5 text-white mt-40 ">
-
-            <div class="flex flex-row">
-                <div class="h-10 w-[5px] bg-green-500 rounded-r-full mr-4"></div>
-                <div class="flex flex-col mt-[6px] ">
-                    <div class="font-bold text-[20px] ">Exchange Rate</div>
-                    <p class="text-[#FAFAFA] text-base max-w-[170px] mt-2 opacity-60">Foreign exchange rate available
-                        24/7</p>
-                </div>
-            </div>
-            <div class="flex flex-row z-10">
-                <div class="h-10 w-[5px] bg-[#FFA500] rounded-r-full mr-4"></div>
-                <div class="flex flex-col mt-[6px] ">
-                    <div class="font-bold text-[20px]">Payment services</div>
-                    <p class="text-[#FAFAFA] text-base max-w-[170px] mt-2 opacity-60">130 currencies (SWIFT, Wires, ACH)
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-row z-10">
-                <div class="h-10 w-[5px] bg-[#EB00FF] rounded-r-full mr-4"></div>
-                <div class="flex flex-col mt-[6px] ">
-                    <div class="font-bold text-[20px]">Payment Tracker</div>
-                    <p class="text-[#FAFAFA] text-base max-w-[170px] mt-2 opacity-60">Track status via our online
-                        platform</p>
-                </div>
-            </div>
-            <div class="flex flex-row z-10">
-                <div class="h-10 w-[5px] bg-[#00B2FF] rounded-r-full mr-4"></div>
-                <div class="flex flex-col mt-[6px] ">
-                    <div class="font-bold text-[20px] z-30">Real time validation</div>
-                    <p class="text-[#FAFAFA] text-base max-w-[170px] mt-2 opacity-60">Validation of beneficiary banking
-                        information
-                    </p>
-                </div>
-            </div>
-        </div>
-</section>
-
-
-<section class="p-10 relative lg:px-24 py-20">
+<section id="news" class="p-10 relative lg:px-24 py-20">
     <div>
         <h2 class="text-[#0032A0] text-[40px] my-8 font-bold">In The News</h2>
     </div>
     <div style="box-shadow: 0px 20.952px 38.095px 0px rgba(0, 0, 0, 0.10);"
-        class="rounded-[20px] grid grid-cols-1 lg:grid-cols-2 border-[0.29px] border-[#95989D] lg:h-[300px] hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
-        <div class="bg-cover h-[300px] lg:h-auto" style="background-image: url('/images/new-01a.png');">
-            {{!-- <img src="/images/new-01a.png" /> --}}
+        class="rounded-[20px] grid grid-cols-1 lg:grid-cols-2 border-[0.29px] border-[#95989D] h-[350px] hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
+        {{!-- <div class="bg-cover h-[300px] lg:h-auto"
+            style="background-image: url('/images/new-01.png'); rounded-bl-2xl">
+        </div> --}}
+        <div>
+            <img class="w-full h-[350px] rounded-bl-2xl rounded-tl-2xl object-cover" src="/images/new-01a.png" />
         </div>
         <div class="flex flex-col justify-center p-9">
-            <div class="text-[#000C26] text-[24px] lg:text-[34px]">Javolin Launches Collections Program</div>
+            <div class="text-slate-950 text-4xl font-bold font-['Satoshi'] py-4">Javolin Launches Collections Program
+            </div>
             <div>
                 <p class="text-[#3A3A3A] text-[16px] lg:text-[18px]">
                     Embarking on a new journey, Javolin unveils its ground-breaking Collections Program, a strategic
                     move set to redefine the industry.
                 </p>
             </div>
-            <div class="flex flex-row text-[13px] items-center mt-4 font-bold">
+            <div class="flex flex-row text-[13px] items-center mt-4 font-bold py-4">
                 <div class="py-2 px-4 text-[#6CC24A] bg-[#E9F6E4] rounded-3xl">
                     BUSINESS
                 </div>
@@ -1000,9 +1282,9 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-between mt-10">
+    <div class="grid grid-cols-2 gap-10 mt-6">
         <div
-            class="w-[655px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeLeft animation-element">
+            class="h-[402.86px] bg-white rounded-2xl shadow border-[0.29px] border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeLeft animation-element">
             <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new2.png" />
             <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
                 <div class="flex-col justify-start items-start gap-[11.43px] flex">
@@ -1023,7 +1305,7 @@
             </div>
         </div>
         <div
-            class="w-[650px] h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
+            class="h-[402.86px] bg-white rounded-2xl shadow border border-neutral-400 flex flex-col hover:scale-105 ease-in-out duration-300 fadeRight animation-element">
             <img class="w-full h-[220.95px] rounded-tl-2xl rounded-tr-2xl" src="/images/new3.png" />
             <div class="flex flex-col justify-start items-start gap-[22.86px] p-4">
                 <div class="flex-col justify-start items-start gap-[11.43px] flex">

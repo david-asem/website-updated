@@ -1,16 +1,3 @@
-/**
- * dat.globe Javascript WebGL Globe Toolkit
- * https://github.com/dataarts/webgl-globe
- *
- * Copyright 2011 Data Arts Team, Google Creative Lab
- *
- * Licensed under the Apache License, Version 2.0 (the 'License');
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- */
-
 var DAT = DAT || {};
 
 DAT.Globe = function (container, opts) {
@@ -78,10 +65,10 @@ DAT.Globe = function (container, opts) {
 
   var mouse = { x: 0, y: 0 }, mouseOnDown = { x: 0, y: 0 };
   var rotation = { x: 0, y: 0 },
-    target = { x: Math.PI * 3 / 2, y: Math.PI / 6.0 },
+    target = { x: 50 * (Math.PI / 180), y: 0 * (Math.PI / 180) },
     targetOnDown = { x: 0, y: 0 };
 
-  var distance = 100000, distanceTarget = 100000;
+  var distance = 1000, distanceTarget = 1000;
   var padding = 40;
   var PI_HALF = Math.PI / 2;
 
@@ -98,7 +85,7 @@ DAT.Globe = function (container, opts) {
 
     scene = new THREE.Scene();
 
-    var geometry = new THREE.SphereGeometry(240, 40, 30);
+    var geometry = new THREE.SphereGeometry(220, 40, 30);
 
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -114,7 +101,7 @@ DAT.Globe = function (container, opts) {
     });
 
     mesh = new THREE.Mesh(geometry, material);
-    mesh.rotation.y = Math.PI;
+    mesh.rotation.y = -target.x;
     scene.add(mesh);
 
     shader = Shaders['atmosphere'];
@@ -302,4 +289,3 @@ DAT.Globe = function (container, opts) {
   return this;
 
 };
-
