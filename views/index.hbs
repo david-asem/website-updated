@@ -1057,8 +1057,6 @@
     }
 </style>
 
-
-
 <section class="p-10 relative lg:px-24 py-20"
     style="background: url('/images/agri-bg.png') no-repeat center center; background-size: cover;">
     <div>
@@ -1073,7 +1071,8 @@
                 resources, education, and athletics.
             </div>
         </div>
-        <div class="fadeRight animation-element mt-14 relative flex justify-center overflow-hidden" style="width: 1200px;">
+        <div class="fadeRight animation-element mt-14 relative flex justify-center overflow-hidden"
+            style="width: 1200px;">
             <div class="carousel flex" style="width: 9999px; gap: 32px; transition: transform 0.5s ease;">
                 <img class="community-image" style="width: 384px; height: 315px; border-radius: 20px;"
                     src="/images/comm4.png" alt="community service"> <!-- Duplicate last image -->
@@ -1193,39 +1192,39 @@
 
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const texts = [
-                { text: "We improve the communities in which we live and work by increasing access to healthcare, essential resources, education, and athletics", duration: 10000 },
-                { text: "Our goal is to leave the world better than we found it.", duration: 5000 }
-            ];
-            const quoteElement = document.getElementById('quoteText');
-            let index = 0;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const texts = [
+            { text: "We improve the communities in which we live and work by increasing access to healthcare, essential resources, education, and athletics", duration: 5000 },
+            { text: "Our goal is to leave the world better than we found it.", duration: 10000 }
+        ];
+        const quoteElement = document.getElementById('quoteText');
+        let index = 0;
 
-            function displayNextText() {
-                quoteElement.classList.remove('slide-in');
-                quoteElement.classList.add('slide-out');
+        function displayNextText() {
+            quoteElement.classList.remove('slide-in');
+            quoteElement.classList.add('slide-out');
 
-                setTimeout(() => {
-                    index = (index + 1) % texts.length;
-                    quoteElement.innerText = texts[index].text;
-                    quoteElement.classList.remove('slide-out');
-                    quoteElement.classList.add('slide-in');
-                }, 1000); // Duration of slide-out animation
-
-                setTimeout(displayNextText, texts[index].duration + 1000); // Adding 1s for the transition
-            }
-
-            // Initial display for the first text duration without animation
             setTimeout(() => {
+                index = (index + 1) % texts.length;
+                quoteElement.innerText = texts[index].text;
+                quoteElement.classList.remove('slide-out');
                 quoteElement.classList.add('slide-in');
-                setTimeout(displayNextText, texts[0].duration);
-            }, 0); // Start the initial text display immediately
-        });
-    
-    </script>
+            }, 1000); // Duration of slide-out animation
 
-    
+            setTimeout(displayNextText, texts[index].duration + 1000); // Adding 1s for the transition
+        }
+
+        // Initial display for the first text duration without animation
+        setTimeout(() => {
+            quoteElement.classList.add('slide-in');
+            setTimeout(displayNextText, texts[0].duration);
+        }, 0); // Start the initial text display immediately
+    });
+
+</script>
+
+
 
 
 
@@ -1247,9 +1246,6 @@
         transform: translateY(-100%);
     }
 </style>
-
-
-
 
 
 
