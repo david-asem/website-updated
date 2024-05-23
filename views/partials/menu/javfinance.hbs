@@ -1,0 +1,32 @@
+<div class="relative" x-data="{
+                hoveritem: '',
+                open: false,
+                toggle() {
+                    if (this.open) {
+                        return this.close()
+                    }
+                    $refs.menuHolderolder.classList.remove('hidden')
+                    this.open = true
+                },
+                close(focusAfter) {
+                    this.open = false
+
+                    focusAfter && focusAfter.focus()
+                }
+            }" x-id="['dropdown-button']">
+
+
+    <button x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')"
+        class="text-xl mx-4 nav-link cursor-pointer">
+        <div class="flex items-center text-black font-medium">
+
+            <a href="/#javfinance">
+                <span x-text="language[selectedLang]['JAV Finance']">
+                    JAV Finance
+                </span>
+            </a>
+
+
+        </div>
+    </button>
+</div>

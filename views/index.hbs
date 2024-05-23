@@ -1,9 +1,9 @@
-<section id="heroSec" style="height: 100vh; position: relative;">
+{{!-- <section id="heroSec" style="height: 100vh; position: relative;">
 
     <!-- Video for hero background -->
     <video id="heroVideo" class="absolute top-0 w-screen h-screen object-cover" autoplay muted loop
         style="z-index: -1;">
-        <source id="videoSource" src="/images/hero_vid.mp4" type="video/mp4">
+        <source id="videoSource" src="/images/JAV_VID.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -22,35 +22,115 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const texts = [
-            { heading: "Our Financial Institutions Trust Us", video: "/images/hero_vid.mp4" },
-            { heading: "Upgrade your business.", video: "/images/hero_forex.mp4" },
-            { heading: "Empower Your Agri-Business", video: "/images/hero_agri.mp4" }
+    //document.addEventListener('DOMContentLoaded', function () {
+        //const texts = [
+            //{ heading: "Our Financial Institutions Trust Us", video: "/images/JAV_VID.mp4" },
+           // { heading: "Upgrade your business.", video: "/images/JAV_VID.mp4" },
+            //{ heading: "Empower Your Agri-Business", video: "/images/JAV_VID.mp4" }
         ];
 
-        const textSection = document.getElementById('textSection');
-        const videoSource = document.getElementById('videoSource');
-        const heroVideo = document.getElementById('heroVideo');
-        let index = 0;
+        //const textSection = document.getElementById('textSection');
+        //const videoSource = document.getElementById('videoSource');
+        //const heroVideo = document.getElementById('heroVideo');
+        //let index = 0;
 
-        function displayNextText() {
-            const text = texts[index];
-            textSection.innerHTML = `
+        //function displayNextText() {
+           // const text = texts[index];
+            //textSection.innerHTML = `
         <div class="imageTextHero">
-            <div style="width: 100%; text-align: center; color: white; font-size: 76px; font-family: 'Satoshi', sans-serif; font-weight: 900;">${text.heading}</div>
+            <div style="width: 100%; text-align: center; color: white; font-size: 76px; font-family: 'Satoshi', sans-serif; font-weight: 900;">${//text.heading}</div>
         </div>
         `;
             // Update the video source
-            videoSource.src = text.video;
-            heroVideo.load(); // Needed to reload the video with new source
-            heroVideo.play(); // Ensure the video plays after source change
+           // videoSource.src = text.video;
+            //heroVideo.load(); // Needed to reload the video with new source
+            //heroVideo.play(); // Ensure the video plays after source change
 
-            index = (index + 1) % texts.length;
+            //index = (index + 1) % texts.length;
         }
 
-        displayNextText();
-        setInterval(displayNextText, 5000);
+        //displayNextText();
+        //setInterval(displayNextText, 5000);
+    });
+</script> --}}
+
+
+
+<section id="heroSec" class="relative h-screen">
+
+    <!-- Video for hero background -->
+    <video id="heroVideo" class="absolute top-0 w-full h-full object-cover" autoplay muted loop>
+        <source id="videoSource" src="/images/JAV_VID.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Control icons -->
+    <div id="controls" class="absolute bottom-4 right-4 flex space-x-4 z-10">
+        <i id="playPauseIcon"
+            class="fas fa-pause text-white text-2xl h-12 w-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full cursor-pointer hover:bg-opacity-70"></i>
+        <i id="muteIcon"
+            class="fas fa-volume-mute text-white text-2xl h-12 w-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full cursor-pointer hover:bg-opacity-70"></i>
+    </div>
+
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const heroVideo = document.getElementById('heroVideo');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const muteIcon = document.getElementById('muteIcon');
+
+        // Play/Pause icon event listener
+        playPauseIcon.addEventListener('click', function () {
+            if (heroVideo.paused) {
+                heroVideo.play();
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            } else {
+                heroVideo.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+        });
+
+        // Mute/Unmute icon event listener
+        muteIcon.addEventListener('click', function () {
+            heroVideo.muted = !heroVideo.muted;
+            if (heroVideo.muted) {
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-mute');
+            } else {
+                muteIcon.classList.remove('fa-volume-mute');
+                muteIcon.classList.add('fa-volume-up');
+            }
+        });
+
+        // Function to check if the video is 2/3 in the viewport
+        function checkVideoInView() {
+            const rect = heroVideo.getBoundingClientRect();
+            const videoHeight = rect.height;
+            const threshold = videoHeight * (2 / 3);
+            const isInView = (
+                rect.bottom >= threshold &&
+                rect.top <= (window.innerHeight - threshold)
+            );
+
+            if (isInView) {
+                heroVideo.play();
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            } else {
+                heroVideo.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', checkVideoInView);
+
+        // Initial check
+        checkVideoInView();
     });
 </script>
 
@@ -178,18 +258,19 @@
                             </div>
                         </div>
                         <div class="flip-card-back bg-blue-800"
-                            style="border-radius: 1rem; position: absolute; width: 100%; height: 100%; color: white; display: flex; align-items: center; justify-content: center; backface-visibility: hidden; transform: rotateY(180deg);">
-                            <div class="flex flex-col items-center text-center space-y-10">
+                            style="border-radius: 1rem; position: absolute; width: 100%; height: 100%; color: white; display: flex; align-items: flex-start; justify-content: center; backface-visibility: hidden; transform: rotateY(180deg); padding-top: 1rem;">
+                            <div class="flex flex-col items-center text-center space-y-1" style="margin-top: 0.5rem;">
                                 <!-- Adjust margin to move the title up -->
-                                <span x-text="slide.label" class="text-2xl font-bold text-white mt-4"></span>
-                                <span class="text-xl mt-4">
-                                    <p>Quam vitae fermentum sit nibh tempus auctor amet. Risus ac venenatis sit cras
-                                        commodo integer et. At et
-                                        et sit non
-                                        tortor morbi fusce. Pretium eu congue a ut viverra aliquet.</p>
-                                </span>
+                                <span x-text="slide.label" class="w-56 text-center text-white text-2xl font-bold font-['Satoshi'] mb-2"></span>
+                                <div
+                                    style="width: 261px; text-align: center; color: white; font-size: 16px; font-family: Satoshi; font-weight: 400; word-wrap: break-word">
+                                    Neque laoreet in consectetur gravida nunc faucibus euismod et faucibus. Viverra ipsum at libero in non. Blandit
+                                    senectus eu mi enim adipiscing porta eget. Elit mattis nibh donec ullamcorper a. Proin pellentesque id interdum
+                                    aliquam velit vel lacus aliquam massa. Sodales amet eu augue amet cras massa tempor vel. Rutrum massa.</div>
+
                             </div>
                         </div>
+
 
                     </div>
 
@@ -406,7 +487,7 @@
                     </p>
                 </div>
                 <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory API</p>
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">JAV API</p>
                     <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
                         3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
                         mauris
@@ -417,7 +498,7 @@
                     </p>
                 </div>
                 <div class="opacity-0 transition duration-150 ease-in-out absolute tech-service w-[500px]">
-                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">Proprietory AI</p>
+                    <p id="tech-subtitle" class="text-[44px] text-white mt-2 font-bold max-w-xl">JAV AI</p>
                     <p id="tech-content" class="text-[24px] text-[#FAFAFA] mt-4 max-w-xl opacity-70">
                         3 Vel ultrices magna sit potenti vel commodo a sapien enim. Et viverra diam nibh at. Adipiscing
                         mauris
@@ -509,7 +590,7 @@
                         </svg>
                     </div>
                     <div class="art-text text-black">
-                        API
+                        JAV API
                     </div>
                 </div>
                 <div
@@ -540,7 +621,7 @@
                         </svg>
                     </div>
                     <div class="art-text text-black">
-                        AI
+                        JAV AI
                     </div>
                 </div>
 
@@ -939,7 +1020,7 @@
 </section>
 
 
-<section class="p-10 relative  lg:px-24 py-20 mt-6 bg-[#1A1A40] overflow-hidden">
+<section id="javfinance" class="p-10 relative  lg:px-24 py-20 mt-6 bg-[#1A1A40] overflow-hidden">
     <div class="top-0 absolute left-[400px]" id="globe">
     </div>
     <div class="flex flex-col lg:flex-col">
@@ -996,9 +1077,9 @@
         width: 100%;
         text-align: center;
         color: #000638;
-        font-size: 44px;
+        font-size: 40px;
         font-family: 'Satoshi', sans-serif;
-        font-weight: 700;
+        font-weight: 500;
         position: relative;
         line-height: 1.3;
         overflow: hidden;
@@ -1195,8 +1276,8 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const texts = [
-            { text: "We improve the communities in which we live and work by increasing access to healthcare, essential resources, education, and athletics", duration: 5000 },
-            { text: "Our goal is to leave the world better than we found it.", duration: 10000 }
+            { text: "We improve the communities in which we live and work by increasing by increasing food security, and access to essential resources, education, and athletics", duration: 5000 },
+            { text: "Our goal is to have a positive impact on the world.", duration: 10000 }
         ];
         const quoteElement = document.getElementById('quoteText');
         let index = 0;
